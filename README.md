@@ -22,21 +22,20 @@ The ultimate goal of this project is to provide data-driven recommendations that
   - Temporal factors (time of day, day of week, holidays)
   - External conditions (historical weather data)
 
-- **Generate a City-Wide Demand Heatmap for Strategic Network Planning**: Moving beyond forecasting for existing stations, our second objective is to build a spatial prediction model to estimate potential bike demand across the entire Boston/Cambridge area. This will allow us to identify optimal locations for network expansion and consolidation.
-  - **Prediction Target**: The potential number of bike departures per hour within a given geographical grid cell (e.g., 100m x 100m).
-  - **Feature Engineering**: To predict demand in areas without existing stations, we will create a rich geospatial feature set for each grid cell, including:
-    - Proximity to public transit hubs (subway, bus stops)
-    - Density of points-of-interest (e.g., restaurants, offices, parks)
-    - Local demographic data (e.g., population density)
-    - Characteristics of the local bike network (e.g., availability of protected bike lanes)
-  - **Expected Outcome**: The model's output will be a city-wide demand heatmap, visually highlighting untapped "hotspots" (ideal locations for new stations) and demand "coldspots" (where existing stations may be underutilized and could be considered for relocation or removal).
+- **Generate a City-Wide Demand Heatmap for Strategic Network Planning**: Beyond forecasting for existing stations, the second aim is to formulate a spatial prediction model to estimate potential bike demand across the Boston/Cambridge area as a whole. This would be then used to locate strategically appropriate sites for the expansion and/or consolidation of the network.
+  - **Prediction Target**: The potential number of bike departures within a given hour from a particular geographical grid cell—for instance, a 100m x 100m cell.
+  - **Feature Engineering**: For the purpose of predicting demand at locations without previously existing stations, a rich geospatial feature set will be constructed at the level of the grid cell, which will include:
+    - The proximity to public transit interchange points, e.g., subway and bus stops
+    - Density of points of interest, e.g., restaurants, offices, and parks
+    - Local demographic features, e.g., population density
+    - Local bike network characteristic features, e.g., the presence of protected bike lanes
+  - **Expected Outcome**: The model output will be a complete city demand heatmap, highlighting untapped "hotspots" (potentially ideal locations for new stations) and demand "coldspots" (where existing stations may be underutilized and could be considered for relocation or removal).
 
 - **Propose Novel Operational Strategies** (if time permitted): As a secondary objective, we will explore how the model could inform new strategies, such as implementing dynamic pricing during off-peak hours or offering user incentives to help redistribute bikes from over-supplied to under-supplied stations.
 
-
 ## 3. Data Collection Strategy
 
-This project will utilize two primary data sources: Bluebikes' official ridership data and historical weather data for the Boston area.
+This project will utilize three primary data sources: Bluebikes' official ridership data, historical weather data, and various geospatial datasets describing the Boston area.
 
 ### Bluebikes Ridership Data
 
@@ -56,18 +55,17 @@ This project will utilize two primary data sources: Bluebikes' official ridershi
 #### Public Transit Network
 
 - **Source**: Official GTFS data for the MBTA network. The most up-to-date files are now version-controlled and can be found on the MBTA's official GitHub-style archive: https://cdn.mbta.com/archive/archived_feeds.txt
-- **Methodology**: We will parse these files to extract the precise latitude and longitude of all subway and bus stops.
+- **Methodology**: We will parse these files to extract the precise latitude and longitude of all subway and bus stops, which are critical drivers of bike trips.
 
 #### Urban Infrastructure & Points-of-Interest (POIs)
 
-- **Source**: OpenStreetMap (OSM), the leading open-source global map database. Data will be accessed via the OSMnx library. Link: https://osmnx.readthedocs.io/en/stable/
-- **Methodology**: Using the Python library OSMnx, we will programmatically download data on the locations of key POIs (e.g., restaurants, offices, universities, parks) and the city's bike lane network.
+- **Source**: This kind of data can be accessed via the OSMnx library: https://osmnx.readthedocs.io/en/stable/
+- **Methodology**: We will use the Python library OSMnx to programmatically get data on the locations of key POIs (e.g., restaurants, offices, universities, parks).
 
 #### Demographic Data
 
 - **Source**: The U.S. Census Bureau's public data portal: https://data.census.gov/
 - **Methodology**: We will acquire population density and potentially other demographic data at the census tract level. This will allow us to correlate potential bike demand with the characteristics of the people living and working in each area.
-
 
 
 ## 4. Modeling Approach
@@ -80,11 +78,9 @@ Since precise prediction of bike departures is challenging, our approach is to c
 
 To effectively use these models, we will reframe the problem from a time-series task to a standard regression/classification task. This involves extensive feature engineering to explicitly extract key information—such as the hour of day, holiday status, station location, and weather conditions—from the raw data.
 
-
 - **Deep Learning Models**: To explore alternative patterns in the data, especially potential time-series dependencies, we will also implement a deep learning model. This will provide a valuable point of comparison against the performance of the tree-based models
 
 - **Exploratory LLM Integration** (If time permitted): As an extension, we will explore the capabilities of a Large Language Model (LLM). We plan to test its utility in two ways: first, as a tool for advanced feature engineering by interpreting the context of a situation, and second, by evaluating its ability to make direct predictions through prompting
-
 
 ## 5. Data Visualization Plan
 
