@@ -24,7 +24,7 @@ The ultimate goal of this project is to provide data-driven recommendations that
 
 - **Generate a City-Wide Demand Heatmap for Strategic Network Planning**: Beyond forecasting for existing stations, the second aim is to formulate a spatial prediction model to estimate potential bike demand across the Boston/Cambridge area as a whole. This would be then used to locate strategically appropriate sites for the expansion and/or consolidation of the network.
   - **Prediction Target**: The potential number of bike departures within a given hour from a particular geographical grid cell—for instance, a 100m x 100m cell.
-  - **Feature Engineering**: For the purpose of predicting demand at locations without previously existing stations, a rich geospatial feature set will be constructed at the level of the grid cell, which will include:
+  - **Feature Engineering**: For the purpose of predicting demand at locations without previously existing stations, a rich geospatial feature set will be constructed at the level of the grid cell, which might include(not fixed):
     - The proximity to public transit interchange points, e.g., subway and bus stops
     - Density of points of interest, e.g., restaurants, offices, and parks
     - Local demographic features, e.g., population density
@@ -76,7 +76,7 @@ Since precise prediction of bike departures is challenging, our approach is to c
 
 - **Tree-Based Models**: The ridership data is highly structured, making tree-based models an excellent candidate. We will explore ensemble methods like Gradient Boosting (e.g., XGBoost), which are known to perform very well on this type of tabular data.
 
-To effectively use these models, we will reframe the problem from a time-series task to a standard regression/classification task. This involves extensive feature engineering to explicitly extract key information—such as the hour of day, holiday status, station location, and weather conditions—from the raw data.
+  To effectively use these models, we will reframe the problem from a time-series task to a standard regression/classification task. This involves extensive feature engineering to explicitly extract key information—such as the hour of day, holiday status, station location, and weather conditions—from the raw data.
 
 - **Deep Learning Models**: To explore alternative patterns in the data, especially potential time-series dependencies, we will also implement a deep learning model. This will provide a valuable point of comparison against the performance of the tree-based models
 
