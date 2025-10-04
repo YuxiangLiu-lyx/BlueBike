@@ -22,9 +22,14 @@ The ultimate goal of this project is to provide data-driven recommendations that
   - Temporal factors (time of day, day of week, holidays)
   - External conditions (historical weather data)
 
-- **Identify Opportunities for System Optimization**: Using the insights from our predictive model, we will identify key areas for operational improvement. This includes:
-  - Pinpointing stations that consistently face high demand and potential bike shortages
-  - Suggesting optimal bike distribution strategies to improve the rebalancing process
+- **Generate a City-Wide Demand Heatmap for Strategic Network Planning**: Moving beyond forecasting for existing stations, our second objective is to build a spatial prediction model to estimate potential bike demand across the entire Boston/Cambridge area. This will allow us to identify optimal locations for network expansion and consolidation.
+  - **Prediction Target**: The potential number of bike departures per hour within a given geographical grid cell (e.g., 100m x 100m).
+  - **Feature Engineering**: To predict demand in areas without existing stations, we will create a rich geospatial feature set for each grid cell, including:
+    - Proximity to public transit hubs (subway, bus stops)
+    - Density of points-of-interest (e.g., restaurants, offices, parks)
+    - Local demographic data (e.g., population density)
+    - Characteristics of the local bike network (e.g., availability of protected bike lanes)
+  - **Expected Outcome**: The model's output will be a city-wide demand heatmap, visually highlighting untapped "hotspots" (ideal locations for new stations) and demand "coldspots" (where existing stations may be underutilized and could be considered for relocation or removal).
 
 - **Propose Novel Operational Strategies** (if time permitted): As a secondary objective, we will explore how the model could inform new strategies, such as implementing dynamic pricing during off-peak hours or offering user incentives to help redistribute bikes from over-supplied to under-supplied stations.
 
@@ -46,6 +51,24 @@ This project will utilize two primary data sources: Bluebikes' official ridershi
   - For our specified date range, the script will make API calls to request the corresponding hourly weather variables (including temperature, precipitation, and wind speed) for each station's location
   - The API responses will be parsed, cleaned, and structured into a tabular format ready to be merged with the Bluebikes trip data
 
+### Geospatial & Demographic Data for Spatial Modeling
+
+#### Public Transit Network
+
+- **Source**: Official GTFS data for the MBTA network. The most up-to-date files are now version-controlled and can be found on the MBTA's official GitHub-style archive: https://cdn.mbta.com/archive/archived_feeds.txt
+- **Methodology**: We will parse these files to extract the precise latitude and longitude of all subway and bus stops.
+
+#### Urban Infrastructure & Points-of-Interest (POIs)
+
+- **Source**: OpenStreetMap (OSM), the leading open-source global map database. Data will be accessed via the OSMnx library. Link: https://osmnx.readthedocs.io/en/stable/
+- **Methodology**: Using the Python library OSMnx, we will programmatically download data on the locations of key POIs (e.g., restaurants, offices, universities, parks) and the city's bike lane network.
+
+#### Demographic Data
+
+- **Source**: The U.S. Census Bureau's public data portal: https://data.census.gov/
+- **Methodology**: We will acquire population density and potentially other demographic data at the census tract level. This will allow us to correlate potential bike demand with the characteristics of the people living and working in each area.
+
+
 
 ## 4. Modeling Approach
 
@@ -53,7 +76,10 @@ Since precise prediction of bike departures is challenging, our approach is to c
 
 - **Baseline Model**: We will first establish a simple, non-machine learning baseline. This model will use straightforward rules to make predictions, serving as a critical benchmark to measure the effectiveness of our more advanced models
 
-- **Tree-Based Models**: The ridership data is highly structured, making tree-based models an excellent candidate. We will explore ensemble methods like Gradient Boosting (e.g., XGBoost), which are known to perform very well on this type of tabular data
+- **Tree-Based Models**: The ridership data is highly structured, making tree-based models an excellent candidate. We will explore ensemble methods like Gradient Boosting (e.g., XGBoost), which are known to perform very well on this type of tabular data.
+
+To effectively use these models, we will reframe the problem from a time-series task to a standard regression/classification task. This involves extensive feature engineering to explicitly extract key information—such as the hour of day, holiday status, station location, and weather conditions—from the raw data.
+
 
 - **Deep Learning Models**: To explore alternative patterns in the data, especially potential time-series dependencies, we will also implement a deep learning model. This will provide a valuable point of comparison against the performance of the tree-based models
 
