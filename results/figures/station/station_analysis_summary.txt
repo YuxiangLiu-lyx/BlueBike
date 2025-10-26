@@ -1,0 +1,30 @@
+============================================================
+BlueBikes Station Activity Analysis - Key Statistics
+============================================================
+
+Station Overview:
+  Total unique stations: 830
+  Total departures: 28,611,856
+
+Top Stations:
+  Busiest station: MIT at Mass Ave / Amherst St
+    Total departures: 634,471
+  Top 10 stations contribute: 12.7% of all trips
+  Top 20 stations contribute: 20.1% of all trips
+
+Activity Distribution:
+  Average departures per station: 34,472
+  Median departures per station: 10,040
+  Most active station: 634,471 departures
+  Least active station: 1 departures
+
+Concentration Analysis:
+  24.8% of stations generate 80% of trips
+  This represents 206 out of 830 stations
+
+Station Network Growth:
+  First year (2015): 156 stations
+  Latest year (2025): 572 stations
+  Total growth: +266.7% (+416 stations)
+
+============================================================
