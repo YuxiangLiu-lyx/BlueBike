@@ -1,83 +1,32 @@
 # Python
 __pycache__/
 *.py[cod]
-*$py.class
 *.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
 
 # Virtual Environment
-.venv
-venv/
-ENV/
-env/
-.virtualenv
+.venv/
 
 # Jupyter Notebook
-.ipynb_checkpoints
-*.ipynb_checkpoints/
+.ipynb_checkpoints/
 
-# PyCharm
-.idea/
-
-# VS Code
+# IDE
 .vscode/
 
 # macOS
 .DS_Store
-.AppleDouble
-.LSOverride
-Icon
 ._*
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
 
-# Data files - ignore entire data directory except README
+# Data files 
 data/
-!data/README.md
-!data/raw/.gitkeep
-!data/processed/.gitkeep
-!data/external/.gitkeep
 
-# Model files
+# Model files (large)
+*.pkl
+*.joblib
 results/models/*.pkl
-results/models/*.h5
-results/models/*.pt
-results/models/*.pth
 results/models/*.joblib
 
-# Environment variables
-.env
-.env.local
+# Large prediction CSV files
+results/*/baseline_predictions_*.csv
+results/*/xgboost_predictions_*.csv
 
-# Logs
-*.log
-logs/
 
