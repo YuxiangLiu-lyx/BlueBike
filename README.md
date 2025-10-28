@@ -180,94 +180,59 @@ This is a simple model that assumes patterns repeat. Here's how it works:
 This model is simple but gives us something to beat.
 
 ### XGBoost Model
-This is our "real" machine learning model. It uses gradient boosting, which is basically a bunch of decision trees working together.
+We use XGBoost as our first machine learning model for prediction. It uses gradient boosting, which is basically a bunch of decision trees working together.
 
 **Features we used**:
 - Time: month, day, day of week, season, weekend flag, holiday flag
 - Location: latitude, longitude, plus how busy the surrounding area usually is
 - Weather: 9 weather variables (temperature, precipitation, wind)
 
-**What we did to prevent overfitting**:
-- We intentionally did NOT include "year" as a feature. Why? Because if we did, the model would just learn "2024 = big number" and predict huge values. We want it to learn actual patterns instead.
-- We also skipped "previous month's total trips" because that mixes up seasonal patterns with growth trends
-- We used strong regularization (L1 and L2) to keep the model from memorizing the training data
+**Feature selection note**:
+When we included "year" as a feature, the model predicted total 2024 volume far higher than the actual value. This is probably because the model learned a simple linear trend rather than understanding the actual patterns. So we removed the "year" feature and also excluded "previous month's total trips" to avoid mixing seasonal patterns with growth trends. We also used strong regularization (L1 and L2) to prevent overfitting.
 
 **Training setup**:
-- Training data: 2015-2023 (excluding 2020) = about 900K records
-- Test data: 2024 = about 200K records
+- Training data: 2015-2023 (excluding 2020) = about 680K records
+- Test data: 2024 = about 205K records
 - We used 500 trees with a max depth of 5
 
 ## 4. Results
 
-Here's how the two models performed:
+### Feature Importance
+
+![Feature Importance](results/xgboost/feature_importance.png)
+
+The most important features for prediction are:
+1. **Temperature** (17.6%) - Weather is the strongest factor
+2. **Month** (14.2%) - Seasonal patterns
+3. **Nearby area activity** (11.8%) - Location quality
+4. **Day of week** (10.3%) - Weekday vs weekend behavior
+
+This shows that weather conditions and time patterns are the main drivers of bike demand.
+
+### Model Comparison
 
 ![Model Comparison](results/comparison/model_comparison.png)
 
-### Key Numbers
+| Metric | Baseline | XGBoost | Improvement |
+|--------|----------|---------|-------------|
+| R² Score | 0.101 | 0.258 | +154% |
+| MAE | 19.27 | 17.40 | -9.7% |
+| RMSE | 32.68 | 28.69 | -12.2% |
+| Total Error | +4.00% | +14.17% | Worse |
 
-| Metric | Baseline | XGBoost | Winner |
-|--------|----------|---------|--------|
-| R² Score | 0.101 | 0.258 | XGBoost ✓ |
-| MAE | 19.27 | 17.40 | XGBoost ✓ |
-| RMSE | 32.68 | 28.69 | XGBoost ✓ |
-| Total Error | +4.00% | +14.17% | Baseline ✓ |
+**Improvements**: The XGBoost model shows significant progress in prediction accuracy. R² improved from 0.101 to 0.258, meaning the model can explain more than twice as much variance in the data. MAE and RMSE both decreased, indicating better day-to-day predictions at individual stations.
 
-### What This Means
-
-**R² Score** is the most important metric. It tells us how much of the variation in the data our model can explain:
-- Baseline explains 10.1% of the variation
-- XGBoost explains 25.8% of the variation
-- That's a 154% improvement!
-
-But here's something interesting: even though XGBoost is better at predicting individual station-days, it overestimates the total 2024 volume by 14%, while Baseline only overestimates by 4%.
-
-**MAE (Mean Absolute Error)** tells us the average prediction error:
-- Baseline: off by about 19 bikes per day per station
-- XGBoost: off by about 17 bikes per day per station
-
-**Why is R² still relatively low?** Predicting daily bike demand at individual stations is really hard because:
-- Weather can change suddenly
-- Random events happen (concerts, sports games, construction)
-- Individual behavior is unpredictable
-- Some stations are just naturally more variable
-
-But 25.8% is actually decent for this type of problem.
-
-### Feature Importance
-
-What matters most for predictions? Based on XGBoost:
-1. **Temperature** (17.6%) - The biggest factor by far
-2. **Month** (14.2%) - Seasonal patterns matter
-3. **Nearby area activity** (11.8%) - Location quality
-4. **Day of week** (10.3%) - Weekend vs weekday patterns
-
-Weather and time patterns are the main drivers of bike demand.
-
-### What's Next
-
-Our next steps:
-1. Try to fix the total volume overestimation issue (maybe add a calibration step)
-2. Test different model architectures (maybe a simpler model would generalize better)
-3. Start working on the spatial prediction (predicting demand for locations without existing stations)
-4. Add more features if we can find useful ones
+**Total Error Issue**: However, the model overestimates total 2024 volume by 14%, which is higher than Baseline's 4%. This suggests the model is somewhat too optimistic in its predictions. This could be because the model predicts higher demand on certain weather conditions that didn't occur as frequently. Possible improvements include adding a calibration step to adjust the total predictions, or using ensemble methods to balance optimistic and conservative predictions. On the positive side, this overestimation might indicate locations where more bikes could potentially be used if capacity were increased.
 
 ## Current Status
 
-**What's working**:
-- Data pipeline is solid and automated
-- We have clean, processed data ready to use
-- Two working models with reasonable performance
-- Good visualizations that explain the patterns
+We have completed data collection, cleaning, and visualization for the Bluebikes dataset. We built and compared two prediction models: a simple baseline model and an XGBoost machine learning model. The XGBoost model shows clear improvements with R² increasing from 0.101 to 0.258, demonstrating that machine learning can capture patterns that simple historical methods miss.
 
-**Challenges we faced**:
-- Getting weather data took way longer than expected
-- Balancing model complexity vs overfitting is tricky
-- The data is noisy at the daily station level
-
-**Code**: All code is in the GitHub repo, organized into:
-- `src/data_collection/` - Scripts to download data
+**Code Organization**: All code is available in the GitHub repo:
+- `src/data_collection/` - Data download scripts
 - `src/preprocessing/` - Data cleaning and feature engineering
 - `src/models/` - Baseline and XGBoost models
-- `src/visualization/` - All plots and charts
-- `results/` - Figures and metrics (large prediction files not included)
+- `src/visualization/` - Visualization scripts
+- `results/` - Figures and metrics
+- `data/` - Raw and processed data (not uploaded due to size, excluded via .gitignore)
 
