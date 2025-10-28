@@ -142,7 +142,7 @@ The raw data had some issues:
 - **Different column names**: Older files used different names than newer ones. For example, "subscriber" vs "member". I standardized everything.
 - **Missing data**: Some early files didn't have trip duration, so I calculated it from start time and end time.
 - **Station ID problems**: Station IDs changed from numbers to letters+numbers over the years. I decided to use station names instead since those are more consistent.
-- **Weird data**: Some trips were impossibly short (like 10 seconds) or super long (days). I kept them for now but noted them.
+- **Outliers**: Some trips have unrealistic durations (under 10 seconds or over several days), but I kept all records in the dataset.
 
 ### Feature Engineering
 I added a bunch of useful information to each trip:
