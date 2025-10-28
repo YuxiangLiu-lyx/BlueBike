@@ -104,7 +104,7 @@ Because I am working with time-series data, I will not use a random split. I wil
 
 # Midterm Report
 
-**Project Presentation Video**: https://youtu.be/cwDEUJ-khBk
+**Project Presentation Video**: https://youtu.be/K75Yq7wpM4Y
 
 ## 1. Data Visualization
 
