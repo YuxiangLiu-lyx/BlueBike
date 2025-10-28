@@ -100,3 +100,174 @@ Our visualization strategy will focus on two key areas: exploratory data analysi
 
 Because we are working with time-series data, we will not use a random split. We will perform a temporal split, using historical data for training and a more recent, unseen period for testing. For example, we might train our model on data from 2023-2024 and test its performance on data from 2025.
 
+---
+
+# Midterm Report
+
+**Project Presentation Video**: [Link to be added]
+
+## 1. Data Visualization
+
+We created several visualizations to understand the Bluebikes data better. Here's what we found:
+
+### System Growth Over Time
+![Yearly Trend](results/figures/overview/yearly_departure_trend.png)
+
+The system grew from about 1.1 million trips in 2015 to 4.7 million trips in 2024, with the number of stations increasing from around 100 to over 400. We excluded 2020 data from model training due to COVID-19 impacts.
+
+### Daily Patterns
+![Daily Patterns](results/figures/daily/daily_patterns.png)
+
+We noticed clear patterns in when people use the bikes:
+- **Weekdays vs Weekends**: People use bikes differently on weekdays compared to weekends. Weekdays show typical commute patterns.
+- **Monthly Changes**: Summer months (June-August) are way busier than winter months.
+
+### Station Activity
+![Station Activity](results/figures/station/station_activity.png)
+
+Not all stations are equal. We found:
+- The top 20 stations handle a huge portion of all trips
+- Most stations are "medium activity" - they're not super busy but they're not empty either
+- The network keeps growing - new stations get added almost every year
+
+## 2. Data Processing
+
+Here's what we did:
+
+### Data Collection
+We downloaded all the monthly trip files from the Bluebikes website (2015-2024). That's about 28.6 million trips total. Each trip record tells us when and where someone picked up a bike and where they dropped it off.
+
+### Data Cleaning
+The raw data had some issues:
+- **Different column names**: Older files used different names than newer ones. For example, "subscriber" vs "member". We standardized everything.
+- **Missing data**: Some early files didn't have trip duration, so we calculated it ourselves from start time and end time.
+- **Station ID problems**: Station IDs changed from numbers to letters+numbers over the years. We decided to use station names instead since those are more consistent.
+- **Weird data**: Some trips were impossibly short (like 10 seconds) or super long (days). We kept them for now but noted them.
+
+### Feature Engineering
+We added a bunch of useful information to each trip:
+- **Time features**: What month? What day of week? Is it a weekend? What season?
+- **Holiday flag**: Is this date a US federal holiday?
+- **Location features**: For each station, we calculated how busy the surrounding area is based on historical data
+
+### Weather Data
+We used the Open-Meteo API to get daily weather for each station. The challenge was:
+- We needed weather for 800+ stations
+- We needed 10 years of data (2015-2024)
+- The API has rate limits (about 10 requests per minute)
+
+So we built a system that caches the data as it downloads, which means if it gets interrupted, we can pick up where we left off instead of starting over. It took about 7 hours to get all the weather data.
+
+The weather data includes: temperature (max/min/mean), precipitation, rain, snow, and wind speed.
+
+### Data Aggregation
+Since we're predicting daily demand, we grouped all the trips by station and date. The final dataset has:
+- **1.14 million records** (one for each station-date combination)
+- **18 features** total
+- **Target variable**: number of departures per station per day
+
+## 3. Modeling Methods
+
+We built two models to compare:
+
+### Baseline Model
+This is a simple model that assumes patterns repeat. Here's how it works:
+1. Look at all the historical data (2015-2023, skipping 2020)
+2. For each station, calculate what percentage of total trips it usually gets on day X of the year
+3. Estimate what 2024's total trips will be using average growth rate from previous years
+4. Multiply: station's historical percentage × estimated 2024 total = prediction
+
+This model is simple but gives us something to beat.
+
+### XGBoost Model
+This is our "real" machine learning model. It uses gradient boosting, which is basically a bunch of decision trees working together.
+
+**Features we used**:
+- Time: month, day, day of week, season, weekend flag, holiday flag
+- Location: latitude, longitude, plus how busy the surrounding area usually is
+- Weather: 9 weather variables (temperature, precipitation, wind)
+
+**What we did to prevent overfitting**:
+- We intentionally did NOT include "year" as a feature. Why? Because if we did, the model would just learn "2024 = big number" and predict huge values. We want it to learn actual patterns instead.
+- We also skipped "previous month's total trips" because that mixes up seasonal patterns with growth trends
+- We used strong regularization (L1 and L2) to keep the model from memorizing the training data
+
+**Training setup**:
+- Training data: 2015-2023 (excluding 2020) = about 900K records
+- Test data: 2024 = about 200K records
+- We used 500 trees with a max depth of 5
+
+## 4. Results
+
+Here's how the two models performed:
+
+![Model Comparison](results/comparison/model_comparison.png)
+
+### Key Numbers
+
+| Metric | Baseline | XGBoost | Winner |
+|--------|----------|---------|--------|
+| R² Score | 0.101 | 0.258 | XGBoost ✓ |
+| MAE | 19.27 | 17.40 | XGBoost ✓ |
+| RMSE | 32.68 | 28.69 | XGBoost ✓ |
+| Total Error | +4.00% | +14.17% | Baseline ✓ |
+
+### What This Means
+
+**R² Score** is the most important metric. It tells us how much of the variation in the data our model can explain:
+- Baseline explains 10.1% of the variation
+- XGBoost explains 25.8% of the variation
+- That's a 154% improvement!
+
+But here's something interesting: even though XGBoost is better at predicting individual station-days, it overestimates the total 2024 volume by 14%, while Baseline only overestimates by 4%.
+
+**MAE (Mean Absolute Error)** tells us the average prediction error:
+- Baseline: off by about 19 bikes per day per station
+- XGBoost: off by about 17 bikes per day per station
+
+**Why is R² still relatively low?** Predicting daily bike demand at individual stations is really hard because:
+- Weather can change suddenly
+- Random events happen (concerts, sports games, construction)
+- Individual behavior is unpredictable
+- Some stations are just naturally more variable
+
+But 25.8% is actually decent for this type of problem.
+
+### Feature Importance
+
+What matters most for predictions? Based on XGBoost:
+1. **Temperature** (17.6%) - The biggest factor by far
+2. **Month** (14.2%) - Seasonal patterns matter
+3. **Nearby area activity** (11.8%) - Location quality
+4. **Day of week** (10.3%) - Weekend vs weekday patterns
+
+Weather and time patterns are the main drivers of bike demand.
+
+### What's Next
+
+Our next steps:
+1. Try to fix the total volume overestimation issue (maybe add a calibration step)
+2. Test different model architectures (maybe a simpler model would generalize better)
+3. Start working on the spatial prediction (predicting demand for locations without existing stations)
+4. Add more features if we can find useful ones
+
+## Current Status
+
+**What's working**:
+- Data pipeline is solid and automated
+- We have clean, processed data ready to use
+- Two working models with reasonable performance
+- Good visualizations that explain the patterns
+
+**Challenges we faced**:
+- Getting weather data took way longer than expected
+- Balancing model complexity vs overfitting is tricky
+- The data is noisy at the daily station level
+
+**Code**: All code is in the GitHub repo, organized into:
+- `src/data_collection/` - Scripts to download data
+- `src/preprocessing/` - Data cleaning and feature engineering
+- `src/models/` - Baseline and XGBoost models
+- `src/visualization/` - All plots and charts
+- `results/` - Figures and metrics (large prediction files not included)
+
