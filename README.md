@@ -202,12 +202,15 @@ When we included "year" as a feature, the model predicted total 2024 volume far 
 ![Feature Importance](results/xgboost/feature_importance.png)
 
 The most important features for prediction are:
-1. **Temperature** (17.6%) - Weather is the strongest factor
-2. **Month** (14.2%) - Seasonal patterns
-3. **Nearby area activity** (11.8%) - Location quality
-4. **Day of week** (10.3%) - Weekday vs weekend behavior
+1. **Nearby area activity** (22.1%) - Historical activity level of surrounding stations
+2. **Temperature max** (13.0%) - Daily maximum temperature
+3. **Latitude** (10.4%) - Station location (north-south)
+4. **Longitude** (9.1%) - Station location (east-west)
+5. **Temperature mean** (8.6%) - Daily average temperature
+6. **Season** (6.6%) - Time of year
+7. **Precipitation hours** (6.3%) - Duration of rain/snow
 
-This shows that weather conditions and time patterns are the main drivers of bike demand.
+Location and weather are the primary drivers of bike demand, with the surrounding area's historical popularity being the single most important factor.
 
 ### Model Comparison
 
@@ -220,7 +223,11 @@ This shows that weather conditions and time patterns are the main drivers of bik
 | RMSE | 32.68 | 28.69 | -12.2% |
 | Total Error | +4.00% | +14.17% | Worse |
 
-**Improvements**: The XGBoost model shows significant progress in prediction accuracy. R² improved from 0.101 to 0.258, meaning the model can explain more than twice as much variance in the data. MAE and RMSE both decreased, indicating better day-to-day predictions at individual stations.
+**R² Score**: This metric measures how much variance in the data the model can explain. XGBoost improved from 0.101 to 0.258, a 154% increase, indicating the model captures more than twice as many patterns in bike demand.
+
+**MAE (Mean Absolute Error)**: This shows the average prediction error per station per day. XGBoost reduced the error from 19.27 to 17.40 bikes, a 9.7% improvement, meaning predictions are closer to actual values on average.
+
+**RMSE (Root Mean Squared Error)**: This metric penalizes larger errors more heavily than MAE. XGBoost reduced RMSE from 32.68 to 28.69, a 12.2% improvement, showing the model made fewer extreme errors.
 
 **Total Error Issue**: However, the model overestimates total 2024 volume by 14%, which is higher than Baseline's 4%. This suggests the model is somewhat too optimistic in its predictions. This could be because the model predicts higher demand on certain weather conditions that didn't occur as frequently. Possible improvements include adding a calibration step to adjust the total predictions, or using ensemble methods to balance optimistic and conservative predictions. On the positive side, this overestimation might indicate locations where more bikes could potentially be used if capacity were increased.
 
