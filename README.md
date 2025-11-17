@@ -102,7 +102,7 @@ Because I am working with time-series data, I will not use a random split. I wil
 
 ---
 
-# Midterm Report
+# Progress
 
 **Project Presentation Video**: https://youtu.be/K75Yq7wpM4Y
 
