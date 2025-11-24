@@ -220,7 +220,7 @@ class XGBoostPredictorWithPOI:
         total_error_pct = (total_error / total_actual) * 100
         
         mape = np.mean(np.abs((y_test - y_pred) / np.maximum(y_test, 1))) * 100
-        mpe = np.mean((y_test - y_pred) / np.maximum(y_test, 1)) * 100
+        mpe = np.mean((y_pred - y_test) / np.maximum(y_test, 1)) * 100
         
         total_abs_error = np.abs(y_test - y_pred).sum()
         total_squared_error = ((y_test - y_pred) ** 2).sum()

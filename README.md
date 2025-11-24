@@ -1,31 +1,5 @@
 # BlueBike
 
-## Visualizations
-
-### Interactive Maps (HTML)
-
-Open these HTML files in a browser to explore interactive maps:
-
-- **[Station POI Type Map](results/poi_analysis/station_type_map.html)** - Station classification by surrounding Points of Interest
-- **[Grid POI Distribution Map](results/grid_analysis/grid_poi_map.html)** - POI features across 500m×500m grid cells
-- **[Grid Demand Heatmap](results/grid_analysis/grid_demand_map.html)** - Predicted demand vs actual station distribution
-
-### Charts and Figures
-
-**Model Performance:**
-- [Model Comparison (Baseline vs XGBoost)](results/comparison/model_comparison.png)
-- [Three Model Comparison](results/comparison/three_model_comparison.png)
-- [XGBoost Feature Importance](results/xgboost/feature_importance.png)
-- [POI Only Feature Importance](results/xgboost_poi_only/feature_importance_poi_only.png)
-- [No Location Feature Importance](results/xgboost_no_popularity/feature_importance_no_popularity.png)
-
-**Exploratory Data Analysis:**
-- [Yearly Departure Trend](results/figures/overview/yearly_departure_trend.png)
-- [Daily Patterns](results/figures/daily/daily_patterns.png)
-- [Station Activity](results/figures/station/station_activity.png)
-
----
-
 ## How to Build and Run the Code
 
 ### Installation
