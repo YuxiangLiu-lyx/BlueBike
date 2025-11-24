@@ -29,7 +29,7 @@ def download_file(repo_id: str, filename: str, local_path: Path):
 
 def main():
     # TODO: Replace with your actual Hugging Face dataset repository
-    REPO_ID = "YOUR_USERNAME/bluebike-data"
+    REPO_ID = "matrix1900/bluebike-data"
     
     if REPO_ID == "YOUR_USERNAME/bluebike-data":
         print("ERROR: Please update REPO_ID in download_data.py with your Hugging Face dataset repository.")
