@@ -19,6 +19,9 @@ __pycache__/
 # Cache files (API responses, temporary data)
 cache/
 
+# Data upload script (not needed for reproduction)
+upload_data.py
+
 # Data files 
 data/
 

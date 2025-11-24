@@ -6,6 +6,7 @@ folium>=0.15.0
 fonttools==4.60.1
 geopandas>=0.14.0
 holidays>=0.35
+huggingface-hub>=0.20.0
 idna==3.11
 joblib==1.5.2
 kiwisolver==1.4.9

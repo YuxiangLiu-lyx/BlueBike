@@ -1,5 +1,168 @@
 # BlueBike
 
+## Visualizations
+
+### Interactive Maps (HTML)
+
+Open these HTML files in a browser to explore interactive maps:
+
+- **[Station POI Type Map](results/poi_analysis/station_type_map.html)** - Station classification by surrounding Points of Interest
+- **[Grid POI Distribution Map](results/grid_analysis/grid_poi_map.html)** - POI features across 500m×500m grid cells
+- **[Grid Demand Heatmap](results/grid_analysis/grid_demand_map.html)** - Predicted demand vs actual station distribution
+
+### Charts and Figures
+
+**Model Performance:**
+- [Model Comparison (Baseline vs XGBoost)](results/comparison/model_comparison.png)
+- [Three Model Comparison](results/comparison/three_model_comparison.png)
+- [XGBoost Feature Importance](results/xgboost/feature_importance.png)
+- [POI Only Feature Importance](results/xgboost_poi_only/feature_importance_poi_only.png)
+- [No Location Feature Importance](results/xgboost_no_popularity/feature_importance_no_popularity.png)
+
+**Exploratory Data Analysis:**
+- [Yearly Departure Trend](results/figures/overview/yearly_departure_trend.png)
+- [Daily Patterns](results/figures/daily/daily_patterns.png)
+- [Station Activity](results/figures/station/station_activity.png)
+
+---
+
+## How to Build and Run the Code
+
+### Installation
+
+Install all dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Download Preprocessed Data
+
+The data processing pipeline takes 15-20 hours to run from scratch. Preprocessed data is available on Hugging Face Hub:
+
+```bash
+python download_data.py
+```
+
+This downloads the following files (~25MB total):
+- `data/processed/daily/daily_departures.parquet` (for Baseline model)
+- `data/processed/daily/daily_with_xgb_features.parquet` (for XGBoost models)
+- `data/processed/daily/daily_with_poi_features.parquet` (for POI models)
+- `data/processed/grid/grid_with_poi_features.parquet` (for grid prediction)
+
+**Optional**: To run trip-level EDA visualizations, uncomment the `trips_cleaned.parquet` line in `download_data.py` (adds 1GB download).
+
+**Note**: If you prefer to generate data from scratch, see the "Data Preparation from Scratch" section below.
+
+### Running Models
+
+After downloading the data, run the models in order:
+
+```bash
+# Baseline Model - predicts 2024 demand using historical patterns from 2015-2023
+python src/models/baseline.py
+# Output: results/models/baseline_metrics.csv, baseline_predictions_2024.csv
+
+# XGBoost Model - uses temporal, weather, and location features (lat/lon, nearby popularity)
+python src/models/xgboost_model.py
+# Output: results/xgboost/xgboost_metrics.csv, feature_importance.csv, xgboost_model.pkl
+
+# XGBoost without location/history - removes coordinates and historical popularity features
+python src/models/xgboost_no_popularity.py
+# Output: results/xgboost_no_popularity/xgboost_metrics_no_popularity.csv, feature_importance_no_popularity.csv, xgboost_model_no_popularity.pkl
+
+# XGBoost with POI features - replaces location with Points of Interest data
+python src/models/xgboost_poi_only.py
+# Output: results/xgboost_poi_only/xgboost_metrics_poi_only.csv, feature_importance_poi_only.csv, xgboost_model_poi_only.pkl
+
+# Grid-based demand prediction - requires trained xgboost_poi_only model (run above command first)
+# Uses the trained model to predict demand for new locations across Boston metro area
+python src/analysis/predict_grid_demand.py
+# Output: results/grid_analysis/grid_predictions.parquet, expansion_opportunities.csv, grid_demand_comparison.csv
+```
+
+### Generating Visualizations
+
+```bash
+# Model comparison charts - compare baseline vs XGBoost models
+python src/visualization/model_comparison.py
+# Output: results/comparison/model_comparison.png
+
+python src/visualization/three_model_comparison.py
+# Output: results/comparison/three_model_comparison.png
+
+# Feature importance visualizations
+python src/visualization/feature_importance_poi_only.py
+# Output: results/xgboost_poi_only/feature_importance_poi_only.png
+
+python src/visualization/feature_importance_no_location.py
+# Output: results/xgboost_no_popularity/feature_importance_no_popularity.png
+
+# Interactive maps - open the HTML files in a browser to view
+python src/visualization/poi_station_map.py
+# Output: results/poi_analysis/station_type_map.html, station_classifications.csv
+
+python src/visualization/grid_poi_map.py
+# Output: results/grid_analysis/grid_poi_map.html (POI distribution across grid)
+
+python src/visualization/grid_demand_map.py
+# Output: results/grid_analysis/grid_demand_map.html (predicted demand vs actual stations)
+
+# Exploratory data analysis charts
+python src/visualization/daily_analysis.py
+# Output: results/figures/daily/daily_patterns.png
+
+python src/visualization/station_analysis.py
+# Output: results/figures/station/station_activity.png
+
+# Optional: Trip-level EDA (requires trips_cleaned.parquet - see download_data.py)
+# python src/visualization/eda_overview.py
+# Output: results/figures/overview/yearly_departure_trend.png, results/statistics/yearly_statistics.csv
+```
+
+### Data Preparation from Scratch (Optional)
+
+If you want to reproduce the entire data processing pipeline from raw data, run these commands in order. Note that this process is time-consuming and requires substantial disk space.
+
+```bash
+# Download raw Bluebikes trip data from 2015-2024 (takes 30+ minutes, ~5GB disk space)
+python src/data_collection/bluebikes_download.py
+# Output: data/raw/*.csv
+
+# Clean and standardize the raw trip data (takes 10-20 minutes)
+python src/preprocessing/data_cleaning.py
+# Output: data/processed/bluebike_cleaned/trips_cleaned.parquet
+
+# Add temporal features (month, day of week, season, holidays, etc)
+python src/preprocessing/feature_engineering.py
+# Output: data/processed/daily/daily_departures.parquet, daily_departures_sample.csv
+#         data/processed/hourly/hourly_departures.parquet, hourly_departures_sample.csv
+
+# Aggregate trips by station and date
+python src/preprocessing/prepare_station_daily.py
+# Output: data/processed/daily/station_daily_with_coords.parquet, station_daily_with_coords_sample.csv
+
+# Fetch weather data for each station (takes 6-8 hours due to API rate limits)
+python src/data_collection/weather_api.py
+# Output: data/external/weather/station_daily_with_weather.parquet, station_daily_with_weather_sample.csv
+
+# Add location-based features (nearby area popularity)
+python src/preprocessing/add_xgb_features.py
+# Output: data/processed/daily/daily_with_xgb_features.parquet, daily_with_xgb_features_sample.csv
+
+# Extract POI features from OpenStreetMap (takes 1-4 hours)
+python src/preprocessing/add_poi_features.py
+# Output: data/processed/daily/daily_with_poi_features.parquet, daily_with_poi_features_sample.csv
+
+# Create grid features for spatial prediction (takes 2-7 hours for POI extraction)
+python src/analysis/create_grid_features.py
+python src/analysis/add_grid_poi.py
+# Output: data/processed/grid/grid_with_poi_features.parquet, grid_with_poi_features_sample.csv
+#         data/processed/grid/grid_base_features.parquet, grid_base_features_sample.csv
+```
+
+---
+
 ## 1. Project Description & Motivation
 
 The Bluebikes program, Boston's official bike-share system, makes its complete ridership data publicly available. This rich dataset provides details for every trip, including:
