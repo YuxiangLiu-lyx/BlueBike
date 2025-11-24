@@ -142,11 +142,11 @@ class WeatherDataCollector:
         print(f"  Already cached: {cached_count}")
         print(f"  To process: {to_process}")
         
-        # Estimate time (assuming ~5 requests per station, 6s per request)
+        # Print summary
         if to_process > 0:
             est_requests = to_process * 5
-            est_minutes = (est_requests * 6) / 60
-            print(f"  Estimated time: ~{est_minutes:.1f} minutes ({est_minutes/60:.1f} hours)")
+            print(f"  Stations to process: {to_process}")
+            print(f"  Rate: ~10 requests/minute (API limit)")
             print(f"  Rate: ~10 requests/minute (API limit)")
         print()
         
@@ -179,7 +179,7 @@ class WeatherDataCollector:
             cached_weather = self.load_cached_weather(station)
             if not cached_weather.empty:
                 all_weather[station] = cached_weather
-                print(f"  ✓ Loaded from cache ({len(cached_weather)} days)")
+                print(f"  Loaded from cache ({len(cached_weather)} days)")
                 continue
             
             # Get date range for this station
@@ -211,7 +211,7 @@ class WeatherDataCollector:
                 all_weather[station] = df_weather
                 # Save to cache
                 self.save_cached_weather(station, df_weather)
-                print(f"  ✓ Fetched and cached ({len(df_weather)} days)")
+                print(f"  Fetched and cached ({len(df_weather)} days)")
             else:
                 print(f"  ✗ Failed to fetch weather data")
         

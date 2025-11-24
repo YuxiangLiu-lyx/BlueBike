@@ -1,0 +1,75 @@
+================================================================================
+Top 5 Days with Highest Overestimation
+================================================================================
+
+2024-09-18 (Wednesday)
+  Holiday: No
+  Actual: 21,741 departures
+  Predicted: 37,686 departures
+  Error: +15,945 (+73.3%)
+
+2024-09-27 (Friday)
+  Holiday: No
+  Actual: 22,149 departures
+  Predicted: 37,202 departures
+  Error: +15,053 (+68.0%)
+
+2024-09-19 (Thursday)
+  Holiday: No
+  Actual: 20,668 departures
+  Predicted: 32,717 departures
+  Error: +12,049 (+58.3%)
+
+2024-09-11 (Wednesday)
+  Holiday: No
+  Actual: 21,490 departures
+  Predicted: 33,373 departures
+  Error: +11,883 (+55.3%)
+
+2024-09-12 (Thursday)
+  Holiday: No
+  Actual: 21,838 departures
+  Predicted: 33,680 departures
+  Error: +11,842 (+54.2%)
+
+2024-09-26 (Thursday)
+  Holiday: No
+  Actual: 14,979 departures
+  Predicted: 25,851 departures
+  Error: +10,872 (+72.6%)
+
+
+================================================================================
+Capacity Analysis
+================================================================================
+
+2024-09-18:
+  Avg Temperature: 18.3°C
+  Precipitation: 0.0mm
+  Actual departures: 21,741 (2024 avg: 12,908)
+
+2024-09-27:
+  Avg Temperature: 18.9°C
+  Precipitation: 1.7mm
+  Actual departures: 22,149 (2024 avg: 12,908)
+
+2024-09-19:
+  Avg Temperature: 19.8°C
+  Precipitation: 0.5mm
+  Actual departures: 20,668 (2024 avg: 12,908)
+
+2024-09-11:
+  Avg Temperature: 17.4°C
+  Precipitation: 0.0mm
+  Actual departures: 21,490 (2024 avg: 12,908)
+
+2024-09-12:
+  Avg Temperature: 19.1°C
+  Precipitation: 0.0mm
+  Actual departures: 21,838 (2024 avg: 12,908)
+
+2024-09-26:
+  Avg Temperature: 17.4°C
+  Precipitation: 5.4mm
+  Actual departures: 14,979 (2024 avg: 12,908)
+

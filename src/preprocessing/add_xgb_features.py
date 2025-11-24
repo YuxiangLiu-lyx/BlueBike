@@ -208,11 +208,11 @@ def create_xgb_features():
     daily_file = project_root / "data" / "processed" / "daily" / "station_daily_with_coords.parquet"
     
     if weather_file.exists():
-        print("\n✓ Loading data with weather features...")
+        print("\nLoading data with weather features...")
         df = pd.read_parquet(weather_file)
         has_weather = True
     else:
-        print("\n⚠ Weather data not available yet, using base daily data...")
+        print("\nWeather data not available, using base daily data...")
         print("  Run weather_api.py first to add weather features")
         df = pd.read_parquet(daily_file)
         has_weather = False
@@ -272,6 +272,7 @@ def create_xgb_features():
     
     # Save to parquet
     output_dir = project_root / "data" / "processed" / "daily"
+    output_dir.mkdir(parents=True, exist_ok=True)
     output_file = output_dir / "daily_with_xgb_features.parquet"
     df_final.to_parquet(output_file, index=False)
     

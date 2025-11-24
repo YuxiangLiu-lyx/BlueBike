@@ -1,0 +1,831 @@
+station_name,latitude,longitude,station_type,nearby_subway_stations_count,nearby_shops_count,nearby_restaurants_count,nearby_universities_count,nearby_offices_count
+101 Smith Place,42.392568,-71.150761,Park/Recreation,0,5,3,0,3
+1200 Beacon St,42.34414898749529,-71.11467361450195,Park/Recreation,1,4,7,3,0
+160 Arsenal,42.36466403441681,-71.17569386959076,Park/Recreation,0,7,4,0,3
+160 Arsenal St,42.36466403441681,-71.17569386959076,Park/Recreation,0,7,4,0,3
+175 N Harvard St,42.363796,-71.129164,Park/Recreation,0,7,5,4,5
+18 Dorrance Warehouse,42.387151,-71.075978,Transit Hub,1,8,7,0,3
+191 Beacon St,42.38032335045416,-71.10878612855231,Commercial,0,34,21,2,7
+2 Hummingbird Lane at Olmsted Green,42.28887,-71.095003,Park/Recreation,0,0,0,0,2
+30 Dane St,42.38100143038052,-71.10402522613185,Commercial,0,51,28,0,7
+30 Dane St.,42.38100143038052,-71.10402522613185,Commercial,0,51,28,0,7
+30 Dane St. (former),42.38112284630097,-71.10410027224134,Commercial,0,51,27,0,7
+300 Summer St,42.349784,-71.048935,Commercial,1,16,41,0,20
+325 Binney St.,42.36722,-71.08903,Office,0,14,0,1,31
+359 Broadway,42.370801,-71.104451,Office,0,0,23,0,23
+359 Broadway - Broadway at Fayette Street,42.370803,-71.104412,Commercial,0,41,23,0,23
+39 Brighton Ave,42.35299558,-71.126578,Commercial,0,84,88,1,34
+40 Thorndike St,42.369061,-71.079999,Park/Recreation,0,26,27,0,15
+515 Somerville Ave (Temp. Winter Location),42.38322726839113,-71.10606908798218,Commercial,0,40,16,1,8
+55 Wheeler Street,42.390821,-71.143946,Park/Recreation,0,18,13,0,3
+555 Metropolitan Ave,42.2681,-71.11924,Park/Recreation,0,2,1,0,0
+606 American Legion Hwy at Canterbury St,42.28578,-71.109725,Residential,0,7,4,0,0
+615 Broadway,42.394541,-71.030828,Park/Recreation,0,1,3,0,2
+645 Summer St,42.341780891371904,-71.03987016504107,Residential,0,1,6,0,2
+699 Mt Auburn St,42.37500235137831,-71.14871613699506,Park/Recreation,0,6,2,0,4
+699 Mt Auburn St (former),42.37497659215716,-71.14863030630659,Park/Recreation,0,6,2,0,4
+7 Acre Park,42.41143222973408,-71.06823265090497,Park/Recreation,0,1,1,0,0
+700 Commonwealth Ave.,42.34960945333059,-71.10391523698127,Park/Recreation,3,27,50,3,12
+700 Huron Ave,42.380788172914286,-71.15412890911102,Park/Recreation,0,1,1,0,1
+75 Binney St,42.36550728505653,-71.0801375997653,Park/Recreation,1,21,33,1,28
+780 Morrissey Blvd,42.295305,-71.047186,Park/Recreation,0,12,3,0,0
+84 Cambridgepark Dr,42.3936,-71.143941,Park/Recreation,1,15,10,0,3
+855 Broadway,42.398417726101584,-71.02390923402707,Park/Recreation,0,4,3,0,2
+87-101 Cambridgepark Drive,42.395221870310664,-71.14421904097979,Park/Recreation,1,7,6,0,2
+8D QC Station 01,42.34503315560333,-71.09664916992188,Park/Recreation,2,33,53,3,14
+955 Mass Ave,42.36895180540729,-71.10998779535294,Park/Recreation,1,44,39,1,22
+99 Coolidge Ave,42.363675,-71.151786,Park/Recreation,0,10,3,0,1
+Adams Branch Library,42.286011,-71.054689,Residential,0,3,3,0,0
+Adams St at Lonsdale St,42.291679428741226,-71.05726346409938,Park/Recreation,0,1,1,0,0
+Adams St at Mallet St.,42.290891,-71.056746,Park/Recreation,0,2,1,0,0
+Addison St at Saratoga St,42.38518146513944,-71.0151367,Park/Recreation,0,2,5,0,0
+Agganis Arena - 925 Comm Ave.,42.351246,-71.115639,Park/Recreation,0,13,16,2,4
+Airport T Stop - Bremen St at Brooks St,42.37534192670574,-71.031318,Park/Recreation,1,57,27,0,5
+Albany St at E. Brookline St,42.33664795427071,-71.0689445958451,University,0,3,5,3,3
+Alewife MBTA at Steel Place,42.395588457167094,-71.14260613918304,Park/Recreation,1,7,6,0,1
+Alewife Station at Russell Field,42.396105,-71.139459,Park/Recreation,1,6,4,0,2
+Allston Green District - Commonwealth Ave & Griggs St,42.348607,-71.13401,Commercial,0,65,69,1,23
+Allston Green District - Griggs St at Commonwealth Ave,42.34922469338298,-71.13275302578586,Commercial,0,91,90,1,31
+Allston Green District - Griggs St at Commonwealth Ave TEMPORARY WINTER LOCATION,42.34922469338298,-71.13275302578586,Commercial,0,91,90,1,31
+Alpine Path at Concord Ave,42.38536765218425,-71.13775670528412,Park/Recreation,0,27,10,0,4
+American Legion Hwy at Canterbury St,42.278811581565975,-71.11687703062671,Residential,0,4,2,0,1
+American Legion Hwy at Cummins Hwy,42.278811581565975,-71.11687703062671,Residential,0,4,2,0,1
+American Legion Hwy at Hyde Park Ave,42.27265394101898,-71.119903922081,Park/Recreation,0,1,0,0,0
+Ames St at Broadway,42.3636929,-71.0875672,Park/Recreation,1,16,41,1,47
+Ames St at Main St,42.3625,-71.08822,Park/Recreation,1,16,40,1,40
+Andrew Station - Dorchester Ave at Humboldt Pl,42.330716,-71.057044,Park/Recreation,1,13,7,0,0
+Andrew T Stop - Dorchester Ave at Dexter St,42.330473650415165,-71.05701684951782,Park/Recreation,1,13,6,0,0
+Aquarium Station - 200 Atlantic Ave.,42.35977,-71.051601,Commercial,1,58,112,0,30
+Aquarium T Stop - 200 Atlantic Ave,42.35991176110118,-71.0514298081398,Commercial,1,58,113,0,24
+Arch St at Franklin St,42.35533501941256,-71.0582291708306,Commercial,7,93,204,2,63
+Archdale Rd at Washington St,42.29266592872725,-71.12119538714069,Park/Recreation,0,9,3,0,1
+Archdale Rd at Washington St (former),42.292706,-71.121145,Park/Recreation,0,9,3,0,1
+Arsenal Yards,42.36277388549605,-71.15764854490408,Park/Recreation,0,16,17,0,1
+Arsenal on the Charles,42.36349850640871,-71.16421658177295,Park/Recreation,0,9,13,0,1
+Ashley St at Boardman,42.389155,-71.010409,Park/Recreation,1,13,11,0,1
+Ashmont T Stop,42.2856944,-71.0641389,Transit Hub,2,3,4,0,2
+Assembly Square T,42.39223284004627,-71.07746601104736,Park/Recreation,1,55,22,0,0
+Atlantic Ave at Beach St,42.35070811,-71.05658926,Commercial,3,30,115,3,27
+Au Bon Pain Way at Fid Kennedy Ave,42.3461009,-71.0291997,Residential,0,0,4,0,1
+Auburn St. at Mystic River,42.41759089672136,-71.12608127863496,Park/Recreation,0,14,6,0,2
+B.U. Central - 725 Comm. Ave.,42.350406,-71.108279,Park/Recreation,1,15,37,3,5
+B.U. Central T Stop - 725 Commonwealth Ave,42.350406,-71.108279,Park/Recreation,1,15,37,3,5
+BCBS Quincy,42.27600498756665,-71.03924982267927,Park/Recreation,0,0,2,0,2
+BIDMC - Brookline at Burlington St,42.345733,-71.100694,Park/Recreation,3,39,68,4,17
+Back Bay / South End Station,42.34807412317439,-71.07657015323639,Commercial,4,279,115,0,59
+Back Bay T Stop - Dartmouth St at Stuart St,42.34807412317439,-71.07657015323639,Commercial,4,279,115,0,59
+Bacon St at Washington St,42.35711920909866,-71.1860453666327,Park/Recreation,0,9,5,0,1
+Ball Sq,42.399368,-71.111115,Park/Recreation,1,10,7,1,2
+Bartlett St at John Elliot Sq,42.3294633,-71.0901582,Park/Recreation,1,2,6,0,1
+Bartlett St at John Elliot Sq (former),42.32946325922549,-71.09015820552486,Park/Recreation,1,2,6,0,1
+Beach St at Freeport St,42.303674088927075,-71.05425953865051,Park/Recreation,0,7,7,0,4
+Beachmont Square at Suffolk Downs,42.3976083,-70.99307222,Transit Hub,1,0,1,0,0
+Beacon St / Mass Ave,42.350851,-71.089886,Park/Recreation,2,80,49,1,16
+Beacon St at Arlington St,42.35554932336134,-71.07284188270569,Park/Recreation,1,164,28,0,37
+Beacon St at Charles St,42.356052,-71.069849,Park/Recreation,2,130,32,0,37
+Beacon St at Englewood Ave,42.337369153709254,-71.14485977232107,Transit Hub,3,10,14,0,0
+Beacon St at Hawes St,42.34496783328529,-71.11040176903771,Park/Recreation,3,8,17,5,1
+Beacon St at Massachusetts Ave,42.35082680669095,-71.0898108780384,Park/Recreation,2,81,49,1,16
+Beacon St at St. Paul St,42.34373094998716,-71.11614107161584,Park/Recreation,0,14,17,3,1
+Beacon St at Tappan St,42.33826680058037,-71.13894682028331,Transit Hub,1,7,11,0,0
+Beacon St at Washington / Kirkland,42.37842,-71.105668,Commercial,0,32,19,1,4
+Belgrade Ave at Walworth St,42.28634589486312,-71.13672129828046,Park/Recreation,0,1,0,0,0
+Bellevue T Stop,42.28611420958351,-71.14636927843094,Transit Hub,1,5,4,0,0
+Bellingham Square,42.3931961102951,-71.03344559669495,Park/Recreation,0,2,7,0,3
+Bennington St at Byron St,42.383532520117896,-71.01619094610214,Park/Recreation,0,2,2,0,0
+Bennington St at Constitution Beach,42.385223935870535,-71.01063068965232,Park/Recreation,1,13,12,0,1
+Bennington St at Constitution Beach (former),42.385249,-71.010601,Park/Recreation,1,13,12,0,1
+Bennington St at Marion St,42.37590859,-71.03598452,Park/Recreation,1,93,37,0,10
+Berkshire Street at Cambridge Street,42.37207657915397,-71.08995433905875,Commercial,0,28,18,0,7
+Big Papi Station,42.34734473177431,-71.1001680795016,Park/Recreation,3,39,65,3,16
+Bike Town at Moakley Park,42.32586,-71.049142,Park/Recreation,0,0,0,0,0
+Binney St / Sixth St,42.36608797388682,-71.08633603909765,Park/Recreation,1,14,38,1,40
+Blossom St at Charles St,42.36435589027983,-71.0695936904267,Park/Recreation,2,26,24,1,9
+Blossom St at Charles St 1 1 1,42.363134,-71.067499,Park/Recreation,4,56,45,1,17
+Blue Hill Ave at Almont St,42.27462067181224,-71.09372552493369,Park/Recreation,1,0,0,0,0
+Blue Hill Ave at Almont St (former),42.27454525528758,-71.09372016051566,Park/Recreation,1,0,0,0,0
+Blue Hill Ave at Havelock St,42.286012,-71.090986,Residential,0,0,0,0,0
+Blue Hill Ave at Southwood St,42.31786020589987,-71.07798628527235,Residential,0,1,1,0,1
+Blue Hill Ave at Southwood St (former),42.31784,-71.07796,Residential,0,1,1,0,1
+Boston City Hall - 28 State St,42.35892,-71.057629,Park/Recreation,8,94,147,2,53
+Boston College T,42.33987891612856,-71.16708934307098,Park/Recreation,1,0,10,3,0
+Boston Convention & Exhibition Center,42.3475,-71.0441,Commercial,0,6,35,0,11
+Boston Convention and Exhibition Center - Summer St at West Side Dr,42.347763454147454,-71.0453599691391,Commercial,0,8,34,0,18
+Boston East - 126 Border St,42.373312125824704,-71.0410200806291,Commercial,1,98,50,0,21
+Boston Landing,42.35656092308941,-71.14167537549292,Park/Recreation,0,35,23,0,18
+Boston Medical Center -  East Concord at Harrison Ave,42.336437,-71.073089,University,0,7,9,3,5
+Boston Medical Center - E Concord St at Harrison Ave,42.33639915372498,-71.07306711393903,University,0,7,9,3,6
+Boston Public Library - 700 Boylston St.,42.349673,-71.077303,Park/Recreation,4,283,112,1,57
+Boston Public Market,42.36254854409333,-71.0573735833168,Commercial,9,79,140,1,31
+Boston Public Market - Surface Rd at Sudbury St,42.362561,-71.057489,Commercial,9,79,137,1,31
+Bowdoin St at Quincy St,42.30785224238503,-71.06512248516083,Park/Recreation,0,1,1,0,2
+Boylston / Mass Ave,42.347265,-71.088088,Park/Recreation,1,147,85,4,32
+Boylston St / Berkeley St,42.350989,-71.073644,Park/Recreation,4,187,71,0,50
+Boylston St / Washington St,42.352409,-71.062679,Park/Recreation,5,68,151,5,33
+Boylston St at Arlington St,42.352052,-71.070464,Park/Recreation,2,128,64,0,42
+Boylston St at Arlington St TEMPORARY WINTER LOCATION,42.35258343837699,-71.06766249993596,Park/Recreation,5,89,96,4,36
+Boylston St at Berkeley St,42.3511419825475,-71.07329249382019,Park/Recreation,4,185,67,0,51
+Boylston St at Charles St,42.3525760946701,-71.06764405041758,Park/Recreation,5,89,98,4,36
+Boylston St at Charles St (Temp Winter Location),42.35258524849636,-71.06770277023315,Park/Recreation,5,90,94,4,36
+Boylston St at Dartmouth St,42.35019319808638,-71.07720464005979,Park/Recreation,4,281,108,1,58
+Boylston St at Dartmouth St FORMER,42.350413,-71.07655,Park/Recreation,4,274,99,0,56
+Boylston St at Exeter St,42.349589423682445,-71.0794677917329,Park/Recreation,3,268,121,1,51
+Boylston St at Fairfield St,42.348803822833936,-71.08236908912659,Park/Recreation,2,270,122,2,45
+Boylston St at Jersey St,42.344650628878306,-71.09732501226972,Park/Recreation,2,33,48,3,13
+Boylston St at Jersey St (former),42.344695708662215,-71.09723791480063,Park/Recreation,2,33,48,3,13
+Boylston St at Massachusetts Ave,42.34740620525209,-71.08678414955648,Park/Recreation,1,197,105,3,33
+Boylston St at Washington St,42.352409,-71.062679,Park/Recreation,5,68,151,5,33
+Boylston St. at Arlington St.,42.352033,-71.070627,Park/Recreation,2,133,63,0,43
+Boylston at Fairfield,42.348762,-71.082383,Park/Recreation,2,271,121,2,45
+Boynton Yards at 101 South Street,42.37546,-71.091217,Commercial,2,62,37,0,14
+Bremen St at Marion St,42.37410622047334,-71.03276252757496,Park/Recreation,1,73,27,0,9
+Brian P. Murphy Staircase at Child Street,42.3720597013741,-71.07202649116516,Park/Recreation,2,8,11,0,6
+Brigham Cir / Huntington Ave,42.334073,-71.105221,Park/Recreation,0,6,19,5,3
+Brigham Circle - Francis St at Huntington Ave,42.33462893055976,-71.10407917767589,Park/Recreation,0,6,22,5,3
+Brighton Ave at Linden St,42.3528376,-71.1296752,Commercial,0,120,102,2,43
+Brighton Center,42.34894857235593,-71.15027189254761,Park/Recreation,0,4,14,0,1
+Brighton Center - Washington St at Cambridge St,42.34894857235593,-71.15027189254761,Park/Recreation,0,4,14,0,1
+Brighton Mills - 370 Western Ave,42.3615457081725,-71.13776206970215,Park/Recreation,0,12,8,1,6
+Broad Canal Way at Third Street,42.36304549626695,-71.08287078916874,Park/Recreation,1,15,33,1,35
+Broad St at Central St,42.35849449039304,-71.05426469875965,Commercial,5,76,129,1,42
+Broadway Opposite Norwood Ave  (Temp Winter Station),42.396764,-71.102376,Park/Recreation,1,19,4,0,2
+Broadway St at Mt Pleasant St,42.38614141163957,-71.07828140258789,Commercial,1,14,7,0,2
+Broadway T Stop,42.343048583900966,-71.058034,Commercial,1,11,17,0,2
+Broadway T Stop (former),42.3428,-71.05751,Transit Hub,1,10,19,0,3
+Broadway and Cabot,42.4021215,-71.0195408,Park/Recreation,0,9,6,0,2
+Broadway at Beacham St,42.39836059620832,-71.06373842814719,Commercial,0,17,4,0,0
+Broadway at Central St,42.39517150121575,-71.09850591982195,Commercial,0,25,4,0,3
+Broadway at Gerrish Ave,42.39453079292221,-71.03085594484583,Park/Recreation,0,1,3,0,2
+Broadway at Grafton St,42.40994213011757,-71.14009319811885,Commercial,0,28,6,0,8
+Broadway at Kittie Knox Bike Path,42.36412658996667,-71.0873863200095,Park/Recreation,1,16,42,1,46
+Broadway at Lynde St,42.39648358247693,-71.06546759905541,Park/Recreation,0,22,4,0,0
+Broadway at Maple St,42.410346909767846,-71.05260457852637,Commercial,0,52,14,0,29
+Brookline Town Hall,42.33376472623494,-71.12046446660315,Park/Recreation,1,18,16,0,2
+Brookline Village - Pearl Street @ MBTA,42.332799,-71.116205,Park/Recreation,1,9,19,1,3
+Brookline Village - Pearl Street at MBTA,42.332799,-71.116205,Park/Recreation,1,9,19,1,3
+Brookline Village - Station Street @ MBTA,42.33289074055233,-71.11658334732056,Park/Recreation,1,9,19,1,3
+Brookline Village - Station Street @ MBTA TEMPORARY WINTER LOCATION,42.33376472623494,-71.12046446660315,Park/Recreation,1,18,16,0,2
+Brookline Village - Station Street at MBTA,42.33274392304887,-71.11626680949485,Park/Recreation,1,9,19,1,3
+Bunker Hill Community College,42.37408991426522,-71.06905996799469,Park/Recreation,1,9,5,0,2
+Burlington Ave at Brookline Ave,42.345733,-71.100694,Park/Recreation,3,39,68,4,17
+Buswell St. at Park Dr.,42.347241,-71.105301,Park/Recreation,3,35,58,4,13
+Butler T Stop,42.272548,-71.062882,Park/Recreation,2,2,3,0,1
+Cambridge Crossing at North First Street,42.371141,-71.076198,Park/Recreation,2,20,16,0,12
+Cambridge Dept. of Public Works -147 Hampshire St.,42.37119727759414,-71.09759867191315,Commercial,0,37,27,0,19
+Cambridge Main Library at Broadway / Trowbridge St,42.373379,-71.111075,Park/Recreation,0,32,29,1,16
+Cambridge St - at Columbia St / Webster Ave,42.372969,-71.094445,Commercial,1,42,26,0,13
+Cambridge St at Joy St,42.36125721646537,-71.06528744101524,Park/Recreation,4,91,73,2,31
+Cambridge St at Warren St,42.350225,-71.146678,Park/Recreation,0,2,5,0,3
+Cambridge St. at Joy St.,42.361174,-71.065142,Park/Recreation,4,90,74,2,31
+CambridgeSide Galleria - CambridgeSide PL at Land Blvd,42.366981,-71.076472,Park/Recreation,1,14,21,0,21
+Cambridgeside Pl at Land Blvd,42.366929,-71.076512,Park/Recreation,1,14,21,0,21
+Canal St at Causeway St,42.36530094929082,-71.06092190993877,Transit Hub,6,46,74,1,13
+Canal St. at Causeway St.,42.364214,-71.059778,Commercial,6,63,102,1,15
+Carr Park,42.434365,-71.094755,Park/Recreation,0,1,1,0,1
+Cary Square,42.398135645582464,-71.030709722545,Park/Recreation,0,1,3,0,1
+Cedar Grove T Stop,42.27960759693163,-71.06022119527552,Park/Recreation,2,3,3,0,1
+Central Ave at River St,42.27094707029229,-71.07337901405117,Park/Recreation,2,3,3,0,0
+Central Sq Post Office / Cambridge City Hall at Mass Ave / Pleasant St,42.366426,-71.105495,Commercial,2,55,58,0,28
+Central Square - East Boston,42.37430732260765,-71.03807777166365,Park/Recreation,0,107,40,0,17
+Central Square East Boston,42.37544912547037,-71.03918548682486,Park/Recreation,0,89,36,0,12
+Central Square East Boston - Porter Street at London Street,42.374301316178226,-71.03808671246952,Park/Recreation,0,107,40,0,17
+Central Square at Mass Ave / Essex St,42.36507,-71.1031,Commercial,2,53,56,1,30
+Centre St at Allandale St,42.300806,-71.127436,Park/Recreation,0,0,0,0,1
+Centre St at Commonwealth Ave,42.3362358,-71.1934421,Park/Recreation,0,1,2,2,2
+Centre St at Parkway YMCA,42.28277901074054,-71.15728851416861,Transit Hub,2,6,6,0,1
+Centre St at Seaverns Ave,42.3121203,-71.1142981,Park/Recreation,0,35,24,0,14
+Centre St at Seaverns Ave (former),42.312120283566095,-71.11429806807791,Park/Recreation,0,35,24,0,14
+Centre St at W. Roxbury Post Office,42.286331991127746,-71.15344755369732,Transit Hub,1,7,8,0,1
+Centre St at Washington St,42.35574334805774,-71.18641942508475,Park/Recreation,0,4,3,0,1
+Centre St. at Allandale St.,42.300806,-71.127436,Park/Recreation,0,0,0,0,1
+Charles Circle - Charles St at Cambridge St,42.36079296858265,-71.07118962337152,Park/Recreation,1,70,31,0,15
+Charles Circle - Charles St at Cambridge St TEMPORARY WINTER LOCATION,42.36075761041193,-71.07132909824031,Park/Recreation,1,69,31,0,16
+Charles Circle - Charles St. at Cambridge St.,42.360835,-71.0708399,Park/Recreation,1,72,32,0,14
+Charles River Greenway - California St. at Fifth Ave,42.36455361053197,-71.19100391864777,Park/Recreation,0,12,15,0,5
+Charles St S at Stuart,42.35077778,-71.06669444,Park/Recreation,4,79,107,5,30
+Charles St S at Stuart St,42.35077778,-71.06669444,Park/Recreation,4,79,107,5,30
+Charles St and Beacon St,42.356052,-71.069849,Park/Recreation,2,130,32,0,37
+Charles St at Beacon St,42.356052,-71.069849,Park/Recreation,2,130,32,0,37
+Charles St at Pinckney St,42.35872530462163,-71.07079532006537,Park/Recreation,1,71,33,0,16
+Charles st and Beacon St,42.356052,-71.069849,Park/Recreation,2,130,32,0,37
+Charlestown - Main St at Austin St,42.375603,-71.064608,Park/Recreation,1,10,11,0,1
+Charlestown - Warren St at Chelsea St,42.371848,-71.060292,Park/Recreation,0,10,9,0,3
+Charlestown Navy Yard,42.374124549426526,-71.05481199938367,Park/Recreation,0,4,4,0,3
+Charlestown Navy Yard (former),42.374010653844934,-71.0548335313797,Park/Recreation,0,4,4,0,3
+Chelsea Square,42.390226711033826,-71.03857017704286,Park/Recreation,0,5,10,0,3
+Chelsea St at Medford St,42.37857,-71.05298,Park/Recreation,0,2,2,0,2
+Chelsea St at Saratoga St,42.379772,-71.027448,Park/Recreation,1,33,21,0,3
+Chelsea St at Vine St,42.40328056972533,-71.04762639859473,Commercial,0,18,10,0,0
+Chelsea Station,42.39636527849676,-71.03987179230899,Transit Hub,1,4,10,0,1
+Chestnut Hill Ave at Ledgemere Rd,42.343706,-71.153257,University,0,2,7,2,1
+Chestnut Hill Ave at Winship St,42.34560832,-71.15276024,University,0,6,19,2,2
+Chestnut Hill Ave. at Ledgemere Road,42.343706,-71.153257,University,0,2,7,2,1
+Chestnut St at Poplar St,42.377636,-71.085954,Commercial,1,45,9,0,6
+Child St at North St,42.37150494100319,-71.07249312120985,Park/Recreation,2,13,12,0,8
+Child Street at Brian P. Murphy Staircase,42.371976784679745,-71.07200495972165,Park/Recreation,2,9,11,0,6
+Chinatown Gate Plaza,42.351356,-71.059367,Park/Recreation,6,42,155,4,33
+Chinatown Gate Plaza - Surface Rd. at Beach St.,42.351356,-71.059367,Park/Recreation,6,42,155,4,33
+Chinatown T Stop,42.352409,-71.062679,Park/Recreation,5,68,151,5,33
+Christian Science Plaza,42.343864,-71.085918,Park/Recreation,3,107,85,3,17
+Christian Science Plaza - Massachusetts Ave at Westland Ave,42.3436658245146,-71.08582377433777,Park/Recreation,3,94,83,3,16
+Church St,42.37433925370521,-71.11966431146357,Park/Recreation,1,89,68,9,19
+Circuit Drive at American Legion Hwy,42.29704126420948,-71.09171926975249,Park/Recreation,0,1,0,0,1
+Clarendon Hill at Broadway,42.406302,-71.132446,Commercial,0,18,10,0,9
+Clarendon St at Commonwealth Ave,42.35219035145307,-71.0760041699723,Park/Recreation,2,213,73,0,47
+Clarendon St at Newbury St,42.35159662465317,-71.0756166279316,Park/Recreation,4,232,80,0,47
+Cleary Sq,42.2556,-71.12444,Transit Hub,2,6,5,0,1
+Cleveland Circle,42.335543083570826,-71.15061519672052,Park/Recreation,2,6,12,0,2
+Cleveland Circle (former),42.33553091872319,-71.15072786808014,Park/Recreation,2,6,12,0,2
+Clinton St at North St,42.3607028354884,-71.05524927377701,Commercial,6,97,156,2,33
+Codman Square Library,42.2873611,-71.071111,Residential,0,1,1,0,2
+Codman Square Library (former),42.2873611,-71.0711111,Residential,0,1,1,0,2
+Colleges of the Fenway,42.340021,-71.100812,Park/Recreation,0,11,32,7,9
+Colleges of the Fenway - Fenway at Avenue Louis Pasteur,42.34011512249236,-71.10061883926392,Park/Recreation,0,14,33,7,9
+Columbia Rd at Ceylon St,42.309572,-71.0729,Park/Recreation,0,0,0,0,1
+Columbia Rd at Tierney Community Center,42.33023070528729,-71.05060093123029,Park/Recreation,0,3,2,0,1
+Columbia Rd at Tierney Community Center (former),42.33023264684929,-71.0505741463021,Park/Recreation,0,3,2,0,1
+Columbus Ave at Massachusetts Ave,42.340542615516355,-71.08138847914233,Commercial,2,47,47,3,8
+Columbus Ave at W. Canton St,42.34474224772802,-71.07648162175792,Commercial,2,92,70,1,21
+Columbus Ave. at Mass. Ave.,42.340799,-71.081572,Commercial,2,47,53,3,8
+Commercial St at Charter St,42.36817,-71.056847,Park/Recreation,3,36,66,0,6
+Commonwealth Ave At Babcock St,42.35154734791375,-71.12126246094704,Park/Recreation,0,29,35,1,13
+Commonwealth Ave at Agganis Way,42.35169201885973,-71.11903488636017,Park/Recreation,0,24,25,1,7
+Commonwealth Ave at Blandford Mall,42.349,-71.10047179,Park/Recreation,3,31,43,1,15
+Commonwealth Ave at Buick St,42.351246,-71.115639,Park/Recreation,0,13,16,2,4
+Commonwealth Ave at Chestnut Hill Dr,42.338415,-71.154428,Park/Recreation,1,8,18,2,3
+Commonwealth Ave at Chiswick Rd,42.34024644768889,-71.15168806174552,Park/Recreation,1,12,21,2,3
+Commonwealth Ave at Chiswick Rd (former),42.3402177416592,-71.1517309399278,Park/Recreation,1,12,21,2,3
+Commonwealth Ave at Fidelis Way,42.345865,-71.141902,Park/Recreation,0,18,9,0,3
+Commonwealth Ave at Granby St,42.349856,-71.103825,Park/Recreation,2,27,49,3,12
+Commonwealth Ave at Griggs St,42.34922469338298,-71.13275302578586,Commercial,0,91,90,1,31
+Commonwealth Ave at Kelton St,42.348358628170445,-71.13997217276847,Park/Recreation,0,18,9,1,4
+Commonwealth Ave at Kelton St (former),42.348368023549895,-71.13997621466297,Park/Recreation,0,18,9,1,4
+Commonwealth Ave at Naples Rd,42.351911,-71.123798,Park/Recreation,0,35,37,1,16
+Community Path at Cedar Street,42.39407223665884,-71.11133694648743,Commercial,1,14,8,0,2
+Community Path at Lowell St,42.392525,-71.105587,Commercial,1,17,12,0,4
+Concord Ave at Spinelli Place,42.390719,-71.1538877,Park/Recreation,0,8,2,0,1
+Congress / Sleeper,42.3511,-71.0496,Commercial,2,17,55,0,22
+Congress St and Northern Ave,42.3482032222746,-71.0376513004303,Commercial,0,1,28,0,3
+Congress St at Boston City Hall,42.36041774637169,-71.05752243543975,Commercial,7,103,158,2,46
+Congress St at Boston Wharf Rd,42.34951487,-71.046713,Commercial,0,14,40,0,20
+Congress St at North St,42.360613,-71.057452,Commercial,7,103,159,2,44
+Congress St at Northern Ave,42.3481,-71.03764,Commercial,0,1,28,0,3
+Congress St at Sleeper St,42.351004495946704,-71.04930013418198,Commercial,2,17,46,0,21
+Constitution Rd at Chelsea St,42.3736,-71.05843,Park/Recreation,0,7,9,0,3
+Conway Park - Somerville Avenue,42.383638948222654,-71.10853672027588,Commercial,0,34,17,1,10
+Conway Park @ Bleachery Ct (Temp Winter Station),42.3834575023727,-71.10771059989929,Commercial,0,37,16,1,10
+Coolidge Corner - Beacon St @ Centre St,42.341598,-71.123338,Commercial,0,55,45,0,1
+Coolidge Corner - Beacon St at Centre St,42.341598,-71.123338,Commercial,0,55,45,0,1
+Coolidge Sq.,42.372076114722866,-71.15683130688922,Commercial,0,26,17,0,4
+Copley Square - Dartmouth St at Boylston St,42.34992828230057,-71.07739206866427,Park/Recreation,3,284,112,1,57
+Craigie & Summer at Conway Park (Temp. Winter Location),42.383384,-71.107511,Commercial,0,37,17,1,10
+Craigie St at Summer St,42.38831607584243,-71.1106824874878,Commercial,0,29,14,0,7
+Craigie at Summer St,42.388305537643994,-71.110682,Commercial,0,29,14,0,7
+Cross St at Hanover St,42.362811,-71.056067,Commercial,8,77,128,1,25
+Cross St at Stillman St,42.36370786,-71.05749336,Commercial,8,71,120,1,18
+Cross St. at Hanover St.,42.362811,-71.056067,Commercial,8,77,128,1,25
+Cummins Highway at Blue Hill Ave T Stop,42.269988465946064,-71.09746182817616,Park/Recreation,2,0,2,0,0
+Cummins at American Legion,42.278811581565975,-71.11687703062671,Residential,0,4,2,0,1
+Curtis Hall - South St at Centre St,42.309054,-71.11543,Park/Recreation,0,44,22,0,17
+Curtis Hall at South Street,42.309054,-71.11543,Park/Recreation,0,44,22,0,17
+Cypress St at Clark Playground,42.32784317478686,-71.1253622174263,Park/Recreation,1,10,2,0,0
+Damrell St at Old Colony,42.3324824,-71.0542411,Park/Recreation,1,7,7,0,1
+Damrell St at Old Colony Ave,42.3324824,-71.0542411,Park/Recreation,1,7,7,0,1
+Damrell st at Old Colony Ave,42.3324824,-71.0542411,Park/Recreation,1,7,7,0,1
+Dana Park,42.36178043960605,-71.10809952020645,Commercial,2,38,28,2,13
+Danehy Park,42.388966,-71.132788,Park/Recreation,0,2,0,0,1
+Danehy Park at New Street,42.389456,-71.139019,Park/Recreation,0,22,9,0,2
+Dartmouth St at Newbury St,42.35096144421219,-71.07782810926437,Park/Recreation,3,280,104,0,57
+Davis Square,42.396969,-71.123024,Commercial,1,60,45,1,23
+Day Boulevard,42.336448,-71.023739,Park/Recreation,0,0,3,0,0
+Day Sq,42.379295,-71.027733,Park/Recreation,1,35,21,0,3
+Deerfield St at Commonwealth Ave,42.34924376955301,-71.09728209692548,Park/Recreation,2,23,32,1,13
+Deerfield St at Commonwealth Ave (former),42.349205689770685,-71.09727063041646,Park/Recreation,2,23,32,1,13
+Discovery Park - 30 Acorn Park Drive,42.39790817368333,-71.14797130814623,Park/Recreation,0,4,4,0,3
+Dorchester Ave at Gillette Park,42.34404051001635,-71.05737626552582,Commercial,1,11,16,1,4
+Dorchester Ave at King St,42.291718,-71.062571,Transit Hub,1,0,0,0,0
+Dorchester Ave at Savin Hill Ave,42.312398,-71.05743,Park/Recreation,1,13,9,0,3
+Dorchester Ave. at Gillette Park,42.344023,-71.057054,Transit Hub,1,9,15,1,2
+Dudley Square,42.328654,-71.084198,Park/Recreation,0,4,5,0,2
+Dudley Square - Bolling Building,42.329842993518085,-71.08386572459494,Park/Recreation,0,5,5,0,2
+Dudley Square - Dudley St at Warren St,42.32854046293402,-71.08416482806204,Park/Recreation,0,4,5,0,2
+Dudley Town Common - Mt Pleasant Ave at Blue Hill Ave,42.325333,-71.075354,Park/Recreation,0,1,1,0,1
+E Cottage St at Columbia Rd,42.320561,-71.06198,Commercial,0,17,8,0,2
+E. Cottage St at Columbia Rd,42.320561,-71.06198,Commercial,0,17,8,0,2
+EBNHC - 20 Maverick Sq,42.369562869377,-71.03942692279814,Park/Recreation,1,58,34,0,19
+EF - North Point Park,42.369885,-71.069957,Park/Recreation,2,4,4,0,5
+East Boston Neighborhood Health Center - 20 Maverick Square,42.369536,-71.039431,Park/Recreation,1,58,34,0,18
+East Somerville Library (Broadway and Illinois),42.3876281075134,-71.08318716287613,Park/Recreation,0,22,11,0,2
+Edgerly Education Center,42.38717463348314,-71.08714388528824,Park/Recreation,0,19,9,0,2
+Edwards Playground - Main St at Eden St,42.378965,-71.068607,Park/Recreation,0,10,4,0,2
+Edwards Playground - Main Street & Eden Street,42.378965,-71.068607,Park/Recreation,0,10,4,0,2
+Egleston Square - Atherton St at Washington St,42.315692,-71.098634,Park/Recreation,1,4,6,0,4
+Egleston Square at Columbus Ave,42.315692,-71.098634,Park/Recreation,1,4,6,0,4
+Elevate at One Leighton,42.369931,-71.073526,Park/Recreation,3,17,14,0,13
+Eliot Circle Revere Beach,42.402889,-70.989972,Residential,0,1,6,0,0
+Elm St at White St,42.38952436305763,-71.11694140364307,Commercial,2,59,36,3,8
+Encore,42.39329263225162,-71.0724475979805,Park/Recreation,1,13,4,0,0
+Everett Square (Broadway at Chelsea St),42.40725945172653,-71.05546381333625,Commercial,0,31,9,0,19
+Everett Square (Broadway at Norwood St),42.407381,-71.055356,Commercial,0,31,9,0,19
+Fan Pier,42.3533905070523,-71.04457139968872,Commercial,0,13,43,0,17
+Faneuil Hall - Union St. at North St.,42.360613,-71.057452,Commercial,7,103,159,2,44
+Faneuil St at Arlington St,42.35276620545606,-71.15988485533308,Park/Recreation,0,8,13,0,0
+Faneuil St at Arlington St (former),42.3528611,-71.1600278,Park/Recreation,0,8,12,0,0
+Faneuil St at Bothwell Rd,42.35334878,-71.159358,Park/Recreation,0,6,11,0,0
+Faneuil St at Market St,42.35484,-71.150226,Park/Recreation,0,4,7,0,3
+Farragut Rd at E. 6th St,42.3334,-71.02495,Park/Recreation,0,0,3,0,0
+Fenway at Forsyth Way,42.34102248,-71.09210481,Park/Recreation,2,23,46,3,9
+Ferry St at Pleasantview Ave,42.412504507772105,-71.05842225271772,Commercial,0,19,3,0,9
+Fields Corner T Stop,42.299633488420625,-71.06068975823291,Park/Recreation,1,4,8,0,1
+Flat 9 at Whittier,42.33420351352245,-71.08767616843123,Park/Recreation,2,11,14,2,1
+Foley St at Grand Union Blvd,42.39301840035393,-71.08071684837341,Park/Recreation,1,58,24,0,0
+Forest Hills,42.300923,-71.114249,Park/Recreation,2,21,7,0,7
+Forsyth St at Huntington Ave,42.339202,-71.090511,Park/Recreation,3,22,45,2,5
+Foss Park,42.39108438146733,-71.09039425849915,Park/Recreation,0,22,9,0,0
+Foss Park 2 (temp for winter),42.390509,-71.089455,Park/Recreation,0,25,9,0,1
+Four Corners - 157 Washington St,42.304127927390155,-71.07929527759552,Park/Recreation,1,0,1,0,2
+Four Corners/Geneva T Stop,42.30321534982497,-71.07820987712329,Transit Hub,1,0,0,0,2
+Franklin Park - Seaver St at Humboldt Ave,42.309796,-71.092225,Park/Recreation,0,1,1,0,0
+Franklin Park - Seaver St at Humbolt Ave,42.309796,-71.092225,Park/Recreation,0,1,1,0,0
+Franklin Park - Seaver Street at Humbolt Ave,42.309796,-71.092225,Park/Recreation,0,1,1,0,0
+Franklin Park Zoo,42.303469,-71.085347,Park/Recreation,0,1,3,0,2
+Franklin Park Zoo - Franklin Park Rd at Blue Hill Ave,42.303469,-71.085347,Park/Recreation,0,1,3,0,2
+Franklin St at Cambridge St,42.35579247,-71.13286475,Commercial,0,104,78,1,35
+Franklin St. / Arch St.,42.355402,-71.058087,Commercial,7,94,201,2,64
+Fresh Pond Reservation,42.38267827521855,-71.143478951426,Park/Recreation,0,13,2,0,2
+Galen St at Watertown St,42.36428,-71.18573,Park/Recreation,0,26,22,0,7
+Galileo Galilei Way at Fulkerson St/Binney St,42.3664204,-71.0885418,Commercial,1,16,36,1,38
+Galileo Galilei Way at Main Street,42.363003781560096,-71.08974037706501,Park/Recreation,1,14,33,1,43
+Gallivan Blvd at Adams St,42.28297567840305,-71.05466698296368,Park/Recreation,1,2,2,0,0
+Gardner St at Alcorn St,42.35320766,-71.1233029,Park/Recreation,0,30,36,1,15
+Gardner St at Harvard Ave,42.353508,-71.131932,Commercial,0,117,92,1,46
+Geiger Gibson Community Health Center,42.31886468217537,-71.04536797860419,Park/Recreation,0,2,1,1,1
+Gilman Square T at Medford St,42.3867355,-71.0946444,Park/Recreation,1,10,6,0,2
+Glendale Square (Ferry St at Broadway),42.41427294293992,-71.04479655659816,Commercial,0,50,14,0,13
+Glendon St at Condor St,42.38240377674137,-71.03024303913116,Commercial,0,25,21,0,2
+Gore Street at Lambert Street,42.373079797934935,-71.08634233665725,Commercial,0,31,16,0,7
+Gove St at Orleans St,42.37057753242139,-71.03558540113227,Park/Recreation,2,72,39,0,18
+Government Center - Cambridge St at Court St,42.3598253979878,-71.05979576244862,Commercial,7,107,142,2,46
+Governors Ave at Lawrence Rd,42.425178,-71.110386,Residential,0,0,0,0,0
+Graham and Parks School – Linnaean St at Walker St,42.38294430172271,-71.12449831038248,Commercial,0,42,22,6,10
+Gramsdorf Playground,42.408156,-71.0429,Park/Recreation,0,7,0,0,1
+Grand Union Blvd at Revolution Dr,42.391658,-71.080351,Park/Recreation,1,63,23,0,1
+Green St T,42.310579,-71.107341,Park/Recreation,1,4,5,0,7
+Green Street T Stop - Green St at Amory St,42.310579,-71.107341,Park/Recreation,1,4,5,0,7
+Grove Hall Library,42.308035,-71.081159,Park/Recreation,1,2,4,0,2
+Grove Hall Library - 41 Geneva Ave,42.30791,-71.080952,Park/Recreation,1,2,4,0,2
+Grove St at Community Path,42.396386809455,-71.12011306006025,Commercial,1,51,42,0,17
+Grove St at Community Path (former),42.3963838795032,-71.12010508775711,Commercial,1,51,42,0,17
+HMS / HSPH - Ave. Louis Pasteur at Longwood Ave.,42.337171,-71.102797,Park/Recreation,0,5,23,7,5
+HMS/HSPH - Avenue Louis Pasteur at Longwood Ave,42.3374174845973,-71.10286116600037,Park/Recreation,0,5,23,7,4
+Haines Square,42.423331368452885,-71.09124541293568,Park/Recreation,0,14,3,0,3
+Hale Park,42.41532709603205,-71.05281829839441,Commercial,0,54,15,0,11
+Hancock St at Pleasant St,42.30981924861789,-71.06019938382815,Park/Recreation,0,7,6,0,3
+Harambee Park - Westview St at Blue Hill Ave,42.2912605,-71.088675,Park/Recreation,0,0,0,0,2
+Harbor St at Channel St,42.34514378,-71.03645329,Residential,0,1,15,0,2
+Harris Park,42.41081837243052,-71.08152866385353,Park/Recreation,0,19,13,0,1
+Harrison Ave at Bennet St,42.34942609892521,-71.06209959843909,Park/Recreation,3,38,114,3,27
+Harrison Ave at Bennet St (former),42.3493102175903,-71.06210500001907,Park/Recreation,3,38,110,3,25
+Harrison Ave at E. Dedham St,42.339194,-71.06975,University,0,10,17,3,3
+Harrison Ave at Mullins Way,42.34521562115022,-71.0638403149278,Commercial,1,22,19,3,7
+Harrison Ave at Mullins Way (former),42.34510857037852,-71.06392078119825,Commercial,0,22,19,3,7
+Harvard Ave at Brainerd Rd,42.34953016890375,-71.13022770741735,Commercial,0,92,102,2,36
+Harvard Ave at Brainerd Rd (former),42.349561885454115,-71.1302706227616,Commercial,0,93,102,2,37
+Harvard Kennedy School at Bennett St / Eliot St,42.3722168027866,-71.12188071012497,Park/Recreation,1,79,61,9,12
+Harvard Law School at Mass Ave / Jarvis St,42.379011,-71.119945,Commercial,0,15,12,10,12
+Harvard Real Estate - Brighton Mills - 370 Western Ave,42.361667,-71.13802,Park/Recreation,0,12,6,1,6
+Harvard Square at Brattle St / Eliot St,42.373328,-71.120886,Park/Recreation,1,82,62,9,16
+Harvard Square at Mass Ave/ Dunster,42.373268,-71.118579,Park/Recreation,1,97,70,8,20
+Harvard St and Stedman St,42.3443517550051,-71.12490355968475,Commercial,0,55,50,0,1
+Harvard St at Greene-Rose Heritage Park,42.36599432867437,-71.09522221614498,Commercial,0,20,42,1,27
+Harvard St at Greene-Rose Heritage Park (former),42.36599406030789,-71.09516322612761,Commercial,0,19,43,1,27
+Harvard Stadium: N. Harvard St at Soldiers Field Rd,42.368019,-71.1242,Park/Recreation,0,14,21,5,3
+Harvard University / SEAS Cruft-Pierce Halls at 29 Oxford St,42.377945,-71.116865,Commercial,0,41,19,9,11
+Harvard University Gund Hall at Quincy St / Kirkland S,42.376369,-71.114025,Commercial,1,39,37,6,9
+Harvard University Gund Hall at Quincy St / Kirkland St,42.376369,-71.114025,Commercial,1,39,37,6,9
+Harvard University Housing - 111 Western Ave. at Soldiers Field Park,42.365064,-71.119233,Park/Recreation,0,4,5,5,1
+Harvard University Housing - 115 Putnam Ave at Peabody Terrace,42.366621,-71.114214,Park/Recreation,0,26,22,3,14
+Harvard University Radcliffe Quadrangle at Shepard St / Garden St,42.380287,-71.125107,Commercial,0,26,14,7,12
+Harvard University River Houses at DeWolfe St / Cowperthwaite St,42.36920617098944,-71.11687034368515,Park/Recreation,1,80,67,3,17
+Harvard University Transportation Services - 175 North Harvard St,42.363796,-71.129164,Park/Recreation,0,7,5,4,5
+Hayes Square - Vine St at Moulton St,42.377022,-71.056605,Park/Recreation,0,4,5,0,4
+Hayes Square at Vine St.,42.377022,-71.056605,Park/Recreation,0,4,5,0,4
+Heath St at South Huntington,42.32797270205962,-71.11089706420898,Park/Recreation,0,3,4,0,3
+Herter Park,42.365723613644,-71.13539289,Park/Recreation,0,7,9,2,5
+Hickey Park,42.424981,-71.098973,Park/Recreation,0,4,2,0,2
+High St at Cypress St,42.32464510949409,-71.12135231494904,Park/Recreation,0,3,2,0,0
+High St at Federal St,42.35352778,-71.05622222,Commercial,3,73,168,4,51
+Honan Library,42.36027370454934,-71.12852452327388,Park/Recreation,0,14,7,4,6
+Hood Park,42.38004534693313,-71.0730457305908,Transit Hub,1,2,1,0,4
+Hormel Stadium,42.40721644126376,-71.09651505947113,Park/Recreation,0,8,1,0,0
+Huntington Ave at Colburn St,42.33268137,-71.11083321,Park/Recreation,0,2,13,2,2
+Huntington Ave at Exeter St,42.34785628,-71.078951,Commercial,3,278,122,1,53
+Huntington Ave at Mass Art,42.336585554561154,-71.0988699646623,Park/Recreation,0,4,11,7,5
+Huntington Ave at Mass Art (former),42.33651909304393,-71.0989692435578,Park/Recreation,0,4,11,7,5
+Huntington Ave at St. Alphonsus St,42.33611341,-71.09921672,Park/Recreation,0,4,12,7,6
+Huron Ave At Vassal Lane,42.381650612901176,-71.13426981498378,Commercial,0,17,9,1,5
+Huron Ave. At Vassal Lane,42.381650612901176,-71.13426981498378,Commercial,0,17,9,1,5
+Hyde Park Ave at Arlington St,42.26286746177123,-71.12163126468657,Residential,0,1,1,0,0
+Hyde Park Ave at Walk Hill St,42.29606704649873,-71.11601199963843,Park/Recreation,0,15,8,0,3
+Hyde Park Library,42.2568376,-71.122509,Transit Hub,2,5,5,0,1
+Hyde Square - Barbara St at Centre St,42.32176525723952,-71.10984160567114,Park/Recreation,0,15,14,0,1
+Hyde Square - Centre St at Perkins St,42.32176525723952,-71.10984160567114,Park/Recreation,0,15,14,0,1
+Hyde Square at Barbara St,42.320998,-71.110833,Park/Recreation,0,17,14,0,1
+ID Building East,42.344827,-71.028664,Residential,0,0,4,0,1
+ID Building West,42.344796,-71.031614,Residential,0,0,7,0,1
+Ink Block,42.345901,-71.063187,Commercial,2,22,20,2,10
+Ink Block - Harrison Ave at Herald St,42.345901,-71.063187,Commercial,2,22,20,2,10
+Inman Square at Springfield St.,42.37426713524931,-71.10026478767395,Commercial,0,39,28,0,15
+Inman Square at Vellucci Plaza / Hampshire St,42.374035,-71.101427,Commercial,0,37,29,0,14
+Innerbelt at East Somerville Station,42.37960965003606,-71.0864374968312,Commercial,1,35,5,0,7
+Innovation Lab - 125 Western Ave at Batten Way,42.36371276003581,-71.12459778785706,Park/Recreation,0,5,5,4,2
+Innovation Lab - 125 Western Ave. at Batten Way,42.363732,-71.124565,Park/Recreation,0,5,5,4,2
+Ipswich St at Van Ness St,42.3458089,-71.09548545,Park/Recreation,2,31,56,2,14
+JFK / UMASS at MBTA Station,42.320494,-71.051122,Park/Recreation,2,15,3,0,2
+JFK Crossing at Harvard St. / Thorndike St.,42.346551241753566,-71.1283321143128,Commercial,0,54,44,0,14
+JFK/UMass T Stop,42.32033973515723,-71.05118036270142,Park/Recreation,2,16,3,0,2
+JP Center - Centre Street at Myrtle Street,42.313156,-71.11414,Park/Recreation,0,30,22,0,12
+Jackson Square T Stop,42.32293117195949,-71.10014140605927,Park/Recreation,1,4,2,0,3
+Jackson Square T at Centre St,42.322701,-71.099533,Park/Recreation,1,4,2,0,4
+Jamaica St at South St,42.3060456272408,-71.11570891001975,Park/Recreation,0,26,9,0,10
+Jamaicaway at Perkins St,42.321251,-71.116483,Park/Recreation,0,8,7,0,0
+Jersey St. at Boylston St.,42.3446808403874,-71.09785348176956,Park/Recreation,2,33,48,4,13
+John Ahern Field at Kennedy-Longfellow School,42.36903566594827,-71.08630959910442,Park/Recreation,0,19,24,1,21
+John F Fitzgerald - Surface Road at India Street,42.358155,-71.052163,Commercial,4,47,99,1,39
+Kearins Playground,42.40616124132245,-71.06041654944418,Park/Recreation,0,8,6,0,9
+Kendall Street,42.36356015842989,-71.08216792345047,Park/Recreation,1,21,35,1,32
+Kendall T,42.3624278429124,-71.08495473861694,Park/Recreation,1,13,35,1,35
+Kenmore Sq / Comm Ave,42.348706,-71.097009,Park/Recreation,2,30,37,1,15
+Kenmore Square,42.348706,-71.097009,Park/Recreation,2,30,37,1,15
+Kenmore Square - 660 Beacon St,42.34922,-71.095751,Park/Recreation,2,22,28,1,12
+Kennedy-Longfellow School 158 Spring St,42.36955297756508,-71.08579014980933,Commercial,0,25,22,1,18
+Kierstead Park,42.4293383849641,-71.05191290060668,Commercial,0,21,6,0,3
+Knoll St at Centre St,42.29376656473529,-71.1365658044815,Park/Recreation,0,0,0,0,0
+Lafayette Square at Mass Ave / Main St / Columbia St,42.36346469304347,-71.10057324171066,Commercial,2,44,56,1,32
+Lake St. at Minuteman Bikeway,42.4041703390082,-71.14690375265656,Park/Recreation,0,20,12,0,5
+Landmark Center - Brookline Ave at Park Dr,42.34369055719747,-71.10235286881107,Park/Recreation,3,29,56,4,13
+Landmark Centre,42.343912,-71.102221,Park/Recreation,3,29,55,4,12
+Langley Lot,42.330528,-71.192861,Park/Recreation,1,10,16,0,2
+Lansdowne T Stop,42.34734473177431,-71.1001680795016,Park/Recreation,3,39,65,3,16
+Lawn on D,42.344792,-71.044024,Park/Recreation,0,1,13,0,4
+Lechmere Canal Park,42.36984,-71.076079,Park/Recreation,2,21,20,0,13
+Lechmere Station at Cambridge St / First St,42.370677,-71.076529,Park/Recreation,2,22,18,0,11
+Lenox St at Kendall St,42.33759485033856,-71.08255058528357,Commercial,1,28,40,2,6
+Lesley University,42.38674802045056,-71.11901879310608,Commercial,2,67,41,5,11
+Lewis Mall Wharf,42.365678711213775,-71.04030132293701,Park/Recreation,1,21,20,0,5
+Lewis Wharf - Atlantic Ave.,42.363871,-71.050877,Commercial,1,57,89,0,2
+Lewis Wharf at Atlantic Ave,42.363871,-71.050877,Commercial,1,57,89,0,2
+Lincoln St at Empire St,42.357651,-71.128513,Commercial,0,47,19,3,7
+Linear Park - Mass. Ave. at Cameron Ave.,42.397828,-71.130516,Commercial,0,31,9,0,14
+Linwood St at Minuteman Bikeway,42.40935395518158,-71.14906518727366,Park/Recreation,0,24,4,0,8
+Logan Park,42.41800742890374,-71.0965722102992,Park/Recreation,0,10,4,0,2
+Longwood Ave / Binney St,42.338629,-71.1065,Park/Recreation,1,2,12,8,4
+Longwood Ave at Binney St,42.338629,-71.1065,Park/Recreation,1,2,12,8,4
+Lower Cambridgeport at Magazine St / Riverside Rd,42.357218503176526,-71.1138716340065,Park/Recreation,0,7,5,2,2
+Lower Cambridgeport at Magazine St/Riverside Rd,42.356954,-71.113687,Park/Recreation,0,8,5,2,2
+MIT Carleton St at Amherst St,42.36054174140606,-71.08669817447662,Park/Recreation,1,11,32,1,29
+MIT Hayward St at Amherst St,42.36085937353302,-71.08551858007559,Park/Recreation,1,11,30,1,32
+MIT Pacific St at Purrington St,42.35957320109044,-71.10129475593567,Park/Recreation,0,12,31,1,25
+MIT Stata Center at Vassar St / Main St,42.3621312344991,-71.09115600585936,Park/Recreation,1,10,37,1,35
+MIT Vassar St,42.355601213279265,-71.10394477844238,Park/Recreation,0,4,2,2,8
+MIT at Mass Ave / Amherst St,42.3581,-71.093198,Park/Recreation,0,5,15,1,19
+MLK Blvd at Washington St,42.32143814183195,-71.09126061201096,Park/Recreation,0,1,0,0,2
+Magoun Square at Trum Field,42.39778339961249,-71.10594004465383,Park/Recreation,2,11,5,0,3
+Main St at Austin St,42.375603,-71.064608,Park/Recreation,1,10,11,0,1
+Main St at Baldwin St,42.380857,-71.070629,Park/Recreation,0,4,2,0,5
+Main St at Beacon St,42.41072713868097,-71.06266822675025,Park/Recreation,0,2,1,0,0
+Main St at Brooks Park,42.411709,-71.110444,University,0,8,5,1,0
+Main St at Devens St,42.37401575,-71.06331387,Park/Recreation,0,10,11,0,4
+Main St at Salem St,42.3771,-71.06646,Transit Hub,1,10,8,0,2
+Main St at Thompson Sq,42.374878467440965,-71.06383498767171,Park/Recreation,0,10,11,0,1
+Main St at Thompson Sq (former),42.374917,-71.063829,Park/Recreation,0,10,11,0,1
+Main Street at Carter Street,42.406151572663504,-71.0604074504954,Park/Recreation,0,8,6,0,9
+Main Street/Albany Street/Technology Square,42.3629016,-71.0915669,Park/Recreation,1,11,38,1,39
+Malden Center T Station,42.426541,-71.073179,Commercial,2,49,35,0,12
+Malden High School,42.426537658440544,-71.06393694877625,Commercial,0,35,38,0,4
+Maplewood Square,42.43359,-71.046279,Commercial,0,12,8,0,3
+Marion St at Harvard St,42.340122426966424,-71.12070563810447,Commercial,0,50,40,0,0
+Marion St at White St,42.38066930871317,-71.03907315999093,Commercial,0,17,2,0,0
+Market St at Faneuil St,42.35480179069945,-71.15025043487549,Park/Recreation,0,4,7,0,3
+Market St at Mapleton St,42.35207673,-71.151571,Park/Recreation,0,7,17,0,2
+Martha Eliot Health Center,42.324173,-71.10196,Park/Recreation,1,6,3,0,2
+Mass Ave T Station,42.34135615767354,-71.08336953450817,Commercial,2,47,58,3,10
+Mass Ave at Albany St,42.36135837662249,-71.09670273977825,Park/Recreation,1,22,46,1,36
+Mass Ave at Alewife Greenway,42.401364806487635,-71.13655772883486,Commercial,0,37,20,0,7
+Mass Ave at Broadway,42.414202132001854,-71.15051883389242,Park/Recreation,0,42,26,0,15
+Mass Ave at Grafton St,42.40726052447951,-71.14382132425817,Commercial,0,42,17,0,8
+Mass Ave at Hadley/Walden,42.39120971915856,-71.12260755160605,Commercial,2,72,49,3,16
+Mass Ave at Hadley/Walden (former),42.39138548863825,-71.12288117408751,Commercial,2,70,52,3,16
+Mass Ave at Newmarket Square,42.326599,-71.066498,Commercial,1,15,13,0,0
+Mass Ave/Lafayette Square,42.36356498989399,-71.10044184048091,Commercial,2,44,56,1,32
+Massachusetts Ave at Boylston St.,42.34752,-71.088012,Park/Recreation,1,145,86,4,32
+Massachusetts Ave at Columbus Ave,42.340814,-71.0816197,Commercial,2,47,55,3,8
+Mattapan Library,42.2773889,-71.09325,Park/Recreation,0,0,0,0,1
+Mattapan Library (former),42.2773889,-71.09325,Park/Recreation,0,0,0,0,1
+Mattapan T Stop,42.267902,-71.093641,Park/Recreation,2,0,2,0,0
+Mattapan T Stop (former),42.267902,-71.093641,Park/Recreation,2,0,2,0,0
+Maverick Sq - Lewis Mall,42.368838571365195,-71.03976666949166,Park/Recreation,1,48,31,0,15
+Maverick Square - Lewis Mall,42.36884408289835,-71.03977829217911,Park/Recreation,1,48,31,0,15
+Maverick St at Massport Path,42.36774122306014,-71.0333597474255,Park/Recreation,0,35,19,0,12
+Mayor Martin J Walsh - 28 State St,42.35892,-71.057629,Park/Recreation,8,94,147,2,53
+Meaney Playground - Pleasant St at E Cottage St,42.31870274532011,-71.05889977661718,Commercial,0,18,7,0,2
+Meaney Playground - Pleasant st at E Cottage St,42.318703,-71.0589,Commercial,0,18,7,0,2
+Medford Sq - Riverside Ave at River St,42.417724,-71.108102,Park/Recreation,0,15,15,0,3
+Medford St at Charlestown BCYF,42.380429474494896,-71.06055721676967,Park/Recreation,0,6,2,0,2
+Medford St at Charlestown BCYF (former),42.380584,-71.060875,Park/Recreation,0,6,2,0,2
+Medford St at McNulty Ct,42.37916,-71.0578627,Park/Recreation,0,6,2,0,3
+Medford St at Warren St,42.41649057463282,-71.14813429053619,Park/Recreation,0,33,22,0,14
+Medford St. at Warren St.,42.41649057463282,-71.14813429053619,Park/Recreation,0,33,22,0,14
+Melnea Cass Blvd at Hampden St,42.330982,-71.075526,Park/Recreation,0,4,2,1,2
+Mill St. at Minuteman Bikeway,42.4186027386165,-71.15753579744356,Park/Recreation,0,34,19,0,12
+Mobile Temporary Station,42.34397624831833,-71.08598473086202,Park/Recreation,3,120,87,3,17
+Moore Youth Center,42.363539,-71.111698,Park/Recreation,0,13,12,2,10
+Morgan Ave at North First St,42.37197725963389,-71.07585847383234,Park/Recreation,2,14,15,0,10
+Morton St T,42.280725142920296,-71.08617242434775,Transit Hub,1,0,1,0,1
+Morton St T (former),42.28075382961448,-71.08621831150231,Transit Hub,1,0,1,0,1
+Morton St at Gallivan Blvd,42.278747,-71.080286,Transit Hub,1,0,1,0,1
+Mt Auburn,42.37478628706384,-71.13320231437683,Park/Recreation,0,0,0,2,1
+Mt Pleasant Ave / Dudley Town Common,42.325333,-71.075354,Park/Recreation,0,1,1,0,1
+Mt. Hope St at Hyde Park Ave,42.28484472443536,-71.11874517062459,Park/Recreation,0,1,1,0,0
+Mugar Way at Beacon St,42.35553628489709,-71.07286870479584,Park/Recreation,1,164,28,0,37
+Murphy Skating Rink - 1880 Day Blvd,42.336448,-71.023739,Park/Recreation,0,0,3,0,0
+Museum of Science,42.36769018024484,-71.07116281986237,Park/Recreation,2,11,9,0,7
+Mystic Ave at Crescent St,42.41081,-71.106276,Park/Recreation,0,8,4,1,0
+Mystic Valley Parkway at River Station,42.415091,-71.139177,Park/Recreation,0,8,1,0,0
+N. Beacon St at N. Beacon Ct,42.36444157139109,-71.18091373646166,Park/Recreation,0,25,21,0,6
+N. Harvard St at Harvard Way,42.36678297,-71.12517547,Park/Recreation,0,3,5,4,1
+NCAAA - Walnut Ave at Crawford St,42.316902,-71.091946,Park/Recreation,0,2,1,0,3
+Nashua Street at Red Auerbach Way,42.365673,-71.064263,Park/Recreation,5,26,32,0,14
+Nashua Street at Red Auerbach Way [Extension],42.3658584571002,-71.064157369577,Park/Recreation,5,22,32,0,14
+New Balance - 20 Guest St,42.35732921867706,-71.14673539996147,Park/Recreation,0,11,12,0,5
+New Balance - 20 Guest St.,42.357402,-71.147782,Park/Recreation,0,9,12,0,4
+New Balance Store - Boylston at Dartmouth,42.350413,-71.07655,Park/Recreation,4,274,99,0,56
+New Edgerly Plaza - Westland Ave at Edgerly Rd,42.34367194,-71.08742,Park/Recreation,3,74,76,3,16
+Newbury St / Hereford St,42.348717,-71.085954,Park/Recreation,1,207,106,2,36
+Newbury St at Hereford St,42.348717,-71.085954,Park/Recreation,1,207,106,2,36
+Newmarket Square T Stop - Massachusetts Ave at Newmarket Square,42.326599,-71.066498,Commercial,1,15,13,0,0
+Nichols Ave. at Watertown Greenway,42.36762048745005,-71.1565663665533,Park/Recreation,0,23,14,0,5
+Norman St at Kelvin St,42.40985877544303,-71.06631867605756,Park/Recreation,0,2,1,0,0
+Northampton St at Fellows St,42.333586070395285,-71.075188,University,0,7,7,2,3
+Northbourne Rd at Hyde Park Ave,42.29118034790426,-71.117736660035,Park/Recreation,0,5,2,0,0
+Northeastern U / North Parking Lot,42.341814,-71.090179,Park/Recreation,1,38,50,3,8
+Northeastern University - North Parking Lot,42.341814,-71.090179,Park/Recreation,1,38,50,3,8
+Northern Ave at Haul Rd,42.347181,-71.035796,Residential,0,1,17,0,2
+Northern Strand - West St & Wellington Ave,42.403444,-71.063278,Park/Recreation,0,11,2,0,0
+Northern Strand at Bike Kitchen,42.42083422873447,-71.07216525162619,Commercial,0,17,13,0,7
+Northern Strand at Main St,42.42386,-71.067793,Commercial,0,39,41,0,10
+Northern Strand at Salem Street,42.441956,-71.01468,Residential,0,0,0,0,0
+Northhampton St at Fellows St,42.333586070395285,-71.075188,University,0,7,7,2,3
+Nubian Square - Bolling Building,42.329842993518085,-71.08386572459494,Park/Recreation,0,5,5,0,2
+O'Brien Highway at First Street,42.370982,-71.076638,Park/Recreation,2,21,17,0,11
+Oak Square - 615 Washington St,42.35057,-71.166491,Park/Recreation,0,4,11,2,1
+Oak Square - Washington St at Bigelow St,42.35062298,-71.16744293,Park/Recreation,0,4,11,2,1
+Oak Square YMCA,42.35048161669747,-71.16636693499458,Park/Recreation,0,4,11,2,1
+Old Morse Park at Putnam Ave,42.35766247889882,-71.1084133386612,Park/Recreation,0,9,4,2,6
+One Beacon St,42.358477644348106,-71.06135129928589,Commercial,7,88,121,2,48
+One Brigham Circle,42.33392270136997,-71.10446508982932,Park/Recreation,0,6,18,5,2
+One Brigham Circle (former),42.333919727205775,-71.10446777203833,Park/Recreation,0,6,18,5,2
+One Broadway / Kendall Sq at Main St / 3rd St,42.36224178650923,-71.0831107199192,Park/Recreation,1,12,33,1,31
+One Kendall Square at Hampshire St / Portland St,42.366277,-71.09169,Commercial,1,13,33,1,29
+One Memorial Drive,42.361619320766856,-71.0804355052096,Park/Recreation,1,8,22,1,24
+Orient Heights T Stop - Bennington St at Saratoga St,42.386781,-71.006098,Park/Recreation,1,12,12,0,1
+Orr Sq (Shirley Ave),42.40715655698643,-70.99272429943085,Transit Hub,1,10,17,0,0
+Packard Ave / Powderhouse Blvd,42.40449,-71.123413,Commercial,0,11,9,1,4
+Packard Ave at Powderhouse Blvd,42.40449,-71.123413,Commercial,0,11,9,1,4
+Packard's Corner - Comm. Ave. at Brighton Ave.,42.352261,-71.123831,Park/Recreation,0,35,37,1,16
+Packard's Corner - Commonwealth Ave at Brighton Ave,42.352261,-71.123831,Park/Recreation,0,35,37,1,16
+Park Dr at Buswell St,42.347241,-71.105301,Park/Recreation,3,35,58,4,13
+Park Plaza at Charles St,42.351828068920675,-71.06781138111728,Park/Recreation,4,82,88,3,35
+Park Plaza at Charles St (former),42.35186,-71.067688,Park/Recreation,4,83,90,3,35
+Park Plaza at Charles St S.,42.351828068920675,-71.06781138111728,Park/Recreation,4,82,88,3,35
+Park Plaza at Columbus Ave,42.35186,-71.067688,Park/Recreation,4,83,90,3,35
+Park St at Norwell St,42.29442578670662,-71.07821760713703,Park/Recreation,1,0,1,0,0
+Park Street T Stop - Tremont St at Park St,42.3566271,-71.062457,Park/Recreation,6,84,128,2,42
+Parker St at Huntington Ave,42.3384884941905,-71.09261138044758,Park/Recreation,2,12,33,3,4
+Pearl St at Medford St,42.388157054195254,-71.09588742256165,Park/Recreation,1,25,8,0,2
+Pearl St at Milk St,42.35677593,-71.05549774,Commercial,5,83,145,2,53
+Perry Park,42.37927324600841,-71.10341902831351,Commercial,0,50,30,0,5
+Pier 4 Blvd at Autumn Ln,42.3502102,-71.0446705,Commercial,0,14,46,0,17
+Piers Park,42.36501119822304,-71.03528559207916,Park/Recreation,1,16,13,0,4
+Piers Park- Marginal St at East Boston Shipyard,42.36489045541549,-71.0350424052376,Park/Recreation,1,15,12,0,4
+Pope John High School,42.420348701645025,-71.04419767862055,Commercial,0,26,9,0,4
+Pope John Paul II Park - Neponset Trail at Hallet St,42.279774,-71.046085,Park/Recreation,0,4,0,0,0
+Porter Square Station,42.387995,-71.119084,Commercial,2,70,38,3,8
+Porzio Park,42.364119035231525,-71.02876782417297,Park/Recreation,0,2,7,0,2
+Post Office Square,42.35585435522005,-71.05459745998814,Commercial,6,74,152,2,55
+Post Office Square - Pearl St at Milk St,42.356755,-71.055407,Commercial,5,83,145,2,53
+Powder House Circle - Nathan Tufts Park,42.400877,-71.116772,Transit Hub,2,14,15,1,2
+Prudential Center - 101 Huntington Ave,42.34652003998412,-71.08065776545118,Commercial,4,240,135,2,45
+Prudential Center - Belvedere St,42.34652003998412,-71.08065776545118,Commercial,4,240,135,2,45
+Prudential Center / Belvidere,42.345959,-71.082578,Commercial,3,240,136,3,39
+Purchase St at Pearl St,42.354659,-71.053181,Commercial,3,47,124,1,51
+Railroad Lot and Minuteman Bikeway,42.41606457115141,-71.15336636682059,Park/Recreation,0,41,30,0,20
+Raymond Park at Walden St,42.38736953747185,-71.12761001482795,Park/Recreation,0,15,4,1,6
+Reservoir Rd at Beacon St,42.331459,-71.157672,Park/Recreation,0,0,0,2,0
+Revere Beach - Markey Footbridge,42.414019,-70.989609,Transit Hub,1,1,4,0,0
+Revere City Hall,42.40741,-71.0139,Park/Recreation,0,0,0,0,1
+Revere Public Library,42.408088,-71.008942,Park/Recreation,0,1,0,0,1
+Rindge Avenue - O'Neill Library,42.392766,-71.129042,Park/Recreation,0,29,8,0,12
+Ring Rd,42.348278385426255,-71.08044855314802,Park/Recreation,3,281,127,2,53
+Ringer Park - Webley St at Armington St,42.35225564,-71.13718336,Commercial,0,123,81,1,42
+Riverway at Brookline Ave,42.33661005730433,-71.11004680395126,Park/Recreation,0,4,19,4,3
+Rogers St & Land Blvd,42.366446738529454,-71.07654601335526,Park/Recreation,0,13,20,0,22
+Roseland St At Dorchester Ave,42.2911685327193,-71.06300890445709,Transit Hub,1,0,0,0,0
+Roslindale Village - South St,42.287072,-71.127754,Park/Recreation,1,6,7,0,0
+Roslindale Village - South St (former),42.287072,-71.127754,Park/Recreation,1,6,7,0,0
+Roslindale Village - Washington St,42.28630716010807,-71.12820532182013,Park/Recreation,1,6,7,0,0
+Roslindale Village - Washington St (former),42.2861532,-71.1283744,Park/Recreation,1,6,7,0,0
+Ross Playground,42.2645666,-71.1145523,Park/Recreation,0,2,2,0,0
+Rowes Wharf - Atlantic Ave,42.357143,-71.050699,Commercial,1,38,82,0,29
+Rowes Wharf at Atlantic Ave,42.357143,-71.050699,Commercial,1,38,82,0,29
+Roxbury Crossing Station,42.331184,-71.095171,Park/Recreation,1,1,4,4,2
+Roxbury Crossing T Stop - Columbus Ave at Tremont St,42.331184,-71.095171,Park/Recreation,1,1,4,4,2
+Roxbury YMCA,42.317963,-71.082254,Park/Recreation,0,0,1,0,2
+Roxbury YMCA - Warren St at MLK Blvd,42.31787329345602,-71.08243077993393,Park/Recreation,0,0,1,0,2
+Ruggles Station / Columbus Ave.,42.335911,-71.088496,Park/Recreation,2,12,26,2,1
+Ruggles T Stop - Columbus Ave at Melnea Cass Blvd,42.33624444796878,-71.08798563480377,Park/Recreation,2,13,27,2,1
+Rutherford Ave at Bunker Hill Industrial Park,42.379352,-71.071371,Park/Recreation,0,5,4,0,3
+Rutherford Ave at Main St,42.38385,-71.073114,Park/Recreation,1,4,3,0,5
+Ryan Playground - Dorchester Ave at Harbor View St,42.317642,-71.056664,Park/Recreation,2,22,6,0,1
+Ryan Playground - Dorchester Avenue Station,42.317642,-71.056664,Park/Recreation,2,22,6,0,1
+S Huntington Ave at Heath St,42.32760387040573,-71.11089169979095,Park/Recreation,0,3,4,0,2
+Savin Hill MBTA Station,42.310599,-71.053927,Park/Recreation,1,11,7,0,1
+Savin Hill T Stop - S Sydney St at Bay St,42.3106,-71.0539,Park/Recreation,1,11,7,0,1
+Seaport Blvd at Sleeper St,42.35317809186252,-71.04817356923377,Commercial,0,17,54,0,28
+Seaport Hotel,42.348833,-71.041747,Commercial,0,8,42,0,7
+Seaport Hotel - Congress St at Seaport Ln,42.34881026188269,-71.04167744055303,Commercial,0,8,42,0,7
+Seaport Square - Seaport Blvd at Northern Ave,42.35148193460858,-71.04436084628105,Commercial,0,13,46,0,16
+Seaport Square - Seaport Blvd. at Boston Wharf,42.351205,-71.043983,Commercial,0,12,46,0,13
+Sennott Park  Broadway at Norfolk Street,42.36860524248197,-71.09930185605663,Commercial,2,50,36,0,16
+Sennott Park Broadway at Norfolk Street,42.36860524248197,-71.09930185605663,Commercial,2,50,36,0,16
+Shawmut Ave at E Berkeley St,42.344607,-71.06702,Commercial,0,32,36,3,11
+Shawmut Ave at Herald St,42.346647,-71.066049,Commercial,1,34,67,4,18
+Shawmut Ave at Lenox St,42.33584612997077,-71.08038157224655,Park/Recreation,0,14,16,2,2
+Shawmut Ave at Oak St W,42.34854543411198,-71.06559185315746,Park/Recreation,3,59,110,4,25
+Shawmut Ave. at Herald St.,42.346647,-71.066049,Commercial,1,34,67,4,18
+Shawmut T Stop,42.292917,-71.06575,Transit Hub,1,1,2,0,1
+Sidney Research Campus/ Erie Street at Waverly,42.35775309465199,-71.10393404960632,Park/Recreation,0,6,5,2,22
+Sidney Research Campus/Erie Street at Waverly,42.35775309465199,-71.10393404960632,Park/Recreation,0,6,5,2,22
+Silber Way,42.34949599514002,-71.10057592391968,Park/Recreation,3,24,39,2,14
+Smith Pl at Wilson Rd,42.39239749145834,-71.15058331757609,Park/Recreation,0,5,3,0,3
+Smith St at Parker St,42.33290175,-71.09683344,Park/Recreation,1,2,4,5,3
+Soldiers Field Park - 111 Western Ave,42.36426344063853,-71.1182756971175,Park/Recreation,0,4,4,5,1
+Somerville City Hall,42.386844,-71.09812,Commercial,1,14,9,0,4
+Somerville City Hall Annex,42.39189811591863,-71.09745375830244,Commercial,1,25,7,0,3
+Somerville High School & Central Library,42.3864,-71.09601,Transit Hub,1,12,6,0,2
+Somerville Hospital,42.390446216041305,-71.10856622457504,Commercial,1,13,14,0,3
+Somerville Hospital at Highland Ave / Crocker St,42.39082,-71.10942,Commercial,1,12,9,0,1
+South Boston Library - 646 E Broadway,42.335741,-71.03877,Park/Recreation,0,2,8,0,3
+South Boston Library - 646 East Broadway,42.335741,-71.03877,Park/Recreation,0,2,8,0,3
+South End Library - Tremont St at W Newton St,42.341332,-71.076847,Commercial,0,28,35,1,9
+South Station - 700 Atlantic Ave,42.352175,-71.055547,Commercial,3,50,124,4,46
+South Station - 700 Atlantic Ave.,42.352175,-71.055547,Commercial,3,50,124,4,46
+Spaulding Rehabilitation Hospital - Charlestown Navy Yard,42.378338,-71.048927,Park/Recreation,0,0,1,0,1
+Spring St at Powell St,42.277484442008216,-71.16341467955863,Transit Hub,1,2,0,0,1
+St Mary's,42.346197076555455,-71.10728681087494,Park/Recreation,3,21,33,6,8
+St. Alphonsus St at Tremont St,42.33329254719182,-71.10124647617339,Park/Recreation,1,5,16,5,4
+Stadium Rd at Western Ave,42.3630602068896,-71.1250450322948,Park/Recreation,0,5,5,4,3
+Staniford St at Merrimac St,42.36358,-71.063721,Park/Recreation,8,43,56,1,18
+Staniford at Merrimac,42.36358,-71.063721,Park/Recreation,8,43,56,1,18
+State Street at Channel Center,42.344137,-71.052608,Transit Hub,1,6,12,0,4
+Steve Miller Dr at Winthrop St (Medford High),42.428086,-71.12636,Park/Recreation,0,0,0,0,0
+Stony Brook T Stop,42.316966,-71.104374,Park/Recreation,1,5,5,0,1
+Stuart St at Berkeley St,42.34954403114251,-71.0724207387284,Park/Recreation,4,174,69,1,53
+Stuart St at Charles St,42.351146,-71.066289,Park/Recreation,5,76,118,4,30
+Stuart St at Church St,42.35066667,-71.06830556,Park/Recreation,4,93,79,4,37
+Stuart St. at Charles St.,42.351146,-71.066289,Park/Recreation,5,76,118,4,30
+Sullivan Square,42.38445225635843,-71.07514854529654,Transit Hub,1,8,5,0,5
+Summer St at Cutter St,42.394002,-71.120406,Commercial,1,68,47,0,21
+Summer St at Quincy St,42.383709,-71.09983,Commercial,1,66,41,0,8
+Sumner St at Shirley Ave,42.408337058129746,-70.99804848432541,Commercial,1,12,18,0,3
+Surface Rd at India St,42.358155,-71.052163,Commercial,4,47,99,1,39
+Surface Rd at State Street,42.359743,-71.052602,Commercial,4,69,127,1,33
+Surface Rd at Summer St,42.35294569782581,-71.05656400803126,Park/Recreation,5,66,154,4,47
+Swan Pl. at Minuteman Bikeway,42.414705,-71.152377,Park/Recreation,0,42,28,0,17
+Swan Place at Minuteman Bikeway,42.414705,-71.152377,Park/Recreation,0,42,28,0,17
+Swan St. Park,42.412504507772105,-71.05842225271772,Commercial,0,19,3,0,9
+Sydney St at Carson St,42.32039374304257,-71.05355408051764,Park/Recreation,2,16,3,0,1
+TD Garden - Causeway at Portal Park #1,42.365942,-71.060515,Commercial,5,36,68,0,12
+TD Garden - Causeway at Portal Park #2,42.366222,-71.059914,Commercial,5,42,78,0,11
+TD Garden - West End Park,42.36590788445084,-71.06446668505669,Park/Recreation,4,22,31,0,15
+Talbot Ave At Blue Hill Ave,42.2945833,-71.087111,Park/Recreation,0,1,0,0,2
+Talbot Ave At Blue Hill Ave (former),42.2945833,-71.087111,Park/Recreation,0,1,0,0,2
+Talbot Ave T Station,42.29225148276875,-71.07797205453608,Park/Recreation,1,1,1,0,0
+Tappan St at Brookline Hills MBTA,42.331370168043215,-71.126884,Park/Recreation,1,11,3,0,0
+Teele Square,42.40088,-71.125908,Commercial,1,33,23,1,9
+Teele Square at 239 Holland St,42.402763,-71.126908,Commercial,0,18,12,1,4
+The Dimock Center,42.3193094317828,-71.09639923859504,Park/Recreation,1,1,4,0,4
+The Eddy - New St at Sumner St,42.370744,-71.044201,Commercial,1,51,36,0,16
+The Eddy at New Street,42.37078454600501,-71.04426160454749,Commercial,1,51,37,0,17
+The Esplanade - Beacon St. at Arlington St.,42.355596,-71.07278,Park/Recreation,1,163,27,0,37
+The Lawn on D,42.344792,-71.044024,Park/Recreation,0,1,13,0,4
+The Overlook at St. Gabriel's,42.34679008347347,-71.14549813806661,Park/Recreation,0,11,11,0,2
+Thetford Ave at Norfolk St,42.286212948246096,-71.07942931372236,Residential,0,0,0,0,1
+Thetford Ave at Norfolk St (former),42.286251,-71.079463,Residential,0,0,0,0,1
+Third at Binney,42.36544486137399,-71.08277142047882,Park/Recreation,1,17,38,1,34
+Thorndike Field at Minuteman Bikeway,42.40016804853787,-71.14456963094199,Park/Recreation,1,12,5,0,3
+Tremont St / W Newton St,42.341332,-71.076847,Commercial,0,28,35,1,9
+Tremont St / West St,42.354979,-71.063348,Park/Recreation,5,95,176,4,37
+Tremont St at Court St,42.359086,-71.05971,Commercial,7,100,142,2,47
+Tremont St at E Berkeley St,42.345392,-71.069616,Commercial,3,39,48,2,16
+Tremont St at Hamilton Pl,42.35668334969929,-71.06166645884514,Park/Recreation,6,86,136,2,53
+Tremont St at Hamilton Place,42.35668334969929,-71.06166645884514,Park/Recreation,6,86,136,2,53
+Tremont St at Northampton St,42.338432,-71.08169,Commercial,2,30,44,3,5
+Tremont St at Northampton St (former),42.33884970690809,-71.08140613892829,Commercial,2,34,41,3,6
+Tremont St at W. Dedham St,42.34254913737952,-71.07421449387857,Commercial,0,27,41,2,14
+Tremont St at West St,42.354979,-71.063348,Park/Recreation,5,95,176,4,37
+Tremont St. at Berkeley St.,42.345392,-71.069616,Commercial,3,39,48,2,16
+Tremont St. at Court St.,42.359322,-71.059624,Commercial,7,99,143,2,46
+Troy Boston,42.343749,-71.062256,Commercial,1,17,18,2,3
+Trum Field @ Cedar St (Temp Winter Station),42.398444,-71.107833,Park/Recreation,2,15,10,1,3
+Truman Parkway at Fairmount Ave,42.252287,-71.118358,Transit Hub,1,3,4,0,1
+Tufts Sq - Main St at Medford St,42.401697,-71.106128,Park/Recreation,1,11,7,0,2
+UMass Boston Integrated Sciences Complex,42.3139036,-71.0405121,Park/Recreation,0,0,2,1,3
+Union Square - Brighton Ave at Cambridge St,42.353334,-71.137313,Commercial,0,112,73,1,41
+Union Square - Brighton Ave. at Cambridge St.,42.353334,-71.137313,Commercial,0,112,73,1,41
+Union Square - Somerville,42.37964789967527,-71.095319,Commercial,1,80,41,0,10
+Union Square East,42.380078,-71.090098,Commercial,2,45,19,0,8
+Union Square East (Temp Winter Station),42.380078,-71.090098,Commercial,2,45,19,0,8
+Union Square Station,42.377309,-71.094428,Commercial,1,96,58,0,19
+Union St at Herrick Rd,42.329607,-71.193701,Park/Recreation,1,10,16,0,5
+Union St at Herrick Rd – Newton Centre Green Line,42.32956868185623,-71.19367271661758,Park/Recreation,1,10,16,0,5
+University Park,42.36264779118595,-71.10006093978882,Commercial,2,43,59,1,31
+University of Massachusetts Boston - Campus Center,42.31218918475612,-71.03648586203235,Park/Recreation,0,0,2,1,2
+University of Massachusetts Boston - Integrated Sciences Complex,42.314507,-71.041269,Park/Recreation,0,1,3,1,1
+Upham's Corner,42.31727474327453,-71.06537003967787,Transit Hub,1,4,3,0,1
+Upham's Corner - Columbia Rd,42.31756858003556,-71.06403708501603,Transit Hub,1,4,3,0,1
+Upham's Corner - Ramsey St at Dudley St,42.317225,-71.065421,Transit Hub,1,4,3,0,1
+Upham's Corner T Stop,42.318843823601064,-71.06975734233856,Transit Hub,1,2,1,0,0
+Upham's Corner T Stop - Magnolia St at Dudley St,42.318697341722434,-71.0697814822197,Transit Hub,1,2,1,0,0
+Upham's Corner TEMPORARY WINTER LOCATION,42.31750891943043,-71.06416625906604,Transit Hub,1,4,3,0,1
+Uphams Corner,42.31727474327453,-71.06537003967787,Transit Hub,1,4,3,0,1
+Uphams Corner T Stop - Magnolia St at Dudley St,42.318697341722434,-71.0697814822197,Transit Hub,1,2,1,0,0
+Valenti Way at Haverhill St,42.36473898691789,-71.05934903025626,Commercial,6,61,100,1,14
+Vassal Lane at Tobin VLUS,42.384233,-71.140329,Park/Recreation,0,17,7,0,3
+Vassal Lane at Tobin/VLUS,42.38536765218425,-71.137757,Park/Recreation,0,27,10,0,4
+Vassal Lane at Tobin/VLUS (former),42.383928224564585,-71.13962350417751,Park/Recreation,0,19,8,0,3
+Verizon Innovation Hub 10 Ware Street,42.37250864997261,-71.11305356025696,Park/Recreation,1,48,44,1,18
+Vinnin Square,42.48628784971989,-70.90166732668875,Residential,0,10,9,0,0
+W Broadway at D St,42.3391085,-71.0514432,Transit Hub,1,6,26,0,2
+W Broadway at Dorchester St,42.335958979433094,-71.04622899561036,Residential,0,3,13,0,3
+Walbridge St at Commonwealth Ave,42.34775567,-71.1356758,Commercial,0,48,32,1,20
+Walk Hill St at American Legion,42.28801503,-71.10730608,Residential,0,7,3,0,0
+Walnut Ave at Crawford St,42.316873,-71.091955,Park/Recreation,0,2,1,0,3
+Walnut Ave at School St,42.31242399029812,-71.09616905450821,Park/Recreation,0,2,3,0,0
+Walnut Ave at Warren St,42.324081,-71.083235,Park/Recreation,0,0,1,0,0
+Warren Ave at Dartmouth St,42.3443104650768,-71.0740339266782,Commercial,2,39,50,1,19
+Warren St at Chelsea St,42.371848,-71.060292,Park/Recreation,0,10,9,0,3
+Wasgatt Playground,42.4093300667225,-71.06381878293178,Park/Recreation,0,2,1,0,0
+Wasgott Playground,42.4093300667225,-71.06381878293178,Park/Recreation,0,2,1,0,0
+Washington Sq,42.33985827126298,-71.13421171095978,Park/Recreation,0,7,11,0,0
+Washington Square at Washington St. / Beacon St.,42.339335,-71.13493,Transit Hub,1,8,11,0,0
+Washington Square at Washington St. / Beacon St. TEMPORARY WINTER LOCATION,42.338254270769454,-71.13905482012342,Transit Hub,1,7,11,0,0
+Washington St @ New Washington St (Temp Winter Station),42.38103731531107,-71.08709779349738,Commercial,1,34,7,0,4
+Washington St at Bowdoin St,42.29916497936589,-71.07345871645519,Park/Recreation,0,1,1,0,0
+Washington St at Bradlee St,42.29916497936589,-71.07345871645519,Park/Recreation,0,1,1,0,0
+Washington St at Brock St,42.3489528466951,-71.16031676530838,Park/Recreation,0,8,10,2,0
+Washington St at Crafts St,42.35389024396587,-71.19943707257335,Park/Recreation,0,2,0,0,1
+Washington St at Denton Terr,42.280728147169015,-71.13423757273267,Residential,0,1,2,0,0
+Washington St at Egremont Rd,42.34286835071959,-71.14127840855872,Commercial,0,16,17,0,1
+Washington St at Egremont Rd (former),42.3429444,-71.1413333,Commercial,0,16,17,0,1
+Washington St at Fuller St,42.281986277339136,-71.07147924620222,Residential,0,1,0,0,1
+Washington St at Griggs Rd,42.338334237199014,-71.13050930220197,Park/Recreation,0,5,9,0,0
+Washington St at Lenox St,42.3350989929096,-71.07903778553009,Park/Recreation,0,10,14,2,2
+Washington St at Melnea Cass Blvd,42.332817,-71.081198,Commercial,0,13,13,2,3
+Washington St at Mina Way,42.35298248,-71.17322383,Park/Recreation,0,1,5,0,1
+Washington St at Myrtle St,42.3817508,-71.0839523,Transit Hub,1,14,4,0,2
+Washington St at Myrtle St (former),42.38172115782515,-71.08376650152422,Transit Hub,1,13,4,0,2
+Washington St at Northampton St,42.33625888,-71.07756446,Park/Recreation,0,9,13,3,3
+Washington St at Peters Park,42.34303291130257,-71.06688730436872,Commercial,0,26,34,3,11
+Washington St at Rutland St,42.338514601785995,-71.07404083013535,Park/Recreation,0,9,17,2,3
+Washington St at Talbot Ave,42.290333,-71.071806,Transit Hub,1,0,1,0,1
+Washington St at Talbot Ave (former),42.290333,-71.071806,Transit Hub,1,0,1,0,1
+Washington St at Temple Pl,42.35496799,-71.06097685,Commercial,7,95,207,4,57
+Washington St at W Dedham St,42.34033571273476,-71.07179929523453,Commercial,0,15,27,2,9
+Washington St at Walsh Playground,42.277194696397906,-71.06955613950048,Park/Recreation,0,1,1,0,2
+Washington St at Waltham St,42.34157471873747,-71.06890439987183,Commercial,0,24,31,3,9
+Washington St. at Lenox St.,42.3348756,-71.0790969,Park/Recreation,0,9,14,2,3
+Washington St. at Rutland St.,42.338623,-71.074182,Park/Recreation,0,11,17,2,3
+Washington St. at Waltham St.,42.341522,-71.068922,Commercial,0,23,30,3,9
+Watermark Seaport,42.351543104723206,-71.04573011398315,Commercial,0,15,42,0,19
+Watermark Seaport - Boston Wharf Rd at Seaport Blvd,42.351586001198456,-71.04569256305693,Commercial,0,15,42,0,19
+Watertown City Hall,42.36759307632294,-71.18751436471939,Park/Recreation,0,25,22,0,6
+Watertown Sq,42.365260317694485,-71.18573324459247,Park/Recreation,0,24,21,0,7
+Watertown St at 5th Ave,42.36289,-71.19127,Park/Recreation,0,12,15,0,5
+Watertown Town Hall,42.367621,-71.187936,Park/Recreation,0,26,21,0,6
+Wellington MBTA,42.4023682,-71.07573182424781,Park/Recreation,1,20,10,0,4
+Wentworth Institute of Technology,42.337596,-71.096391,Park/Recreation,0,3,8,7,3
+Wentworth Institute of Technology - Huntington Ave at Vancouver St,42.33758601097239,-71.09627097845076,Park/Recreation,0,3,9,7,3
+West Broadway at D Street,42.3391085,-71.0514432,Transit Hub,1,6,26,0,2
+West Broadway at Dorchester St,42.335693,-71.045859,Residential,0,3,13,0,3
+West End Park,42.36590788445084,-71.06446668505669,Park/Recreation,4,22,31,0,15
+West Medford Square (Bower St at Harvard Ave),42.420647,-71.133483,Park/Recreation,1,20,11,0,3
+Western Ave at Everett St,42.363168,-71.134719,Park/Recreation,0,10,10,2,7
+Western Ave at Leo Birmingham Pkwy,42.36155856,-71.14506038,Park/Recreation,0,8,8,0,2
+Western Ave at Richardson St,42.36178741066187,-71.14393111327445,Park/Recreation,0,7,5,0,3
+Whittier St Health Center,42.332862884862635,-71.09218861916816,Transit Hub,3,3,6,3,2
+Williams St at Washington St,42.306539,-71.107669,Park/Recreation,1,5,3,0,5
+Wilson Square,42.38567578752914,-71.11412136298895,Commercial,2,81,48,5,15
+Winthrop Circle,42.421361,-71.117556,Park/Recreation,0,0,0,0,1
+Wood Island T Stop - Vienna St at Bennington St,42.380024,-71.024441,Park/Recreation,1,24,19,0,3
+Yawkey Way at Boylston St.,42.344706,-71.097515,Park/Recreation,2,33,48,3,13

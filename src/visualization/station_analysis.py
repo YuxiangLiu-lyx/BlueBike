@@ -118,7 +118,7 @@ class StationAnalyzer:
         plt.tight_layout()
         output_path = self.output_dir / "station_activity.png"
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
-        print(f"✓ Saved: {output_path}")
+        print(f"Saved: {output_path}")
         plt.close()
         
         # Store for summary
@@ -183,7 +183,7 @@ class StationAnalyzer:
         with open(output_path, 'w') as f:
             f.write('\n'.join(summary_lines))
         
-        print(f"✓ Saved: {output_path}")
+        print(f"Saved: {output_path}")
         print('\n'.join(summary_lines))
     
     def run_all(self):
@@ -200,7 +200,7 @@ class StationAnalyzer:
         self.generate_summary_text()
         
         print("\n" + "="*60)
-        print("Station analysis complete!")
+        print("Station analysis complete")
         print("="*60)
         print("\nOutput files:")
         print(f"  - {self.output_dir}/station_activity.png")

@@ -138,7 +138,7 @@ class DataOverview:
         self.plot_yearly_trend(yearly_stats)
         
         print("\n" + "="*80)
-        print("Analysis complete!")
+        print("Analysis complete")
         print("="*80)
 
 

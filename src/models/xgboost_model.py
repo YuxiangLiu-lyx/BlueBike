@@ -140,9 +140,9 @@ class XGBoostPredictor:
         print(f"  Categorical: {len(categorical_features)}")
         print(f"  Weather: {len(available_weather)}")
         print(f"\nFeature design philosophy:")
-        print(f"  ✓ Time patterns: month, day_of_week, season, weekend, holiday")
-        print(f"  ✓ Location: lat/lon + nearby area historical activity")
-        print(f"  ✓ Weather: temperature, precipitation, wind")
+        print(f"  Time patterns: month, day_of_week, season, weekend, holiday")
+        print(f"  Location: lat/lon + nearby area historical activity")
+        print(f"  Weather: temperature, precipitation, wind")
         print(f"  ✗ No 'year' (prevents linear extrapolation)")
         print(f"  ✗ No prev_month stats (confounds seasonality)")
         
@@ -192,7 +192,7 @@ class XGBoostPredictor:
             verbose=50
         )
         
-        print("\n✓ Training complete")
+        print("\nTraining complete")
         
         return self.model
     
@@ -367,7 +367,7 @@ class XGBoostPredictor:
         self.save_results(test_df_full, y_pred, metrics)
         
         print("\n" + "="*60)
-        print("XGBoost Training Complete!")
+        print("XGBoost training complete")
         print("="*60)
         print(f"\nResults saved to: {self.results_dir}")
 

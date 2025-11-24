@@ -80,6 +80,7 @@ def prepare_station_daily_data():
     
     # Save parquet
     output_dir = project_root / "data" / "processed" / "daily"
+    output_dir.mkdir(parents=True, exist_ok=True)
     output_file = output_dir / "station_daily_with_coords.parquet"
     df_final.to_parquet(output_file, index=False)
     

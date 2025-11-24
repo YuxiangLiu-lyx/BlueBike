@@ -329,7 +329,7 @@ def main():
     cleaned_data = cleaner.clean_all_data(output_filename="trips_cleaned.parquet")
     
     if cleaned_data is not None:
-        print("\nData cleaning completed successfully!")
+        print("\nData cleaning completed")
         print(f"Cleaned dataset shape: {cleaned_data.shape}")
         print(f"\nColumns in cleaned data:")
         for col in cleaned_data.columns:

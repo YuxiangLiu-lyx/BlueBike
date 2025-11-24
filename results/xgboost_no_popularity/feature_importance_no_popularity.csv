@@ -1,0 +1,16 @@
+feature,importance
+temperature_2m_max,0.18459749
+season,0.18283142
+precipitation_hours,0.087666094
+is_holiday,0.06781243
+temperature_2m_mean,0.06067085
+month,0.05928956
+windgusts_10m_max,0.056316003
+is_weekend,0.049355827
+windspeed_10m_max,0.049134683
+precipitation_sum,0.048827823
+day_of_week,0.045196068
+rain_sum,0.03811382
+day,0.028388605
+temperature_2m_min,0.028158734
+snowfall_sum,0.013640557

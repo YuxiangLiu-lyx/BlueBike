@@ -124,14 +124,14 @@ class HourlyAggregator:
         parquet_path = self.output_dir / "hourly_departures.parquet"
         hourly_df.to_parquet(parquet_path, index=False)
         file_size = parquet_path.stat().st_size / 1024**2
-        print(f"✓ Saved full dataset: {parquet_path}")
+        print(f"Saved full dataset: {parquet_path}")
         print(f"  File size: {file_size:.1f} MB")
         
         # Save sample as CSV for inspection
         sample_size = min(1000, len(hourly_df))
         sample_path = self.output_dir / "hourly_departures_sample.csv"
         hourly_df.head(sample_size).to_csv(sample_path, index=False)
-        print(f"✓ Saved sample ({sample_size} rows): {sample_path}")
+        print(f"Saved sample ({sample_size} rows): {sample_path}")
         
         # Create and save summary statistics
         self.save_summary_stats(hourly_df)
@@ -159,7 +159,7 @@ class HourlyAggregator:
         # Save
         summary_path = self.output_dir / "hourly_departures_summary.csv"
         summary_df.to_csv(summary_path)
-        print(f"✓ Saved summary statistics: {summary_path}")
+        print(f"Saved summary statistics: {summary_path}")
         
         # Print to console
         print("\n" + "="*60)
@@ -187,7 +187,7 @@ class HourlyAggregator:
         self.save_results(hourly_df)
         
         print("\n" + "="*60)
-        print("Aggregation complete!")
+        print("Aggregation complete")
         print("="*60)
         
         return hourly_df
@@ -289,14 +289,14 @@ class DailyAggregator:
         parquet_path = self.output_dir / "daily_departures.parquet"
         daily_df.to_parquet(parquet_path, index=False)
         file_size = parquet_path.stat().st_size / 1024**2
-        print(f"✓ Saved full dataset: {parquet_path}")
+        print(f"Saved full dataset: {parquet_path}")
         print(f"  File size: {file_size:.1f} MB")
         
         # Save sample as CSV for inspection
         sample_size = min(1000, len(daily_df))
         sample_path = self.output_dir / "daily_departures_sample.csv"
         daily_df.head(sample_size).to_csv(sample_path, index=False)
-        print(f"✓ Saved sample ({sample_size} rows): {sample_path}")
+        print(f"Saved sample ({sample_size} rows): {sample_path}")
         
         # Create and save summary statistics
         self.save_summary_stats(daily_df)
@@ -325,7 +325,7 @@ class DailyAggregator:
         # Save
         summary_path = self.output_dir / "daily_departures_summary.csv"
         summary_df.to_csv(summary_path)
-        print(f"✓ Saved summary statistics: {summary_path}")
+        print(f"Saved summary statistics: {summary_path}")
         
         # Print to console
         print("\n" + "="*60)
@@ -353,7 +353,7 @@ class DailyAggregator:
         self.save_results(daily_df)
         
         print("\n" + "="*60)
-        print("Aggregation complete!")
+        print("Aggregation complete")
         print("="*60)
         
         return daily_df
@@ -383,12 +383,12 @@ def main():
     else:
         print("Running both daily and hourly aggregations...\n")
         
-        print("Step 1/2: Daily aggregation")
+        print("Processing daily aggregation")
         print("-" * 60)
         daily_agg = DailyAggregator()
         daily_agg.run()
         
-        print("\n\nStep 2/2: Hourly aggregation")
+        print("\n\nProcessing hourly aggregation")
         print("-" * 60)
         hourly_agg = HourlyAggregator()
         hourly_agg.run()

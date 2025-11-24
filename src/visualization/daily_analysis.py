@@ -82,7 +82,7 @@ class DailyBehaviorAnalyzer:
         plt.tight_layout()
         output_path = self.output_dir / "daily_patterns.png"
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
-        print(f"✓ Saved: {output_path}")
+        print(f"Saved: {output_path}")
         plt.close()
     
     def generate_summary_text(self):
@@ -128,7 +128,7 @@ class DailyBehaviorAnalyzer:
         with open(output_path, 'w') as f:
             f.write('\n'.join(summary_lines))
         
-        print(f"✓ Saved: {output_path}")
+        print(f"Saved: {output_path}")
         print('\n'.join(summary_lines))
     
     def run_all(self):
@@ -145,7 +145,7 @@ class DailyBehaviorAnalyzer:
         self.generate_summary_text()
         
         print("\n" + "="*60)
-        print("Daily analysis complete!")
+        print("Daily analysis complete")
         print("="*60)
         print("\nOutput files:")
         print(f"  - {self.output_dir}/daily_patterns.png")
