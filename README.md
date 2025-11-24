@@ -137,6 +137,83 @@ python src/analysis/add_grid_poi.py
 
 ---
 
+## Interactive Visualizations
+
+This project includes interactive HTML maps that can be directly opened in a browser:
+- **`results/poi_analysis/station_type_map.html`** - Station classification by surrounding POI types
+- **`results/grid_analysis/grid_poi_map.html`** - POI distribution across 500m×500m grid cells in Boston metro area
+- **`results/grid_analysis/grid_demand_map.html`** - Predicted demand heatmap compared with actual station distribution
+
+All other visualizations (model comparison charts, feature importance plots, EDA figures) are static PNG images referenced throughout this README.
+
+---
+
+## Project Structure
+
+### Directory Organization
+
+- **`src/`** - Source code organized by functionality
+  - `data_collection/` - Scripts for downloading raw trip data and fetching weather information
+  - `preprocessing/` - Data cleaning and feature engineering pipelines
+  - `models/` - Machine learning model implementations (Baseline, XGBoost variants)
+  - `analysis/` - Advanced analysis scripts (grid-based spatial prediction)
+  - `visualization/` - Visualization generation scripts for charts and interactive maps
+- **`data/`** - Data storage (excluded from repository due to size)
+  - `raw/` - Original trip data CSV files
+  - `processed/` - Cleaned and feature-enriched datasets
+  - `external/` - Weather data and POI caches
+- **`results/`** - Model outputs, metrics, and visualizations
+  - `models/` - Baseline model results
+  - `xgboost*/` - Various XGBoost model outputs
+  - `comparison/` - Model comparison charts
+  - `figures/` - Exploratory data analysis visualizations
+  - `poi_analysis/` - POI-related visualizations
+  - `grid_analysis/` - Spatial prediction results and maps
+
+### Development Phases
+
+#### Phase 1: Initial Exploration and Baseline Model
+
+In the initial phase, I focused on understanding the Bluebikes ridership patterns. I collected historical trip data from 2015-2024, cleaned and standardized the dataset, and engineered temporal features (month, day of week, season, holidays). I also integrated weather data from Open-Meteo API to capture external conditions affecting ridership. For the XGBoost model, I added location-based features including coordinates (latitude/longitude) and a `nearby_avg_popularity` metric representing the historical activity level of surrounding stations. I created various visualizations to explore the data and built two prediction models: a simple baseline and an XGBoost model. Detailed analysis of this phase is documented in the **Mid-term Progress** section below.
+
+**Key Scripts (Phase 1):**
+- `src/data_collection/bluebikes_download.py` - Downloads raw trip data from Bluebikes official website
+- `src/preprocessing/data_cleaning.py` - Cleans and standardizes raw trip records
+- `src/preprocessing/feature_engineering.py` - Adds temporal features (month, day, season, holidays)
+- `src/preprocessing/prepare_station_daily.py` - Aggregates trips by station and date
+- `src/data_collection/weather_api.py` - Fetches historical weather data for each station
+- `src/preprocessing/add_xgb_features.py` - Adds location-based features including `nearby_avg_popularity`
+- `src/models/baseline.py` - Implements a simple historical-pattern-based baseline model
+- `src/models/xgboost_model.py` - Trains XGBoost model with all features (location, weather, temporal)
+
+#### Phase 2: Generalization for New Station Prediction
+
+The Phase 1 model, while accurate for existing stations, relies on location-specific features (coordinates and historical popularity) that would not be available for potential new station locations. To build a model capable of predicting demand at arbitrary locations across Boston, I removed these "leakage" features and instead extracted Points of Interest (POI) data from OpenStreetMap. POI features (subway stations, bus stops, restaurants, shops, offices, universities, schools, hospitals, banks, parks) provide generalizable contextual information about an area without requiring historical ridership data. I retrained XGBoost models with different feature combinations to evaluate the impact of removing location features and adding POI features. I also implemented a grid-based spatial prediction system that divides Boston metro area into 500m×500m cells and predicts demand for each cell. Detailed analysis is in the **Phase 2 Results** section.
+
+**Key Scripts (Phase 2):**
+- `src/preprocessing/add_poi_features.py` - Extracts POI features from OpenStreetMap for each station
+- `src/models/xgboost_no_popularity.py` - XGBoost without coordinates and historical popularity
+- `src/models/xgboost_poi_only.py` - XGBoost using POI features instead of location-specific features
+- `src/analysis/create_grid_features.py` - Creates 500m×500m grid covering Boston metro area with temporal and weather features
+- `src/analysis/add_grid_poi.py` - Extracts POI features for each grid cell
+- `src/analysis/predict_grid_demand.py` - Predicts demand for grid cells using the POI-based model
+
+**Visualization Scripts:**
+
+All visualization scripts are in `src/visualization/`:
+- `eda_overview.py` - System-level yearly statistics and growth trends
+- `daily_analysis.py` - Daily and weekly ridership patterns
+- `station_analysis.py` - Station-level activity distribution
+- `model_comparison.py` - Compares Baseline vs XGBoost performance
+- `three_model_comparison.py` - Compares Baseline, No Location, and POI Only models
+- `feature_importance_poi_only.py` - Visualizes POI feature importance
+- `feature_importance_no_location.py` - Visualizes feature importance without location features
+- `poi_station_map.py` - Interactive map showing station classifications by surrounding POI types
+- `grid_poi_map.py` - Interactive map displaying POI distribution across grid cells
+- `grid_demand_map.py` - Interactive map showing predicted demand vs actual station distribution
+
+---
+
 ## Proposal
 
 ### 1. Project Description & Motivation
@@ -241,7 +318,7 @@ Because I am working with time-series data, I will not use a random split. I wil
 
 ---
 
-## Implementation
+## Mid-term Progress
 
 **Project Presentation**: https://youtu.be/K75Yq7wpM4Y
 
@@ -384,5 +461,11 @@ I have completed data collection, cleaning, and visualization for the Bluebikes 
 
 ---
 
-## Results
+## Phase 2 Results
+
+
+
+---
+
+## Final Results
 
