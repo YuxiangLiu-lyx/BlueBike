@@ -137,7 +137,9 @@ python src/analysis/add_grid_poi.py
 
 ---
 
-## 1. Project Description & Motivation
+## Proposal
+
+### 1. Project Description & Motivation
 
 The Bluebikes program, Boston's official bike-share system, makes its complete ridership data publicly available. This rich dataset provides details for every trip, including:
 
@@ -150,7 +152,7 @@ The Bluebikes program, Boston's official bike-share system, makes its complete r
 This data allows for a deep exploration of user ridership patterns and behaviors. The primary objective of this project is to leverage this dataset to uncover actionable insights into how, when, and where the service is used. Understanding these habits is the first step toward building predictive models that can help optimize the system's operational efficiency.
 
 
-## 2. Project Objectives
+### 2. Project Objectives
 
 The ultimate goal of this project is to provide data-driven recommendations that could help Bluebikes optimize its operational efficiency and improve bike availability for its users. To achieve this, I have defined the following core objectives:
 
@@ -170,7 +172,7 @@ The ultimate goal of this project is to provide data-driven recommendations that
 
 - **Propose Novel Operational Strategies** (if time permitted): As a secondary objective, I will explore how the model could inform new strategies, such as implementing dynamic pricing during off-peak hours or offering user incentives to help redistribute bikes from over-supplied to under-supplied stations.
 
-## 3. Data Collection Strategy
+### 3. Data Collection Strategy
 
 This project will utilize three primary data sources: Bluebikes' official ridership data, historical weather data, and various geospatial datasets describing the Boston area.
 
@@ -205,7 +207,7 @@ This project will utilize three primary data sources: Bluebikes' official riders
 - **Methodology**: I will acquire population density and potentially other demographic data at the census tract level. This will allow me to correlate potential bike demand with the characteristics of the people living and working in each area.
 
 
-## 4. Modeling Approach
+### 4. Modeling Approach
 
 Since precise prediction of bike departures is challenging, my approach is to conduct a comparative study. I will implement several types of models to establish performance benchmarks and identify the most suitable method for this problem.
 
@@ -219,7 +221,7 @@ Since precise prediction of bike departures is challenging, my approach is to co
 
 - **Exploratory LLM Integration** (If time permitted): As an extension, I will explore the capabilities of a Large Language Model (LLM). I plan to test its utility in two ways: first, as a tool for advanced feature engineering by interpreting the context of a situation, and second, by evaluating its ability to make direct predictions through prompting
 
-## 5. Data Visualization Plan
+### 5. Data Visualization Plan
 
 My visualization strategy will focus on two key areas: exploratory data analysis to understand the data's underlying patterns and results visualization to interpret my model's performance. I will primarily use Python libraries such as Matplotlib, Seaborn, and Folium.
 
@@ -233,33 +235,33 @@ My visualization strategy will focus on two key areas: exploratory data analysis
 
 - **Model Performance Visualization**: To evaluate my final model, I will plot the predicted demand values against the actual values over time. This will allow me to visually inspect where my model performs well and where it struggles
 
-## 6. Test Plan
+### 6. Test Plan
 
 Because I am working with time-series data, I will not use a random split. I will perform a temporal split, using historical data for training and a more recent, unseen period for testing. For example, I might train my model on data from 2023-2024 and test its performance on data from 2025.
 
 ---
 
-# Progress
+## Implementation
 
-**Project Presentation Video**: https://youtu.be/K75Yq7wpM4Y
+**Project Presentation**: https://youtu.be/K75Yq7wpM4Y
 
-## 1. Data Visualization
+### Data Visualization
 
 I created several visualizations to understand the Bluebikes data better. Here's what I found:
 
-### System Growth Over Time
+#### System Growth Over Time
 ![Yearly Trend](results/figures/overview/yearly_departure_trend.png)
 
 The system grew from about 1.1 million trips in 2015 to 4.7 million trips in 2024, with the number of stations increasing from around 100 to over 400. I excluded 2020 data from model training due to COVID-19 impacts.
 
-### Daily Patterns
+#### Daily Patterns
 ![Daily Patterns](results/figures/daily/daily_patterns.png)
 
 I noticed clear patterns in when people use the bikes:
 - **Weekdays vs Weekends**: People use bikes differently on weekdays compared to weekends. Weekdays show typical commute patterns.
 - **Monthly Changes**: Summer months (June-August) are way busier than winter months.
 
-### Station Activity
+#### Station Activity
 ![Station Activity](results/figures/station/station_activity.png)
 
 Not all stations are equal. I found:
@@ -267,27 +269,27 @@ Not all stations are equal. I found:
 - Most stations are "medium activity" - they're not super busy but they're not empty either
 - The network keeps growing - new stations get added almost every year
 
-## 2. Data Processing
+### Data Processing
 
 Here's what I did:
 
-### Data Collection
+#### Data Collection
 I downloaded all the monthly trip files from the Bluebikes website (2015-2024). That's about 28.6 million trips total. Each trip record tells us when and where someone picked up a bike and where they dropped it off.
 
-### Data Cleaning
+#### Data Cleaning
 The raw data had some issues:
 - **Different column names**: Older files used different names than newer ones. For example, "subscriber" vs "member". I standardized everything.
 - **Missing data**: Some early files didn't have trip duration, so I calculated it from start time and end time.
 - **Station ID problems**: Station IDs changed from numbers to letters+numbers over the years. I decided to use station names instead since those are more consistent.
 - **Outliers**: Some trips have unrealistic durations (under 10 seconds or over several days), but I kept all records in the dataset.
 
-### Feature Engineering
+#### Feature Engineering
 I added a bunch of useful information to each trip:
 - **Time features**: What month? What day of week? Is it a weekend? What season?
 - **Holiday flag**: Is this date a US federal holiday?
 - **Location features**: For each station, I calculated how busy the surrounding area is based on historical data
 
-### Weather Data
+#### Weather Data
 I used the Open-Meteo API to get daily weather for each station. The challenge was:
 - I needed weather for 800+ stations
 - I needed 10 years of data (2015-2024)
@@ -297,17 +299,17 @@ So I built a system that caches the data as it downloads, which means if it gets
 
 The weather data includes: temperature (max/min/mean), precipitation, rain, snow, and wind speed.
 
-### Data Aggregation
+#### Data Aggregation
 Since I'm predicting daily demand, I grouped all the trips by station and date. The final dataset has:
 - **1.14 million records** (one for each station-date combination)
 - **18 features** total
 - **Target variable**: number of departures per station per day
 
-## 3. Modeling Methods
+### Modeling Methods
 
 I built two models to compare:
 
-### Baseline Model
+#### Baseline Model
 This is a simple model that assumes patterns repeat. Here's how it works:
 1. Look at all the historical data (2015-2023, skipping 2020)
 2. For each station, calculate what percentage of total trips it usually gets on day X of the year
@@ -316,7 +318,7 @@ This is a simple model that assumes patterns repeat. Here's how it works:
 
 This model is simple but gives us something to beat.
 
-### XGBoost Model
+#### XGBoost Model
 I use XGBoost as my first machine learning model for prediction. It uses gradient boosting, which is basically a bunch of decision trees working together.
 
 **Features I used**:
@@ -332,9 +334,9 @@ When I included "year" as a feature, the model predicted total 2024 volume far h
 - Test data: 2024 = about 205K records
 - I used 500 trees with a max depth of 5
 
-## 4. Results
+### Preliminary Results
 
-### Feature Importance
+#### Feature Importance
 
 ![Feature Importance](results/xgboost/feature_importance.png)
 
@@ -349,7 +351,7 @@ The most important features for prediction are:
 
 Location and weather are the primary drivers of bike demand, with the surrounding area's historical popularity being the single most important factor.
 
-### Model Comparison
+#### Model Comparison
 
 ![Model Comparison](results/comparison/model_comparison.png)
 
@@ -368,7 +370,7 @@ Location and weather are the primary drivers of bike demand, with the surroundin
 
 **Total Error Issue**: However, the model overestimates total 2024 volume by 14%, which is higher than Baseline's 4%. This suggests the model is somewhat too optimistic in its predictions. This could be because the model predicts higher demand on certain weather conditions that didn't occur as frequently. Possible improvements include adding a calibration step to adjust the total predictions, or using ensemble methods to balance optimistic and conservative predictions. On the positive side, this overestimation might indicate locations where more bikes could potentially be used if capacity were increased.
 
-## Current Status
+### Summary
 
 I have completed data collection, cleaning, and visualization for the Bluebikes dataset. I built and compared two prediction models: a simple baseline model and an XGBoost machine learning model. The XGBoost model shows clear improvements with R² increasing from 0.101 to 0.258, demonstrating that machine learning can capture patterns that simple historical methods miss.
 
@@ -379,4 +381,8 @@ I have completed data collection, cleaning, and visualization for the Bluebikes 
 - `src/visualization/` - Visualization scripts
 - `results/` - Figures and metrics
 - `data/` - Raw and processed data (not uploaded due to size, excluded via .gitignore)
+
+---
+
+## Results
 
