@@ -22,19 +22,14 @@ def download_file(repo_id: str, filename: str, local_path: Path):
     downloaded_path = hf_hub_download(
         repo_id=repo_id,
         filename=filename,
-        local_dir=".",
-        local_dir_use_symlinks=False
+        repo_type="dataset",
+        local_dir="."
     )
     print(f"  → Saved to {local_path}")
 
 def main():
-    # TODO: Replace with your actual Hugging Face dataset repository
+    # Hugging Face dataset repository
     REPO_ID = "matrix1900/bluebike-data"
-    
-    if REPO_ID == "YOUR_USERNAME/bluebike-data":
-        print("ERROR: Please update REPO_ID in download_data.py with your Hugging Face dataset repository.")
-        print("Example: REPO_ID = 'john-doe/bluebike-data'")
-        sys.exit(1)
     
     print("=" * 60)
     print("Downloading BlueBike preprocessed data from Hugging Face")
