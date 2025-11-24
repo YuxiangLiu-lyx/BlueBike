@@ -101,8 +101,14 @@ def create_xgboost_poi_comparison_plot():
         if any(v < 0 for v in values):
             ax.axhline(y=0, color='black', linestyle='-', linewidth=1)
         
-        # Add improvement percentage
-        improvement = ((values[1] - values[0]) / abs(values[0])) * 100
+        # Calculate improvement based on metric type
+        if 'MPE' in metric_name or 'Total Error' in metric_name:
+            improvement = ((abs(values[0]) - abs(values[1])) / abs(values[0])) * 100
+        elif 'R²' in metric_name or 'Overall Accuracy' in metric_name:
+            improvement = ((values[1] - values[0]) / abs(values[0])) * 100
+        else:
+            improvement = ((values[0] - values[1]) / abs(values[0])) * 100
+        
         color_bg = 'lightgreen' if improvement > 0 else 'lightcoral'
         ax.text(0.5, ax.get_ylim()[1] * 0.85, 
                f'Change: {improvement:+.1f}%',
@@ -124,7 +130,12 @@ def create_xgboost_poi_comparison_plot():
     ]
     
     for metric_name, (no_poi_val, with_poi_val) in metrics.items():
-        change = ((with_poi_val - no_poi_val) / abs(no_poi_val)) * 100
+        if 'MPE' in metric_name or 'Total Error' in metric_name:
+            change = ((abs(no_poi_val) - abs(with_poi_val)) / abs(no_poi_val)) * 100
+        elif 'R²' in metric_name or 'Overall Accuracy' in metric_name:
+            change = ((with_poi_val - no_poi_val) / abs(no_poi_val)) * 100
+        else:
+            change = ((no_poi_val - with_poi_val) / abs(no_poi_val)) * 100
         
         if 'Total Predicted' in metric_name:
             no_poi_str = f'{no_poi_val:,.0f}'

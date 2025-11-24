@@ -94,12 +94,19 @@ def create_model_comparison_plot():
         if any(v < 0 for v in values):
             ax.axhline(y=0, color='black', linestyle='-', linewidth=1)
         
-        # Add improvement percentage
-        improvement = ((values[1] - values[0]) / abs(values[0])) * 100
+        # Calculate improvement based on metric type
+        if 'MPE' in metric_name or 'Total Error' in metric_name:
+            improvement = ((abs(values[0]) - abs(values[1])) / abs(values[0])) * 100
+        elif 'R²' in metric_name or 'Overall Accuracy' in metric_name:
+            improvement = ((values[1] - values[0]) / abs(values[0])) * 100
+        else:
+            improvement = ((values[0] - values[1]) / abs(values[0])) * 100
+        
+        color_bg = 'lightgreen' if improvement > 0 else 'lightcoral'
         ax.text(0.5, ax.get_ylim()[1] * 0.85, 
                f'Change: {improvement:+.1f}%',
                ha='center', fontsize=10, 
-               bbox=dict(boxstyle='round', facecolor='yellow' if improvement > 0 else 'lightcoral', alpha=0.5))
+               bbox=dict(boxstyle='round', facecolor=color_bg, alpha=0.5))
         
         ax.grid(axis='y', alpha=0.3)
     
@@ -117,7 +124,12 @@ def create_model_comparison_plot():
     ]
     
     for metric_name, (base_val, xgb_val) in metrics.items():
-        change = ((xgb_val - base_val) / abs(base_val)) * 100
+        if 'MPE' in metric_name or 'Total Error' in metric_name:
+            change = ((abs(base_val) - abs(xgb_val)) / abs(base_val)) * 100
+        elif 'R²' in metric_name or 'Overall Accuracy' in metric_name:
+            change = ((xgb_val - base_val) / abs(base_val)) * 100
+        else:
+            change = ((base_val - xgb_val) / abs(base_val)) * 100
         
         if 'Total Predicted' in metric_name:
             base_str = f'{base_val:,.0f}'

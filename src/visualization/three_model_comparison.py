@@ -89,12 +89,15 @@ def create_comparison_plot():
         no_pop_val = values[1]
         poi_only_val = values[2]
         
-        # For R² and Overall Accuracy, higher is better
-        # For others, lower is better
+        # Calculate improvement based on metric type
         if metric_key in ['R2', 'Overall_Accuracy']:
             improve_no_pop = ((no_pop_val - baseline_val) / abs(baseline_val)) * 100 if not np.isnan(no_pop_val) else 0
             improve_poi = ((poi_only_val - baseline_val) / abs(baseline_val)) * 100 if not np.isnan(poi_only_val) else 0
             improve_poi_vs_no_pop = ((poi_only_val - no_pop_val) / abs(no_pop_val)) * 100 if not np.isnan(poi_only_val) else 0
+        elif metric_key in ['MPE', 'Total_Error_Pct']:
+            improve_no_pop = ((abs(baseline_val) - abs(no_pop_val)) / abs(baseline_val)) * 100 if not np.isnan(no_pop_val) and baseline_val != 0 else 0
+            improve_poi = ((abs(baseline_val) - abs(poi_only_val)) / abs(baseline_val)) * 100 if not np.isnan(poi_only_val) and baseline_val != 0 else 0
+            improve_poi_vs_no_pop = ((abs(no_pop_val) - abs(poi_only_val)) / abs(no_pop_val)) * 100 if not np.isnan(poi_only_val) and no_pop_val != 0 else 0
         else:
             improve_no_pop = ((baseline_val - no_pop_val) / abs(baseline_val)) * 100 if not np.isnan(no_pop_val) else 0
             improve_poi = ((baseline_val - poi_only_val) / abs(baseline_val)) * 100 if not np.isnan(poi_only_val) else 0
@@ -146,22 +149,34 @@ def create_comparison_plot():
         no_pop_val = no_pop[metric_key].values[0] if metric_key in no_pop.columns else np.nan
         poi_only_val = poi_only[metric_key].values[0] if metric_key in poi_only.columns else np.nan
         
-        # Calculate changes
         if metric_key in ['R2', 'Overall_Accuracy']:
             change_no_pop = ((no_pop_val - baseline_val) / abs(baseline_val)) * 100 if not np.isnan(no_pop_val) else np.nan
             change_poi = ((poi_only_val - baseline_val) / abs(baseline_val)) * 100 if not np.isnan(poi_only_val) else np.nan
             change_poi_vs_no_pop = ((poi_only_val - no_pop_val) / abs(no_pop_val)) * 100 if not np.isnan(poi_only_val) else np.nan
+        elif metric_key in ['MPE', 'Total_Error_Pct']:
+            change_no_pop = ((abs(baseline_val) - abs(no_pop_val)) / abs(baseline_val)) * 100 if not np.isnan(no_pop_val) and baseline_val != 0 else np.nan
+            change_poi = ((abs(baseline_val) - abs(poi_only_val)) / abs(baseline_val)) * 100 if not np.isnan(poi_only_val) and baseline_val != 0 else np.nan
+            change_poi_vs_no_pop = ((abs(no_pop_val) - abs(poi_only_val)) / abs(no_pop_val)) * 100 if not np.isnan(poi_only_val) and no_pop_val != 0 else np.nan
         else:
             change_no_pop = ((baseline_val - no_pop_val) / abs(baseline_val)) * 100 if not np.isnan(no_pop_val) else np.nan
             change_poi = ((baseline_val - poi_only_val) / abs(baseline_val)) * 100 if not np.isnan(poi_only_val) else np.nan
             change_poi_vs_no_pop = ((no_pop_val - poi_only_val) / abs(no_pop_val)) * 100 if not np.isnan(poi_only_val) else np.nan
         
+        if metric_key in ['MPE', 'Total_Error_Pct']:
+            baseline_str = f'{baseline_val:+.2f}' if not np.isnan(baseline_val) else 'N/A'
+            no_pop_str = f'{no_pop_val:+.2f}' if not np.isnan(no_pop_val) else 'N/A'
+            poi_str = f'{poi_only_val:+.2f}' if not np.isnan(poi_only_val) else 'N/A'
+        else:
+            baseline_str = f'{baseline_val:.2f}' if not np.isnan(baseline_val) else 'N/A'
+            no_pop_str = f'{no_pop_val:.2f}' if not np.isnan(no_pop_val) else 'N/A'
+            poi_str = f'{poi_only_val:.2f}' if not np.isnan(poi_only_val) else 'N/A'
+        
         row = [
             metric_key,
-            f'{baseline_val:.2f}' if not np.isnan(baseline_val) else 'N/A',
-            f'{no_pop_val:.2f}' if not np.isnan(no_pop_val) else 'N/A',
+            baseline_str,
+            no_pop_str,
             f'{change_no_pop:+.1f}%' if not np.isnan(change_no_pop) else 'N/A',
-            f'{poi_only_val:.2f}' if not np.isnan(poi_only_val) else 'N/A',
+            poi_str,
             f'{change_poi:+.1f}%' if not np.isnan(change_poi) else 'N/A',
             f'{change_poi_vs_no_pop:+.1f}%' if not np.isnan(change_poi_vs_no_pop) else 'N/A'
         ]
