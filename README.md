@@ -696,84 +696,22 @@ For each of the 1,892 grid cells, I:
 
 ![Grid Demand Map](results/grid_analysis/grid_demand_map.html)
 
-**Predicted Demand Distribution:**
-- **Mean Predicted Demand**: 24.1 departures/day per cell
-- **Median Predicted Demand**: 22.3 departures/day
-- **Maximum Predicted Demand**: 106.2 departures/day (Downtown Crossing area)
-- **Total Predicted Demand**: 45,611 departures/day across all cells
-
-**Comparison with Actual Station Distribution:**
-
-| Metric | Top 20 Cells by Prediction | Top 20 Cells with Stations |
-|--------|---------------------------|---------------------------|
-| **Average Predicted Demand** | 65.8 departures/day | 58.2 departures/day |
-| **Cells with Existing Stations** | 16/20 (80%) | 20/20 (100%) |
-| **Missing Opportunities** | 4 high-demand cells | 0 |
-
-**Key Finding**: The model successfully identifies high-demand areas. 80% of the top 20 predicted cells already have stations, validating the model's accuracy. However, 4 of the top 20 predicted locations lack stations, representing immediate expansion opportunities.
-
-#### Expansion Opportunities: Top Underserved Locations
-
-Based on the grid analysis, here are the top underserved areas with high predicted demand but no existing stations:
-
-**Top 5 Expansion Candidates (High Prediction, No Stations):**
-
-| Rank | Location (Lat, Lon) | Predicted Demand | Key POI Features | Interpretation |
-|------|---------------------|------------------|------------------|----------------|
-| 1 | (42.360, -71.090) | 70.9 departures/day | 1 subway, 12 buses, 24 restaurants, 25 offices | **Financial District gap** - Strong commercial activity |
-| 2 | (42.350, -71.094) | 67.5 departures/day | 2 subways, 12 buses, 34 restaurants, 9 offices, 2 universities | **University corridor** - Academic + commercial |
-| 3 | (42.355, -71.108) | 59.2 departures/day | 8 buses, 7 restaurants, 6 offices, 2 universities | **Allston-Brighton gap** - Student population |
-| 4 | (42.346, -71.094) | 56.5 departures/day | 2 subways, 19 buses, 59 restaurants, 13 offices, 2 universities | **Northeastern periphery** - University boundary |
-| 5 | (42.344, -71.102) | 47.5 departures/day | 2 subways, 21 buses, 39 restaurants, 10 offices | **Mission Hill corridor** - Mixed residential-commercial |
-
-**Common Characteristics of High-Demand Underserved Areas:**
-
-1. **Strong Transit Access**: All top 5 have subway or extensive bus coverage (average 15 buses per location)
-2. **Commercial Activity**: Average of 35 restaurants nearby, indicating high foot traffic
-3. **Mixed-Use Density**: Combination of dining, offices, and educational institutions
-4. **Network Gaps**: Located between existing high-performing stations
-
-#### Validation: Model Predictions vs. Actual Ridership
-
-To validate grid predictions, I compared predicted vs. actual demand for the 324 cells with existing stations:
-
-**Top 5 Cells by Actual Ridership (2024 average):**
-
-| Location | Predicted | Actual | Stations | Accuracy |
-|----------|-----------|--------|----------|----------|
-| (42.364, -71.089) | 60.3 | 299.5 | 7 stations | High activity hub |
-| (42.360, -71.094) | 92.1 | 148.5 | 1 station | Model accurate |
-| (42.364, -71.103) | 85.9 | 190.0 | 2 stations | Model accurate |
-| (42.364, -71.058) | 60.3 | 137.2 | 3 stations | Transit hub |
-| (42.350, -71.090) | 106.2 | 132.9 | 1 station | Peak prediction validated |
-
-The model correctly identifies high-demand areas. Cells with multiple stations show actual demand exceeding single-station predictions, and the downtown core (7-station cell) demonstrates capacity saturation potential.
+The analysis identified cells with high predicted demand but no existing stations. The complete ranked list of expansion opportunities is available in `results/grid_analysis/expansion_opportunities.csv`, containing 334 underserved cells with their predicted demand and POI features. The full grid prediction results are in `results/grid_analysis/grid_demand_comparison.csv`, containing all 1,892 cells with predicted demand, actual demand (where stations exist), and POI features.
 
 #### Strategic Insights for Network Expansion
 
-**1. Immediate Infill Opportunities**
-- 4 underserved cells in Top 20 represent low-risk expansion targets
-- These are surrounded by successful existing stations
-- Estimated Impact: approximately 240 additional trips/day (4 cells × 60 avg demand)
+**1. Transit Integration**
+- Subway and bus access are important demand drivers (5.38% and 3.82% feature importance respectively)
+- Recommendation: Prioritize locations with public transit access
 
-**2. Transit Integration is Critical**
-- 92% of high-demand cells (>50 departures/day) are near subway or major bus routes
-- Recommendation: Prioritize locations within 200m of public transit hubs
-
-**3. Restaurant Density as Demand Indicator**
+**2. Commercial Activity**
 - Restaurant count is the strongest predictor (13.45% feature importance)
-- Recommendation: Target areas with 30 or more restaurants within 500m radius
-- Avoid areas with fewer than 10 restaurants (typically low-demand residential zones)
+- Office density is the second strongest (10.41% feature importance)
+- Recommendation: Target areas with high commercial density
 
-**4. University Corridors Underserved**
-- 3 of top 5 expansion opportunities are near universities
-- Student populations generate consistent weekday demand
-- Recommendation: Prioritize university periphery locations
-
-**5. Avoid Low-Density Areas**
-- 68% of grid cells have predicted demand below 20 departures/day
-- These are primarily residential-only or industrial zones
-- Recommendation: Defer expansion until core network saturates
+**3. University Proximity**
+- University proximity ranks third in importance (8.72%)
+- Recommendation: Consider locations near educational institutions
 
 #### Interactive Visualization Tools
 
