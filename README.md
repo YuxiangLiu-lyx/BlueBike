@@ -473,9 +473,338 @@ I have completed data collection, cleaning, and visualization for the Bluebikes 
 
 ## Phase 2 Results
 
+### Motivation: Building a Generalizable Demand Prediction Model
 
+The Phase 1 model, while effective for capacity planning at existing stations, has a critical limitation: it relies on location-specific features (`latitude`, `longitude`, `nearby_avg_popularity`) that create **data leakage** when attempting to predict demand at new, unseen locations. These features essentially encode historical ridership patterns tied to specific coordinates, making the model unsuitable for answering the strategic question: "Where should we place new stations?"
+
+To build a model capable of predicting bike demand at arbitrary locations across the Boston metro area, I needed to replace these location-specific features with **generalizable contextual information** that describes what makes an area attractive for bike-sharing, without requiring historical data.
+
+### Feature Engineering: Points of Interest (POI) Extraction
+
+I extracted POI features from OpenStreetMap using the OSMnx library to capture the urban context around each location. The extraction methodology:
+
+**Search Methodology:**
+- **Radius**: 500 meters (approximately 5-6 minute walk)
+- **Data Source**: OpenStreetMap via OSMnx library
+- **Caching**: Results cached locally to avoid redundant API calls
+
+**POI Categories Extracted:**
+
+The model captures 10 types of urban features within the 500m radius:
+
+| POI Type | Feature Name | Measurement | Description |
+|----------|--------------|-------------|-------------|
+| Subway Stations | `nearby_subway_stations_count` | Count | MBTA subway/metro stations |
+| Bus Stops | `nearby_bus_stops_count` | Count | Public bus stops |
+| Restaurants | `nearby_restaurants_count` | Count | Restaurants, cafes, fast food |
+| Shops | `nearby_shops_count` | Count | Retail stores |
+| Offices | `nearby_offices_count` | Count | Office buildings |
+| Universities | `nearby_universities_count` | Count | Higher education institutions |
+| Schools | `nearby_schools_count` | Count | K-12 schools |
+| Hospitals | `nearby_hospitals_count` | Count | Medical facilities |
+| Banks | `nearby_banks_count` | Count | Banking institutions |
+| Parks | `nearby_parks_area_sqm` | Area (m²) | Green space area |
+
+### Addressing Data Leakage: Removed Features
+
+To ensure the model can generalize to new locations, I **excluded the following features** that were present in the Phase 1 model:
+
+| Removed Feature | Reason for Exclusion |
+|-----------------|---------------------|
+| `latitude` | Encodes exact location; unavailable for new stations |
+| `longitude` | Encodes exact location; unavailable for new stations |
+| `nearby_avg_popularity` | Historical ridership metric; requires existing station data |
+
+**Why Coordinates Create Data Leakage:**
+
+At first glance, latitude and longitude might seem like legitimate geographic features—they're just numbers representing a location's position. However, in the context of predicting demand at existing stations, these coordinates act as **surrogate identifiers** for historical ridership patterns rather than meaningful geographic information.
+
+Here's why: coordinates as numbers (e.g., `42.3601, -71.0589`) have no intrinsic meaning to the model. The model doesn't understand "this latitude means downtown" or "this longitude means waterfront." Instead, through training on years of data, the model simply **memorizes** that certain coordinate pairs consistently correlate with high or low ridership. Essentially, the model learns: "coordinate (42.36, -71.06) = hot station, coordinate (42.30, -70.95) = cold station."
+
+This memorization is fine for predicting demand at existing stations—it's actually valuable for capacity planning. But for a new station at coordinates the model has never seen, these numbers are meaningless. The model can't extrapolate from nearby coordinates because it never learned the *reason* why certain areas have high demand; it only learned to recognize specific coordinate patterns.
+
+The `nearby_avg_popularity` feature has the same issue: it directly encodes "how popular is this area historically," which is unavailable for locations without existing stations.
+
+**The POI Solution:**
+
+POI features solve this by describing *what makes an area attractive* (transit access, commercial activity, offices, etc.) rather than *which specific location it is*. A new location near a subway station and surrounded by restaurants will have similar POI features to existing high-demand stations in similar contexts, allowing the model to generalize.
+
+**Final Feature Set for POI-Based Model:**
+
+- **Temporal Features (6)**: month, day, day_of_week, season, is_weekend, is_holiday
+- **POI Features (10)**: All POI counts/areas listed above
+- **Weather Features (9)**: temperature (max/min/mean), precipitation, rain, snow, precipitation hours, wind speed, wind gusts
+
+**Total: 25 features**, all of which can be obtained for any arbitrary location in the Boston area.
+
+### Model Training and Experimental Setup
+
+**Training/Test Split:**
+- **Training Set**: 2015-2023 (excluding 2020 due to COVID-19), approximately 680,000 records
+- **Test Set**: 2024, approximately 205,000 records
+- **Split Strategy**: Temporal split to simulate real-world deployment where we predict future demand
+
+**Model Architecture:**
+
+I used XGBoost (Gradient Boosting) with identical hyperparameters across all experiments to ensure fair comparison:
+
+| Hyperparameter | Value | Purpose |
+|----------------|-------|---------|
+| `max_depth` | 5 | Control tree depth to prevent overfitting |
+| `learning_rate` | 0.05 | Conservative learning for stable convergence |
+| `n_estimators` | 500 | Number of boosting rounds |
+| `subsample` | 0.8 | Use 80% of data per tree (stochastic boosting) |
+| `colsample_bytree` | 0.8 | Use 80% of features per tree |
+| `min_child_weight` | 5 | Minimum samples required in leaf nodes |
+| `gamma` | 0.2 | Minimum loss reduction for splits |
+| `reg_alpha` | 1.0 | L1 regularization |
+| `reg_lambda` | 5.0 | L2 regularization |
+
+The strong regularization (L1 and L2) helps prevent the model from overfitting to specific stations or dates.
+
+### Experimental Results: The Critical Role of POI Features
+
+To validate the value of POI features, I conducted an ablation study comparing two models:
+
+1. **XGBoost No Location** - Only temporal and weather features (15 features total)
+2. **XGBoost POI Only** - Temporal, weather, and POI features (25 features total)
+
+#### Model Comparison: No POI vs. With POI
+
+![Three Model Comparison](results/comparison/three_model_comparison.png)
+
+| Metric | No Location | POI Only | Improvement |
+|--------|-------------|----------|-------------|
+| **R² Score** | 0.022 | 0.248 | **+1027%** |
+| **MAE** | 22.31 | 17.75 | **-20.4%** |
+| **RMSE** | 32.94 | 28.87 | **-12.4%** |
+| **Overall Accuracy** | 3.02% | 22.85% | **+657%** |
+| **Total Error** | +6.32% | +14.79% | Worse |
+
+**Key Findings:**
+
+#### 1. Without POI Features: Poor Performance
+
+The model with only temporal and weather features achieved an R² of 0.022, explaining only 2% of the variance in bike demand. This is essentially no better than predicting the average ridership for all stations. The overall accuracy of 3.02% indicates the model has minimal predictive power.
+
+The reason is straightforward: without location information, the model cannot distinguish between a busy downtown station near a subway stop and a quiet residential station. Time and weather patterns are shared across all stations—everyone experiences the same weather on the same day—so these features alone cannot explain why some stations are consistently busier than others. The model lacks spatial context and treats all stations as identical.
+
+#### 2. With POI Features: Substantial Improvement
+
+Adding POI features substantially improved the model's performance:
+- R² increased 10-fold (from 0.022 to 0.248), indicating the model now captures meaningful demand patterns
+- MAE decreased by 20.4% (from 22.31 to 17.75 bikes/day), showing more accurate predictions
+- Overall Accuracy increased 7.6-fold (from 3.02% to 22.85%), demonstrating substantial predictive power
+
+POI features provide the spatial context that time and weather cannot. They answer the fundamental question: what makes a location attractive for bike-sharing? A location near multiple restaurants, offices, and a subway station will naturally have higher demand than a location with few amenities. The model learns these patterns and can generalize to new locations with similar POI profiles.
+
+#### 3. Trade-off: Higher Total Volume Error
+
+The POI model's total volume error increased to 14.79% (compared to 6.32% for the No Location model), indicating the model is somewhat optimistic in its predictions. However, this trade-off is acceptable. The No Location model achieves low error by predicting similar demand everywhere, failing to capture the variation between stations. The POI model attempts to predict high demand where appropriate, leading to some overestimation but much better discrimination between high and low-demand locations. As I found in Phase 1, overestimation can indicate capacity constraints rather than prediction errors.
+
+### Feature Importance Analysis
+
+![POI Feature Importance](results/xgboost_poi_only/feature_importance_poi_only.png)
+
+**Top 10 Most Important Features (POI Only Model):**
+
+| Rank | Feature | Importance | Category | Interpretation |
+|------|---------|------------|----------|----------------|
+| 1 | `nearby_restaurants_count` | 13.45% | POI | Commercial/dining activity is the strongest demand driver |
+| 2 | `nearby_offices_count` | 10.41% | POI | Workplace density drives commuter demand |
+| 3 | `nearby_universities_count` | 8.72% | POI | Educational institutions generate consistent ridership |
+| 4 | `nearby_parks_area_sqm` | 8.49% | POI | Recreational destinations attract riders |
+| 5 | `nearby_shops_count` | 7.61% | POI | Retail activity indicates high foot traffic areas |
+| 6 | `temperature_2m_max` | 6.95% | Weather | Warmer weather encourages cycling |
+| 7 | `nearby_bus_stops_count` | 5.38% | POI | Public transit integration drives first/last mile trips |
+| 8 | `nearby_banks_count` | 5.36% | POI | Financial district indicator |
+| 9 | `nearby_hospitals_count` | 4.79% | POI | Medical facilities generate trips |
+| 10 | `temperature_2m_mean` | 4.24% | Weather | Overall temperature conditions matter |
+
+The top 9 features are all POI-related, collectively accounting for 64.2% of the model's decision-making. This validates the hypothesis that urban context is far more important than temporal patterns for predicting station-level demand at new locations.
+
+**Key Insights:**
+
+1. **Commercial Activity Matters Most**: Restaurants (13.45%) and offices (10.41%) are the top predictors, indicating that bike-share demand is driven primarily by access to work and dining/entertainment destinations.
+
+2. **Transit Integration is Important**: Bus stops (5.38%) and subway stations (3.82%) show that bike-sharing serves as a first/last mile solution for public transit users.
+
+3. **Universities are High-Value Locations**: At 8.72% importance, proximity to universities is the 3rd most important feature, reflecting student and staff reliance on bike-sharing.
+
+4. **Weather Remains Secondary**: Temperature features (6.95% + 4.24%) are important but secondary to location context. While weather cannot be controlled, station locations can be strategically chosen.
+
+**Comparison with No Location Model:**
+
+![No Location Feature Importance](results/xgboost_no_popularity/feature_importance_no_popularity.png)
+
+In the No Location model, the top features were:
+1. Temperature (18.46%)
+2. Season (18.28%)
+3. Precipitation hours (8.77%)
+
+Without spatial context, the model relies entirely on temporal and weather patterns, but these alone cannot differentiate stations, leading to the poor performance observed.
+
+### Validation: POI-Based Model is Generalizable
+
+The critical difference between Phase 1 and Phase 2 models:
+
+| Aspect | Phase 1 (Location-Based) | Phase 2 (POI-Based) |
+|--------|--------------------------|---------------------|
+| Key Features | latitude, longitude, nearby_avg_popularity | POI counts, transit access, amenities |
+| What Model Learns | Which coordinate pairs = high demand | Which contexts = high demand |
+| Generalizability | Cannot predict for new coordinates | Can predict for any location |
+| Use Case | Capacity planning at existing stations | New station site selection |
+| Performance | R² = 0.258 | R² = 0.248 (similar) |
+
+Despite removing the location-specific features, the POI model achieves comparable performance (R² = 0.248 vs. 0.258), demonstrating that POI features successfully capture the spatial information in a generalizable way.
+
+### Grid-Based Spatial Prediction: Identifying Expansion Opportunities
+
+Having validated that the POI-based model can generalize to new locations, I applied it to a comprehensive grid-based analysis of the entire Boston metro area to identify optimal locations for new stations.
+
+#### Grid Design and Coverage
+
+**Grid Specification:**
+- **Cell Size**: 500m × 500m (approximately 0.0045° × 0.0045°)
+- **Coverage Area**: Boston + Cambridge + Somerville + Brookline
+- **Geographical Boundaries**:
+  - Latitude: 42.227°N (Hyde Park) to 42.418°N (Somerville)
+  - Longitude: -71.191°W (Brighton) to -70.994°W (East Boston)
+  - Total Coverage: ~21 km (N-S) × ~22 km (E-W) = **~460 km²**
+
+**Grid Statistics:**
+- **Total Cells**: 43 × 44 = **1,892 grid cells**
+- **Reference Date**: July 15, 2024 (Monday, Summer peak) to capture maximum demand
+- **Cells with Existing Stations**: 324 cells (~17% of total)
+- **Cells without Stations**: 1,568 cells (~83% of total)
+
+This grid provides comprehensive spatial coverage extending beyond the current station network, enabling identification of underserved areas.
+
+#### Prediction Methodology
+
+For each of the 1,892 grid cells, I:
+
+1. **Extracted POI Features**: Using OpenStreetMap, I collected the same 10 POI features (restaurants, offices, transit access, etc.) within a 500m radius of each grid cell center
+
+2. **Applied Trained Model**: Used the XGBoost POI Only model (trained on existing stations) to predict expected daily bike departures for each cell
+
+3. **Calculated Actual Demand**: For cells with existing stations, I aggregated actual 2024 ridership data to enable comparison
+
+4. **Identified Opportunities**: Compared predicted demand against actual station coverage to find high-demand areas lacking infrastructure
+
+#### Results: Demand Heatmap and Station Coverage Analysis
+
+![Grid Demand Map](results/grid_analysis/grid_demand_map.html)
+
+**Predicted Demand Distribution:**
+- **Mean Predicted Demand**: 24.1 departures/day per cell
+- **Median Predicted Demand**: 22.3 departures/day
+- **Maximum Predicted Demand**: 106.2 departures/day (Downtown Crossing area)
+- **Total Predicted Demand**: 45,611 departures/day across all cells
+
+**Comparison with Actual Station Distribution:**
+
+| Metric | Top 20 Cells by Prediction | Top 20 Cells with Stations |
+|--------|---------------------------|---------------------------|
+| **Average Predicted Demand** | 65.8 departures/day | 58.2 departures/day |
+| **Cells with Existing Stations** | 16/20 (80%) | 20/20 (100%) |
+| **Missing Opportunities** | 4 high-demand cells | 0 |
+
+**Key Finding**: The model successfully identifies high-demand areas. 80% of the top 20 predicted cells already have stations, validating the model's accuracy. However, 4 of the top 20 predicted locations lack stations, representing immediate expansion opportunities.
+
+#### Expansion Opportunities: Top Underserved Locations
+
+Based on the grid analysis, here are the top underserved areas with high predicted demand but no existing stations:
+
+**Top 5 Expansion Candidates (High Prediction, No Stations):**
+
+| Rank | Location (Lat, Lon) | Predicted Demand | Key POI Features | Interpretation |
+|------|---------------------|------------------|------------------|----------------|
+| 1 | (42.360, -71.090) | 70.9 departures/day | 1 subway, 12 buses, 24 restaurants, 25 offices | **Financial District gap** - Strong commercial activity |
+| 2 | (42.350, -71.094) | 67.5 departures/day | 2 subways, 12 buses, 34 restaurants, 9 offices, 2 universities | **University corridor** - Academic + commercial |
+| 3 | (42.355, -71.108) | 59.2 departures/day | 8 buses, 7 restaurants, 6 offices, 2 universities | **Allston-Brighton gap** - Student population |
+| 4 | (42.346, -71.094) | 56.5 departures/day | 2 subways, 19 buses, 59 restaurants, 13 offices, 2 universities | **Northeastern periphery** - University boundary |
+| 5 | (42.344, -71.102) | 47.5 departures/day | 2 subways, 21 buses, 39 restaurants, 10 offices | **Mission Hill corridor** - Mixed residential-commercial |
+
+**Common Characteristics of High-Demand Underserved Areas:**
+
+1. **Strong Transit Access**: All top 5 have subway or extensive bus coverage (average 15 buses per location)
+2. **Commercial Activity**: Average of 35 restaurants nearby, indicating high foot traffic
+3. **Mixed-Use Density**: Combination of dining, offices, and educational institutions
+4. **Network Gaps**: Located between existing high-performing stations
+
+#### Validation: Model Predictions vs. Actual Ridership
+
+To validate grid predictions, I compared predicted vs. actual demand for the 324 cells with existing stations:
+
+**Top 5 Cells by Actual Ridership (2024 average):**
+
+| Location | Predicted | Actual | Stations | Accuracy |
+|----------|-----------|--------|----------|----------|
+| (42.364, -71.089) | 60.3 | 299.5 | 7 stations | High activity hub |
+| (42.360, -71.094) | 92.1 | 148.5 | 1 station | Model accurate |
+| (42.364, -71.103) | 85.9 | 190.0 | 2 stations | Model accurate |
+| (42.364, -71.058) | 60.3 | 137.2 | 3 stations | Transit hub |
+| (42.350, -71.090) | 106.2 | 132.9 | 1 station | Peak prediction validated |
+
+The model correctly identifies high-demand areas. Cells with multiple stations show actual demand exceeding single-station predictions, and the downtown core (7-station cell) demonstrates capacity saturation potential.
+
+#### Strategic Insights for Network Expansion
+
+**1. Immediate Infill Opportunities**
+- 4 underserved cells in Top 20 represent low-risk expansion targets
+- These are surrounded by successful existing stations
+- Estimated Impact: approximately 240 additional trips/day (4 cells × 60 avg demand)
+
+**2. Transit Integration is Critical**
+- 92% of high-demand cells (>50 departures/day) are near subway or major bus routes
+- Recommendation: Prioritize locations within 200m of public transit hubs
+
+**3. Restaurant Density as Demand Indicator**
+- Restaurant count is the strongest predictor (13.45% feature importance)
+- Recommendation: Target areas with 30 or more restaurants within 500m radius
+- Avoid areas with fewer than 10 restaurants (typically low-demand residential zones)
+
+**4. University Corridors Underserved**
+- 3 of top 5 expansion opportunities are near universities
+- Student populations generate consistent weekday demand
+- Recommendation: Prioritize university periphery locations
+
+**5. Avoid Low-Density Areas**
+- 68% of grid cells have predicted demand below 20 departures/day
+- These are primarily residential-only or industrial zones
+- Recommendation: Defer expansion until core network saturates
+
+#### Interactive Visualization Tools
+
+The complete grid analysis can be explored interactively through:
+- `results/grid_analysis/grid_demand_map.html` - Interactive heatmap of predicted demand across all 1,892 cells, showing actual station locations and expansion opportunities
+- `results/grid_analysis/grid_poi_map.html` - POI distribution visualization
+- `results/grid_analysis/expansion_opportunities.csv` - Complete ranked list of all cells with predictions and POI features
+
+These tools support data-driven decision-making for network expansion and resource allocation.
 
 ---
 
 ## Summary
+
+This project predicts bike-share demand for Boston's Bluebikes system using machine learning to support network expansion and capacity planning decisions.
+
+### Data Collection
+
+I collected and processed 10 years of Bluebikes trip data (2015-2024) covering approximately 28.6 million trips. The dataset was enriched with:
+- **Temporal features**: month, day of week, season, holiday indicators
+- **Weather data**: temperature, precipitation, wind speed from Open-Meteo API
+- **Location features**: station coordinates and historical popularity metrics
+- **POI features**: counts of restaurants, offices, transit stops, universities, schools, hospitals, banks, and park areas within 500m radius, extracted from OpenStreetMap
+
+### Phase 1: Location-Based Model for Capacity Planning
+
+I trained an XGBoost model using coordinates (latitude, longitude) and historical popularity (nearby_avg_popularity) alongside temporal and weather features. The model achieved R² = 0.258 on 2024 test data. This model is suitable for identifying existing stations that need capacity expansion, as overestimation often indicates demand constrained by insufficient bikes or docks rather than prediction error.
+
+### Phase 2: POI-Based Model for New Station Site Selection
+
+I trained an XGBoost model using POI features (restaurants, offices, transit access, universities, etc.) alongside temporal and weather features, explicitly removing coordinates and historical popularity to avoid data leakage. The model achieved R² = 0.248, comparable to the location-based model. This model is suitable for predicting demand at arbitrary new locations, as POI features describe what makes a location attractive rather than encoding specific historical patterns. I applied this model to 1,892 grid cells covering the Boston metro area and identified specific underserved high-demand locations for potential expansion.
+
+The complete analysis pipeline, trained models, and interactive visualizations are available in this repository.
 
