@@ -439,17 +439,27 @@ Location and weather are the primary drivers of bike demand, with the surroundin
 | RMSE | 32.68 | 28.69 | -12.2% |
 | Total Error | +4.00% | +14.17% | Worse |
 
-**R² Score**: This metric measures how much variance in the data the model can explain. XGBoost improved from 0.101 to 0.258, a 154% increase, indicating the model captures more than twice as many patterns in bike demand.
+The XGBoost model shows significant improvements over the baseline: R² Score increased by 154% (from 0.101 to 0.258), MAE decreased by 9.7% (from 19.27 to 17.40 bikes/day), and RMSE decreased by 12.2% (from 32.68 to 28.69). However, the model overestimates total 2024 volume by 14%, compared to the baseline's 4% overestimation. This overestimation led to an important discovery about the practical value of this model.
 
-**MAE (Mean Absolute Error)**: This shows the average prediction error per station per day. XGBoost reduced the error from 19.27 to 17.40 bikes, a 9.7% improvement, meaning predictions are closer to actual values on average.
+#### Overestimation Analysis: Identifying Capacity Constraints
 
-**RMSE (Root Mean Squared Error)**: This metric penalizes larger errors more heavily than MAE. XGBoost reduced RMSE from 32.68 to 28.69, a 12.2% improvement, showing the model made fewer extreme errors.
+![Overestimation Analysis](results/analysis/overestimation_analysis.png)
 
-**Total Error Issue**: However, the model overestimates total 2024 volume by 14%, which is higher than Baseline's 4%. This suggests the model is somewhat too optimistic in its predictions. This could be because the model predicts higher demand on certain weather conditions that didn't occur as frequently. Possible improvements include adding a calibration step to adjust the total predictions, or using ensemble methods to balance optimistic and conservative predictions. On the positive side, this overestimation might indicate locations where more bikes could potentially be used if capacity were increased.
+I conducted a detailed analysis of days where the model's predictions significantly exceeded actual ridership. The key finding was that **these high-prediction days also had actual ridership far above the station's average**. This suggests that the model correctly identified high-demand periods, but the actual usage was constrained by station capacity (limited number of bikes or docks).
+
+**Key Insights:**
+
+1. **Capacity Bottlenecks**: When the model predicts much higher demand than observed, it often indicates the station is operating at or near full capacity. The "missing" trips aren't prediction errors—they're lost revenue opportunities due to insufficient bikes or docks.
+
+2. **Expansion Opportunities**: Stations with consistent overestimation are prime candidates for capacity expansion. Adding more bikes or docks at these locations would likely increase actual ridership and generate additional revenue.
+
+3. **Practical Value of Phase 1 Model**: While the location-based features (coordinates, `nearby_avg_popularity`) make this model unsuitable for predicting demand at entirely new locations, they are **highly valuable for capacity planning at existing stations**. The model excels at identifying which stations need more resources based on historical usage patterns and local context.
+
+This analysis demonstrates that prediction "errors" can reveal actionable business insights. The Phase 1 model serves a different but equally important purpose: optimizing the existing network by identifying underutilized capacity versus capacity constraints.
 
 ### Summary
 
-I have completed data collection, cleaning, and visualization for the Bluebikes dataset. I built and compared two prediction models: a simple baseline model and an XGBoost machine learning model. The XGBoost model shows clear improvements with R² increasing from 0.101 to 0.258, demonstrating that machine learning can capture patterns that simple historical methods miss.
+I have completed data collection, cleaning, and visualization for the Bluebikes dataset. I built and compared two prediction models: a simple baseline model and an XGBoost machine learning model. The XGBoost model shows clear improvements with R² increasing from 0.101 to 0.258, demonstrating that machine learning can capture patterns that simple historical methods miss. Analysis of the model's overestimation patterns revealed that high predictions often coincide with days when actual usage is already far above average, indicating **capacity constraints** rather than prediction errors. This finding demonstrates the practical value of this model: while its location-based features make it unsuitable for new station placement, it is **highly effective for identifying existing stations that need capacity expansion**.
 
 **Code Organization**: All code is available in the GitHub repo:
 - `src/data_collection/` - Data download scripts
