@@ -1,5 +1,13 @@
 # BlueBike
 
+[![Tests](https://github.com/YOUR_USERNAME/BlueBike/actions/workflows/test.yml/badge.svg)](https://github.com/YOUR_USERNAME/BlueBike/actions/workflows/test.yml)
+
+## Video Presentation
+
+**[Watch the 10-minute presentation on YouTube](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)**
+
+---
+
 ## How to Build and Run the Code
 
 ### Installation
