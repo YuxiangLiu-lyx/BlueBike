@@ -1,6 +1,6 @@
 # BlueBike
 
-[![Tests](https://github.com/YuxiangLiu-lyx/BlueBike/actions/workflows/test.yml/badge.svg)](https://github.com/YuxiangLiu-lyx/BlueBike/actions/workflows/test.yml)
+[![Tests](https://github.com/YuxiangLiu-lyx/BlueBike/actions/workflows/test.yml/badge.svg)](https://github.com/YuxiangLiu-lyx/BlueBike/actions/workflows/test.yml) ← Click to view test workflow results
 
 ## Video Presentation
 
