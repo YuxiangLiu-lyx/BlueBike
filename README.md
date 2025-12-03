@@ -1,6 +1,6 @@
 # BlueBike
 
-[![Tests](https://github.com/YOUR_USERNAME/BlueBike/actions/workflows/test.yml/badge.svg)](https://github.com/YOUR_USERNAME/BlueBike/actions/workflows/test.yml)
+[![Tests](https://github.com/YuxiangLiu-lyx/BlueBike/actions/workflows/test.yml/badge.svg)](https://github.com/YuxiangLiu-lyx/BlueBike/actions/workflows/test.yml)
 
 ## Video Presentation
 
@@ -20,7 +20,7 @@ pip install -r requirements.txt
 
 ### Download Preprocessed Data
 
-The data processing pipeline takes 15-20 hours to run from scratch. Preprocessed data is available on Hugging Face Hub:
+The data processing pipeline is time-consuming. Preprocessed data is available on Hugging Face Hub:
 
 ```bash
 python download_data.py
@@ -107,11 +107,11 @@ python src/visualization/station_analysis.py
 If you want to reproduce the entire data processing pipeline from raw data, run these commands in order. Note that this process is time-consuming and requires substantial disk space.
 
 ```bash
-# Download raw Bluebikes trip data from 2015-2024 (takes 30+ minutes, ~5GB disk space)
+# Download raw Bluebikes trip data from 2015-2024 (~5GB disk space)
 python src/data_collection/bluebikes_download.py
 # Output: data/raw/*.csv
 
-# Clean and standardize the raw trip data (takes 10-20 minutes)
+# Clean and standardize the raw trip data
 python src/preprocessing/data_cleaning.py
 # Output: data/processed/bluebike_cleaned/trips_cleaned.parquet
 
@@ -124,7 +124,7 @@ python src/preprocessing/feature_engineering.py
 python src/preprocessing/prepare_station_daily.py
 # Output: data/processed/daily/station_daily_with_coords.parquet, station_daily_with_coords_sample.csv
 
-# Fetch weather data for each station (takes 6-8 hours due to API rate limits)
+# Fetch weather data for each station (slow due to API rate limits)
 python src/data_collection/weather_api.py
 # Output: data/external/weather/station_daily_with_weather.parquet, station_daily_with_weather_sample.csv
 
@@ -132,11 +132,11 @@ python src/data_collection/weather_api.py
 python src/preprocessing/add_xgb_features.py
 # Output: data/processed/daily/daily_with_xgb_features.parquet, daily_with_xgb_features_sample.csv
 
-# Extract POI features from OpenStreetMap (takes 1-4 hours)
+# Extract POI features from OpenStreetMap
 python src/preprocessing/add_poi_features.py
 # Output: data/processed/daily/daily_with_poi_features.parquet, daily_with_poi_features_sample.csv
 
-# Create grid features for spatial prediction (takes 2-7 hours for POI extraction)
+# Create grid features for spatial prediction
 python src/analysis/create_grid_features.py
 python src/analysis/add_grid_poi.py
 # Output: data/processed/grid/grid_with_poi_features.parquet, grid_with_poi_features_sample.csv
@@ -515,7 +515,7 @@ The model captures 10 types of urban features within the 500m radius:
 
 ### Addressing Data Leakage: Removed Features
 
-To ensure the model can generalize to new locations, I **excluded the following features** that were present in the Phase 1 model:
+To make the model generalizable to new locations, I **excluded the following features** that were present in the Phase 1 model:
 
 | Removed Feature | Reason for Exclusion |
 |-----------------|---------------------|
@@ -554,7 +554,7 @@ POI features solve this by describing *what makes an area attractive* (transit a
 
 **Model Architecture:**
 
-I used XGBoost (Gradient Boosting) with identical hyperparameters across all experiments to ensure fair comparison:
+I used XGBoost (Gradient Boosting) with identical hyperparameters across all experiments for fair comparison:
 
 | Hyperparameter | Value | Purpose |
 |----------------|-------|---------|
@@ -668,7 +668,7 @@ Despite removing the location-specific features, the POI model achieves comparab
 
 ### Grid-Based Spatial Prediction: Identifying Expansion Opportunities
 
-Having validated that the POI-based model can generalize to new locations, I applied it to a comprehensive grid-based analysis of the entire Boston metro area to identify optimal locations for new stations.
+After validating that the POI-based model can generalize to new locations, I applied it to a grid-based analysis of the Boston metro area to identify potential locations for new stations.
 
 #### Grid Design and Coverage
 
@@ -686,7 +686,7 @@ Having validated that the POI-based model can generalize to new locations, I app
 - **Cells with Existing Stations**: 324 cells (~17% of total)
 - **Cells without Stations**: 1,568 cells (~83% of total)
 
-This grid provides comprehensive spatial coverage extending beyond the current station network, enabling identification of underserved areas.
+This grid covers areas beyond the current station network, enabling identification of underserved areas.
 
 #### Prediction Methodology
 
