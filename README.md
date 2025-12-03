@@ -511,8 +511,8 @@ To ensure the model can generalize to new locations, I **excluded the following 
 
 | Removed Feature | Reason for Exclusion |
 |-----------------|---------------------|
-| `latitude` | Encodes exact location; unavailable for new stations |
-| `longitude` | Encodes exact location; unavailable for new stations |
+| `latitude` | Data leakage; No meaning for new stations |
+| `longitude` | Data leakage; No meaning for new stations |
 | `nearby_avg_popularity` | Historical ridership metric; requires existing station data |
 
 **Why Coordinates Create Data Leakage:**
@@ -621,7 +621,7 @@ The POI model's total volume error increased to 14.79% (compared to 6.32% for th
 | 9 | `nearby_hospitals_count` | 4.79% | POI | Medical facilities generate trips |
 | 10 | `temperature_2m_mean` | 4.24% | Weather | Overall temperature conditions matter |
 
-The top 9 features are all POI-related, collectively accounting for 64.2% of the model's decision-making. This validates the hypothesis that urban context is far more important than temporal patterns for predicting station-level demand at new locations.
+8 of the top 10 features are POI-related, collectively accounting for 64.2% of the model's decision-making. Temperature features rank 6th and 10th, showing weather also matters but is secondary to location context. This validates the hypothesis that urban context is more important than temporal patterns for predicting station-level demand.
 
 **Key Insights:**
 
@@ -654,7 +654,7 @@ The critical difference between Phase 1 and Phase 2 models:
 | What Model Learns | Which coordinate pairs = high demand | Which contexts = high demand |
 | Generalizability | Cannot predict for new coordinates | Can predict for any location |
 | Use Case | Capacity planning at existing stations | New station site selection |
-| Performance | R² = 0.258 | R² = 0.248 (similar) |
+| Performance | R² = 0.258 | R² = 0.248 |
 
 Despite removing the location-specific features, the POI model achieves comparable performance (R² = 0.248 vs. 0.258), demonstrating that POI features successfully capture the spatial information in a generalizable way.
 
@@ -692,35 +692,88 @@ For each of the 1,892 grid cells, I:
 
 4. **Identified Opportunities**: Compared predicted demand against actual station coverage to find high-demand areas lacking infrastructure
 
-#### Results: Demand Heatmap and Station Coverage Analysis
+#### Visualization 1: POI Distribution Map
 
-![Grid Demand Map](results/grid_analysis/grid_demand_map.html)
+I first created an interactive map to visualize the POI distribution across all grid cells. This map helps understand the urban context of each potential location.
 
-The analysis identified cells with high predicted demand but no existing stations. The complete ranked list of expansion opportunities is available in `results/grid_analysis/expansion_opportunities.csv`, containing 334 underserved cells with their predicted demand and POI features. The full grid prediction results are in `results/grid_analysis/grid_demand_comparison.csv`, containing all 1,892 cells with predicted demand, actual demand (where stations exist), and POI features.
+<p align="center">
+  <img src="results/grid_analysis/grid_poi_map_screenshot.png" width="800">
+</p>
 
-#### Strategic Insights for Network Expansion
+Interactive map: [`results/grid_analysis/grid_poi_map.html`](results/grid_analysis/grid_poi_map.html)
 
-**1. Transit Integration**
-- Subway and bus access are important demand drivers (5.38% and 3.82% feature importance respectively)
-- Recommendation: Prioritize locations with public transit access
+**Map Features:**
+- **Total Grids**: 1,892 cells covering the Boston metro area
+- **Grids with POI Data**: 1,723 cells (91% coverage)
+- **Selectable Layers**: Users can toggle between 11 different layers:
+  - Total POI Density (aggregate view)
+  - Individual POI categories: Subway Stations, Bus Stops, Restaurants, Shops, Offices, Universities, Schools, Hospitals, Banks, Parks
+  - Top 10 Grids (highlighted with star markers)
+- **Visual Encoding**: Circle size represents the count (for countable POIs like restaurants) or area (for parks). Larger circles indicate higher POI density.
+- **Interactivity**: Click any circle to view detailed POI counts for that grid cell.
 
-**2. Commercial Activity**
-- Restaurant count is the strongest predictor (13.45% feature importance)
-- Office density is the second strongest (10.41% feature importance)
-- Recommendation: Target areas with high commercial density
+This visualization allows exploration of which areas have high commercial activity, transit access, or educational institutions—all factors that the model identified as important demand predictors.
 
-**3. University Proximity**
-- University proximity ranks third in importance (8.72%)
-- Recommendation: Consider locations near educational institutions
+#### Visualization 2: Demand Prediction Map
 
-#### Interactive Visualization Tools
+I then applied the trained POI model to predict demand for all 1,892 grid cells and created a comparison map showing predicted demand versus actual station performance.
 
-The complete grid analysis can be explored interactively through:
-- `results/grid_analysis/grid_demand_map.html` - Interactive heatmap of predicted demand across all 1,892 cells, showing actual station locations and expansion opportunities
-- `results/grid_analysis/grid_poi_map.html` - POI distribution visualization
-- `results/grid_analysis/expansion_opportunities.csv` - Complete ranked list of all cells with predictions and POI features
+<p align="center">
+  <img src="results/grid_analysis/grid_demand_map_screenshot.png" width="800">
+</p>
 
-These tools support data-driven decision-making for network expansion and resource allocation.
+Interactive map: [`results/grid_analysis/grid_demand_map.html`](results/grid_analysis/grid_demand_map.html)
+
+**Map Features:**
+- **Reference Date**: July 15, 2024 (Monday, Summer peak)
+- **Grids with Existing Stations**: 367 cells (for validation)
+- **Predicted Demand Color Scale**:
+  - Very High (>60 departures/day): Red
+  - High (40-60): Orange
+  - Medium (25-40): Yellow
+  - Low (15-25): Light Blue
+  - Very Low (<15): Dark Blue
+- **Comparison Markers**:
+  - Purple stars (★): Cells in both Top 20 predicted AND Top 20 actual (3 cells) - model accurately identifies top performers
+  - Orange stars (★): Cells in both Top 100 predicted AND Top 100 actual (32 cells) - broad validation
+  - Red arrows (↑): Top 20 predicted only - potential underserved high-demand locations
+  - Green houses (⌂): Top 20 actual only - high-performing stations the model underestimated
+- **Visual Encoding**: Circle size represents demand magnitude (larger = higher demand)
+- **Layer Toggle**: Users can switch between predicted demand layer and actual station layer in the top-right corner
+
+This map enables direct comparison between where the model predicts high demand and where stations actually perform well, validating model accuracy and identifying expansion opportunities.
+
+#### Expansion Opportunities
+
+Based on the grid analysis, I identified cells with high predicted demand but no existing stations. These represent potential locations for new stations.
+
+**Output File**: [`results/grid_analysis/expansion_opportunities.csv`](results/grid_analysis/expansion_opportunities.csv)
+
+**File Contents:**
+- **Total Records**: 334 underserved grid cells
+- **Columns**: grid_id, center_lat, center_lon, predicted_demand, actual_demand (0 for cells without stations), station_count (0), and all 10 POI feature counts
+
+**Top 5 Expansion Candidates by Predicted Demand:**
+
+| Rank | Grid ID | Location (lat, lon) | Predicted Demand | Key POI Features |
+|------|---------|---------------------|------------------|------------------|
+| 1 | 1298 | (42.360, -71.090) | 70.88 | 1 subway, 12 bus stops, 24 restaurants, 25 offices |
+| 2 | 1209 | (42.351, -71.094) | 66.36 | 2 subway, 12 bus stops, 34 restaurants, 2 universities |
+| 3 | 1250 | (42.355, -71.108) | 59.21 | 8 bus stops, 7 restaurants, 2 universities |
+| 4 | 1165 | (42.346, -71.094) | 56.50 | 2 subway, 19 bus stops, 59 restaurants, 2 universities |
+| 5 | 1259 | (42.355, -71.067) | 55.34 | 4 subway, 20 bus stops, 102 restaurants, 39 offices |
+
+The full grid prediction results are available in `results/grid_analysis/grid_demand_comparison.csv`, containing all 1,892 cells with predicted demand, actual demand (where stations exist), and POI features.
+
+#### Significance of Grid Analysis
+
+The grid-based analysis demonstrates the practical value of the Phase 2 POI model for network expansion planning:
+
+1. **Actionable Site Selection**: Unlike the Phase 1 model which requires historical data, the POI model can predict demand at any arbitrary location. The 334 identified expansion opportunities represent specific, data-driven recommendations for new station placement.
+
+2. **Validation through Comparison**: The demand comparison map shows that 32 cells appear in both the Top 100 predicted and Top 100 actual lists, and 3 cells appear in both Top 20 lists. This overlap validates that the model's predictions correlate with real-world station performance.
+
+3. **Investment Prioritization**: The ranked list in `expansion_opportunities.csv` allows Bluebikes to prioritize expansion investments based on predicted demand, focusing resources on locations most likely to generate high ridership.
 
 ---
 

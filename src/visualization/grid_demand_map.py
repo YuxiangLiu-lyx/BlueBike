@@ -272,10 +272,10 @@ class GridDemandMapper:
         
         <p style="margin: 5px 0 3px 0; font-weight: bold;">Markers:</p>
         <p style="margin: 2px 0; font-size: 12px;">
-            <span style="color: #ff9800; font-size: 18px;">★</span> Both Top 100s (32)<br>
-            <span style="color: #9b59b6; font-size: 18px;">★</span> Both Top 20s (3)<br>
-            <span style="color: #d73027; font-size: 16px;">▲</span> Top 20 Predicted Only<br>
-            <span style="color: #2ecc71; font-size: 16px;">■</span> Top 20 Stations Only
+            <span style="color: #ff9800; font-size: 18px;">★</span> Both Top 100s ({len(overlap100_ids)})<br>
+            <span style="color: #9b59b6; font-size: 18px;">★</span> Both Top 20s ({len(overlap_ids)})<br>
+            <span style="color: #d73027; font-size: 16px;">↑</span> Top 20 Predicted Only<br>
+            <span style="color: #2ecc71; font-size: 16px;">⌂</span> Top 20 Stations Only
         </p>
         
         <hr style="margin: 8px 0;">
