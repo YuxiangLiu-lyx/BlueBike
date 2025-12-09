@@ -359,7 +359,7 @@ Not all stations are equal. I found:
 Here's what I did:
 
 #### Data Collection
-I downloaded all the monthly trip files from the Bluebikes website (2015-2024). That's about 28.6 million trips total. Each trip record tells us when and where someone picked up a bike and where they dropped it off.
+I downloaded all the monthly trip files from the Bluebikes website (2015-2025). That's about 28.6 million trips total. Each trip record tells us when and where someone picked up a bike and where they dropped it off.
 
 #### Data Cleaning
 The raw data had some issues:
@@ -376,8 +376,8 @@ I added a bunch of useful information to each trip:
 
 #### Weather Data
 I used the Open-Meteo API to get daily weather for each station. The challenge was:
-- I needed weather for 800+ stations
-- I needed 10 years of data (2015-2024)
+  - I needed weather for 800+ stations
+  - I needed 11 years of data (2015-2025)
 - The API has rate limits (about 10 requests per minute)
 
 So I built a system that caches the data as it downloads, which means if it gets interrupted, I can pick up where I left off instead of starting over. It took about 7 hours to get all the weather data.
@@ -791,7 +791,7 @@ This project predicts bike-share demand for Boston's Bluebikes system using mach
 
 ### Data Collection
 
-I collected and processed 10 years of Bluebikes trip data (2015-2024) covering approximately 28.6 million trips. The dataset was enriched with:
+I collected and processed 11 years of Bluebikes trip data (2015-2025) covering approximately 28.6 million trips. The dataset was enriched with:
 - **Temporal features**: month, day of week, season, holiday indicators
 - **Weather data**: temperature, precipitation, wind speed from Open-Meteo API
 - **Location features**: station coordinates and historical popularity metrics
@@ -806,4 +806,3 @@ I trained an XGBoost model using coordinates (latitude, longitude) and historica
 I trained an XGBoost model using POI features (restaurants, offices, transit access, universities, etc.) alongside temporal and weather features, explicitly removing coordinates and historical popularity to avoid data leakage. The model achieved R² = 0.248, comparable to the location-based model. This model is suitable for predicting demand at arbitrary new locations, as POI features describe what makes a location attractive rather than encoding specific historical patterns. I applied this model to 1,892 grid cells covering the Boston metro area and identified specific underserved high-demand locations for potential expansion.
 
 The complete analysis pipeline, trained models, and interactive visualizations are available in this repository.
-
