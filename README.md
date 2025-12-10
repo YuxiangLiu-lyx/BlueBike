@@ -328,8 +328,6 @@ Because I am working with time-series data, I will not use a random split. I wil
 
 ## Mid-term Progress
 
-**Project Presentation**: https://youtu.be/K75Yq7wpM4Y
-
 ### Data Visualization
 
 I created several visualizations to understand the Bluebikes data better. Here's what I found:
@@ -443,8 +441,8 @@ Location and weather are the primary drivers of bike demand, with the surroundin
 | Metric | Baseline | XGBoost | Improvement |
 |--------|----------|---------|-------------|
 | R² Score | 0.101 | 0.258 | +154% |
-| MAE | 19.27 | 17.40 | -9.7% |
-| RMSE | 32.68 | 28.69 | -12.2% |
+| MAE | 19.27 | 17.40 | +9.7% |
+| RMSE | 32.68 | 28.69 | +12.2% |
 | Total Error | +4.00% | +14.17% | Worse |
 
 The XGBoost model shows significant improvements over the baseline: R² Score increased by 154% (from 0.101 to 0.258), MAE decreased by 9.7% (from 19.27 to 17.40 bikes/day), and RMSE decreased by 12.2% (from 32.68 to 28.69). However, the model overestimates total 2024 volume by 14%, compared to the baseline's 4% overestimation. This overestimation led to an important discovery about the practical value of this model.
