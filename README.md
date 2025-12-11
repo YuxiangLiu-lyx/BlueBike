@@ -4,7 +4,7 @@
 
 ## Video Presentation
 
-**[Watch the 10-minute presentation on YouTube](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)**
+**[Watch the 10-minute presentation on YouTube](https://youtu.be/FcP3DS1GW4c)**
 
 ---
 
